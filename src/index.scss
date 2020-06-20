@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 5px 0;
+
+  &._aligned {
+    text-align: center;
+  }
+}
+
+input,
+button {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}
