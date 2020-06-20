@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { rejects } from 'assert';
 
 const noErrorMessage = '';
 const invalidCredentionalsMessage = 'The credentials are invalid';
