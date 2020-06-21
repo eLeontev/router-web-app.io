@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './login.scss';
 
-import { Input } from '../components/Input';
-import { Button } from '../components/button';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/button';
 
-import { loginInstance } from '../services/login.service';
-import { Message } from '../components/message';
-import { Loader } from '../components/loader';
+import { loginInstance } from '../../services/login.service';
+import { Message } from '../../components/message';
+import { Loader } from '../../components/loader';
 
 const loginInputName = 'login';
 const passwordInputName = 'password';
