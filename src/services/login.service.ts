@@ -1,32 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const noErrorMessage = '';
-const invalidCredentionalsMessage = 'The credentials are invalid';
-type LoginValues = {
-    loginValue: string;
-    passwordValue: string;
-};
-
-type SetLoader = (isLoading: boolean) => void;
-type SetErrorMessage = (errorMessage: string) => void;
-type Login = (loginValues: LoginValues) => void;
-
-type UseLoginReturnedValues = {
-    isLoading: boolean;
-    errorMessage: string;
-    hideErrorMessage: SetErrorMessage;
-    login: Login;
-};
-
-export const defaultLoginValues: LoginValues = {
-    loginValue: '',
-    passwordValue: '',
-};
+import {
+    UseLoginReturnedValues,
+    LoginValues,
+    SetLoader,
+    SetErrorMessage,
+} from '../models/login.model';
+import {
+    noErrorMessage,
+    defaultLoginValues,
+    invalidCredentionalsMessage,
+    minCountOfLoginSymbols,
+    minCountOfPasswordSymbols,
+    defaultCredentials,
+} from '../constants/login.constants';
+import { dashboardPath } from '../constants/router.constants';
 
 export class LoginService {
-    private minCountOfLoginSymbols = 3;
-    private minCountOfPasswordSymbols = 7;
+    private minCountOfLoginSymbols = minCountOfLoginSymbols;
+    private minCountOfPasswordSymbols = minCountOfPasswordSymbols;
 
     public useLogin(isDirty: boolean): UseLoginReturnedValues {
         const [errorMessage, setErrorMessage] = useState(noErrorMessage);
@@ -36,7 +29,7 @@ export class LoginService {
 
         useEffect(() => {
             if (isDirty) {
-                if (this.validateValues(loginValues) || true) {
+                if (this.validateValues(loginValues)) {
                     this.login(
                         loginValues,
                         history,
@@ -50,13 +43,13 @@ export class LoginService {
 
                 setErrorMessage(invalidCredentionalsMessage);
             }
-        }, [loginValues, isDirty, history]);
+        }, [isDirty, loginValues, history]);
 
         return {
             isLoading,
             errorMessage,
             login,
-            hideErrorMessage: () => setErrorMessage(''),
+            hideErrorMessage: () => setErrorMessage(noErrorMessage),
         };
     }
 
@@ -70,22 +63,43 @@ export class LoginService {
         );
     }
 
-    private async login(
+    private login(
         loginValues: LoginValues,
         history: any,
         setLoader: SetLoader,
         setErrorMessage: SetErrorMessage
-    ): Promise<void> {
-        await new Promise((res) =>
+    ): void {
+        new Promise((res, rej) =>
             setTimeout(() => {
-                setLoader(false);
-                history.push('/dashboard');
-            }, 2000)
-        ).catch(({ errorMessage }) => {
-            setLoader(false);
-            setErrorMessage(errorMessage);
-        });
+                this.handleLoginSuccess(loginValues, history, setLoader, rej);
+            }, 1000)
+        ).catch(this.handleLoginError(setLoader, setErrorMessage));
     }
+
+    private handleLoginSuccess(
+        { loginValue, passwordValue }: LoginValues,
+        history: any,
+        setLoader: SetLoader,
+        reject: (errorMessage: string) => void
+    ) {
+        if (
+            loginValue === defaultCredentials.loginValue &&
+            passwordValue === defaultCredentials.passwordValue
+        ) {
+            setLoader(false);
+            history.push(dashboardPath);
+        } else {
+            reject(invalidCredentionalsMessage);
+        }
+    }
+
+    private handleLoginError = (
+        setLoader: SetLoader,
+        setErrorMessage: SetErrorMessage
+    ) => (errorMessage: string) => {
+        setLoader(false);
+        setErrorMessage(errorMessage);
+    };
 }
 
 export const loginInstance = new LoginService();

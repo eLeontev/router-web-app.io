@@ -24,34 +24,36 @@ export const LoginPage = ({ loginService = loginInstance }: any) => {
     } = loginService.useLogin(isDirty);
 
     return (
-        <section className="login">
-            <h2 className="_aligned">Login page</h2>
-            <section className="login-form">
-                <Input
-                    name={loginInputName}
-                    value={loginValue}
-                    onChange={onLoginChange}
-                />
-                <Input
-                    name={passwordInputName}
-                    value={passwordValue}
-                    onChange={onPasswordChange}
-                    type="password"
-                />
-                <Button
-                    buttonName="Login"
-                    buttonHandler={() => {
-                        setDirty(true);
-                        login({ loginValue, passwordValue });
-                    }}
-                />
-                <Message
-                    type="error"
-                    message={errorMessage}
-                    onClose={hideErrorMessage}
-                />
-            </section>
+        <>
             <Loader isLoading={isLoading} />
-        </section>
+            <section className="login">
+                <h2 className="_aligned">Login page</h2>
+                <section className="login-form">
+                    <Input
+                        name={loginInputName}
+                        value={loginValue}
+                        onChange={onLoginChange}
+                    />
+                    <Input
+                        name={passwordInputName}
+                        value={passwordValue}
+                        onChange={onPasswordChange}
+                        type="password"
+                    />
+                    <Button
+                        buttonName="Login"
+                        buttonHandler={() => {
+                            setDirty(true);
+                            login({ loginValue, passwordValue });
+                        }}
+                    />
+                    <Message
+                        type="error"
+                        message={errorMessage}
+                        onClose={hideErrorMessage}
+                    />
+                </section>
+            </section>
+        </>
     );
 };
