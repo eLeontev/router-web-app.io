@@ -3,17 +3,20 @@ import './message.scss';
 
 import { Button } from './button';
 
-export const Message = React.memo(({ message, type, onClose }: any) =>
-    message ? (
-        <section className="message">
-            <p className={type}>
-                {message}
-                <Button
-                    className="close-button"
-                    buttonName="x"
-                    buttonHandler={onClose}
-                />
-            </p>
-        </section>
-    ) : null
+export const Message = React.memo(
+    ({ message, type, onClose, shouldHideCloseButton = false }: any) =>
+        message ? (
+            <section className="message">
+                <p className={type}>
+                    {message}
+                    {shouldHideCloseButton ? null : (
+                        <Button
+                            className="close-button"
+                            buttonName="x"
+                            buttonHandler={onClose}
+                        />
+                    )}
+                </p>
+            </section>
+        ) : null
 );
