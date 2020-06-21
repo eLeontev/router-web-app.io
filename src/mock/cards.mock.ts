@@ -14,7 +14,7 @@ import {
 } from '../models/cards.models';
 
 export const applicationsCatrd: ApplicationsCard = {
-    key: 'applicationsCatrd_1',
+    cardId: 'applicationsCatrd_1',
     type: cardTypes.applicationType,
     title: applicationsCardTitle,
     cardContent: {
@@ -23,7 +23,7 @@ export const applicationsCatrd: ApplicationsCard = {
 };
 
 export const systemCatrd: SystemCard = {
-    key: 'systemCatrd_1',
+    cardId: 'systemCatrd_1',
     type: cardTypes.systemType,
     title: systemCardTitle,
     cardContent: {
@@ -65,23 +65,23 @@ export const systemCatrd: SystemCard = {
 };
 
 export const homeWiFiCard: WiFiCard = {
-    key: 'homeWiFiCard_ 1',
+    cardId: 'homeWiFiCard_ 1',
     type: cardTypes.wifiType,
     title: homeWiFiCardTitle,
     cardContent: {
         connections: [
             {
-                key: 'connection_1',
+                connectionId: 'connection_1',
                 name: 'Keenetic-9672',
-                isEnabled: true,
+                isActive: true,
                 range: '2.4 GHz',
                 channel: 9,
                 connectionInfo: {},
             },
             {
-                key: 'connection_2',
+                connectionId: 'connection_2',
                 name: 'Keenetic-9672',
-                isEnabled: true,
+                isActive: true,
                 range: '5 GHz',
                 channel: 149,
                 connectionInfo: {},
@@ -105,23 +105,23 @@ export const homeWiFiCard: WiFiCard = {
 };
 
 export const guestWiFiCard: WiFiCard = {
-    key: 'guestWiFiCard_ 1',
+    cardId: 'guestWiFiCard_ 1',
     type: cardTypes.wifiType,
     title: guestWiFiCardTitle,
     cardContent: {
         connections: [
             {
-                key: 'connection_1',
+                connectionId: 'connection_1',
                 name: 'Guest',
-                isEnabled: false,
+                isActive: false,
                 range: '2.4 GHz',
                 channel: 9,
                 connectionInfo: {},
             },
             {
-                key: 'connection_2',
+                connectionId: 'connection_2',
                 name: 'Guest',
-                isEnabled: false,
+                isActive: false,
                 range: '5 GHz',
                 channel: 149,
                 connectionInfo: {},

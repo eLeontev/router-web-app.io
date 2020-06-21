@@ -1,7 +1,7 @@
 import { cardTypes, connectionTypes } from '../constants/cards.constants';
 
 export type BaseCard = {
-    key: string;
+    cardId: string;
     type: cardTypes;
     title: string;
 };
@@ -27,9 +27,9 @@ export type ApplicationsCard = BaseCard & {
     };
 };
 export type Connection = {
-    key: string;
+    connectionId: string;
     name: string;
-    isEnabled: boolean;
+    isActive: boolean;
     range: string;
     channel: number;
     connectionInfo: any;
@@ -68,6 +68,7 @@ export type Cards = {
     rightCards: Array<Card>;
 };
 
+export type CardsProps = Cards;
 export type CardProps = {
     card: Card;
 };

@@ -45,6 +45,7 @@ $cardContentPadding: 20px;
         padding-bottom: $cardContentPadding;
         display: flex;
         flex-direction: row;
+        align-items: center;
 
         &__status {
             padding-right: $cardContentPadding;

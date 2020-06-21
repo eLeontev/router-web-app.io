@@ -27,17 +27,17 @@ export const Card = React.memo(({ card }: models.CardProps) => {
     );
 });
 
-export const Cards = ({ leftCards, rightCards }: models.Cards) => (
+export const Cards = ({ leftCards, rightCards }: models.CardsProps) => (
     <section className="cards">
         <section className="cards-left">
             {leftCards.map((card: models.Card) => (
-                <Card key={card.key} card={card} />
+                <Card key={card.cardId} card={card} />
             ))}
         </section>
 
         <section className="cards-right">
             {rightCards.map((card: models.Card) => (
-                <Card key={card.key} card={card} />
+                <Card key={card.cardId} card={card} />
             ))}
         </section>
     </section>
