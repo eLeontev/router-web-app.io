@@ -1,4 +1,6 @@
 import React from 'react';
-import { Input } from './input';
+import { Input, searchPlaceholder } from './input';
 
-export const SearchBar = () => <Input />;
+export const SearchBar = () => (
+    <Input name="search" type="search" placeholder={searchPlaceholder} />
+);

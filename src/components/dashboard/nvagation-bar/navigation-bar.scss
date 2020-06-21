@@ -1,0 +1,15 @@
+$collapsedWidth: 60px;
+
+.navbar-container {
+    width: $collapsedWidth;
+}
+
+.navbar {
+    background-color: #192A4D;
+    position: fixed;
+    height: calc(100% - 50px);
+
+    &__collapsed {
+        width: $collapsedWidth;
+    }
+}

@@ -29,6 +29,21 @@ button {
   margin-bottom: 5px;
 }
 
+input:last-child {
+  margin-bottom: 0;
+}
+
+input[type="search"] {
+  border: none;
+  outline: none;
+  background-color: #D5EBF7;
+  border-radius: 5px;
+
+  &:focus {
+    background-color: #fff;
+  }
+}
+
 button {
   cursor: pointer;
 }
