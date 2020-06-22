@@ -14,14 +14,13 @@ const passwordInputName = 'password';
 export const LoginPage = ({ loginService = loginInstance }: any) => {
     const [loginValue, onLoginChange] = useState('');
     const [passwordValue, onPasswordChange] = useState('');
-    const [isDirty, setDirty] = useState(false);
 
     const {
         isLoading,
         errorMessage,
         hideErrorMessage,
         login,
-    } = loginService.useLogin(isDirty);
+    } = loginService.useLogin();
 
     return (
         <>
@@ -42,10 +41,9 @@ export const LoginPage = ({ loginService = loginInstance }: any) => {
                     />
                     <Button
                         buttonName="Login"
-                        buttonHandler={() => {
-                            setDirty(true);
-                            login({ loginValue, passwordValue });
-                        }}
+                        buttonHandler={() =>
+                            login({ loginValue, passwordValue })
+                        }
                     />
                     <Message
                         type="error"

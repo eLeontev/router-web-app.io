@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
 import { ConnectionProps } from '../../../models/cards.models';
@@ -18,6 +18,19 @@ export const ConnectionComponent = ({
     },
 }: ConnectionProps) => {
     const [connectionStatus, setConnectionStatus] = useState(isActive);
+    const triggerCheckbox = useCallback(
+        async (isActive: boolean) => {
+            setConnectionStatus(isActive);
+
+            try {
+                await Promise.resolve(connectionId);
+                setConnectionStatus(isActive);
+            } catch {
+                setConnectionStatus(!isActive);
+            }
+        },
+        [connectionId]
+    );
 
     return (
         <section className="connection">
@@ -25,7 +38,7 @@ export const ConnectionComponent = ({
                 <section className="connection-main__status">
                     <Checkbox
                         isActive={connectionStatus}
-                        triggerCheckbox={setConnectionStatus}
+                        triggerCheckbox={triggerCheckbox}
                     />
                 </section>
                 <section className="details">

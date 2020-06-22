@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import {
@@ -9,7 +9,6 @@ import {
 } from '../models/login.model';
 import {
     noErrorMessage,
-    defaultLoginValues,
     invalidCredentionalsMessage,
     minCountOfLoginSymbols,
     minCountOfPasswordSymbols,
@@ -21,29 +20,16 @@ export class LoginService {
     private minCountOfLoginSymbols = minCountOfLoginSymbols;
     private minCountOfPasswordSymbols = minCountOfPasswordSymbols;
 
-    public useLogin(isDirty: boolean): UseLoginReturnedValues {
+    public useLogin(): UseLoginReturnedValues {
         const [errorMessage, setErrorMessage] = useState(noErrorMessage);
-        const [loginValues, login] = useState(defaultLoginValues);
         const [isLoading, setLoader] = useState(false);
         const history = useHistory();
 
-        useEffect(() => {
-            if (isDirty) {
-                if (this.validateValues(loginValues)) {
-                    this.login(
-                        loginValues,
-                        history,
-                        setLoader,
-                        setErrorMessage
-                    );
-                    setErrorMessage(noErrorMessage);
-                    setLoader(true);
-                    return;
-                }
-
-                setErrorMessage(invalidCredentionalsMessage);
-            }
-        }, [isDirty, loginValues, history]);
+        const login = useCallback(
+            (loginValues: LoginValues) =>
+                this.login(setLoader, setErrorMessage, history, loginValues),
+            [history]
+        );
 
         return {
             isLoading,
@@ -51,6 +37,22 @@ export class LoginService {
             login,
             hideErrorMessage: () => setErrorMessage(noErrorMessage),
         };
+    }
+
+    private login(
+        setLoader: SetLoader,
+        setErrorMessage: SetErrorMessage,
+        history: any,
+        loginValues: LoginValues
+    ): void {
+        if (this.validateValues(loginValues)) {
+            this.sendReguest(loginValues, history, setLoader, setErrorMessage);
+            setErrorMessage(noErrorMessage);
+            setLoader(true);
+            return;
+        }
+
+        setErrorMessage(invalidCredentionalsMessage);
     }
 
     private validateValues({
@@ -63,7 +65,7 @@ export class LoginService {
         );
     }
 
-    private login(
+    private sendReguest(
         loginValues: LoginValues,
         history: any,
         setLoader: SetLoader,
