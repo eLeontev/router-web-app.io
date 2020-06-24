@@ -12,6 +12,10 @@ import {
     WiFiCard,
     Cards,
 } from '../models/cards.models';
+import {
+    connectionActionTypes,
+    modalContentTypes,
+} from '../constants/modal.constants';
 
 export const applicationsCatrd: ApplicationsCard = {
     cardId: 'applicationsCatrd_1',
@@ -76,7 +80,34 @@ export const homeWiFiCard: WiFiCard = {
                 isActive: true,
                 range: '2.4 GHz',
                 channel: 9,
-                connectionInfo: {},
+                connectionInfo: {
+                    type: modalContentTypes.connectionContentType,
+                    url: 'https://url.com/123',
+                    credentials: {
+                        networkId: 'N ET WO R K iD',
+                        password: 'network password',
+                    },
+                    actions: {
+                        WPS: {
+                            actionType: connectionActionTypes.wpsType,
+                            isActive: true,
+                        },
+                        main: [
+                            {
+                                actionType: connectionActionTypes.copyType,
+                                isActive: true,
+                            },
+                            {
+                                actionType: connectionActionTypes.printType,
+                                isActive: true,
+                            },
+                            {
+                                actionType: connectionActionTypes.addLogoType,
+                                isActive: true,
+                            },
+                        ],
+                    },
+                },
             },
             {
                 connectionId: 'connection_2',
@@ -84,7 +115,34 @@ export const homeWiFiCard: WiFiCard = {
                 isActive: true,
                 range: '5 GHz',
                 channel: 149,
-                connectionInfo: {},
+                connectionInfo: {
+                    type: modalContentTypes.connectionContentType,
+                    url: 'https://url.com/1321',
+                    credentials: {
+                        networkId: 'N ET WO R K iD 321',
+                        password: 'network password 321',
+                    },
+                    actions: {
+                        WPS: {
+                            actionType: connectionActionTypes.wpsType,
+                            isActive: true,
+                        },
+                        main: [
+                            {
+                                actionType: connectionActionTypes.copyType,
+                                isActive: true,
+                            },
+                            {
+                                actionType: connectionActionTypes.printType,
+                                isActive: true,
+                            },
+                            {
+                                actionType: connectionActionTypes.addLogoType,
+                                isActive: true,
+                            },
+                        ],
+                    },
+                },
             },
         ],
         onlineDevices: [
@@ -116,7 +174,34 @@ export const guestWiFiCard: WiFiCard = {
                 isActive: false,
                 range: '2.4 GHz',
                 channel: 9,
-                connectionInfo: {},
+                connectionInfo: {
+                    type: modalContentTypes.connectionContentType,
+                    url: 'https://url.com/1321123123',
+                    credentials: {
+                        networkId: 'N ET WO R K iD 1231231',
+                        password: 'network password 123123123',
+                    },
+                    actions: {
+                        WPS: {
+                            actionType: connectionActionTypes.wpsType,
+                            isActive: false,
+                        },
+                        main: [
+                            {
+                                actionType: connectionActionTypes.copyType,
+                                isActive: false,
+                            },
+                            {
+                                actionType: connectionActionTypes.printType,
+                                isActive: true,
+                            },
+                            {
+                                actionType: connectionActionTypes.addLogoType,
+                                isActive: true,
+                            },
+                        ],
+                    },
+                },
             },
             {
                 connectionId: 'connection_2',
@@ -124,7 +209,34 @@ export const guestWiFiCard: WiFiCard = {
                 isActive: false,
                 range: '5 GHz',
                 channel: 149,
-                connectionInfo: {},
+                connectionInfo: {
+                    type: modalContentTypes.connectionContentType,
+                    url: 'https://url.com/1321123123',
+                    credentials: {
+                        networkId: 'N ET 6423',
+                        password: 'network password 00123',
+                    },
+                    actions: {
+                        WPS: {
+                            actionType: connectionActionTypes.wpsType,
+                            isActive: false,
+                        },
+                        main: [
+                            {
+                                actionType: connectionActionTypes.copyType,
+                                isActive: false,
+                            },
+                            {
+                                actionType: connectionActionTypes.printType,
+                                isActive: true,
+                            },
+                            {
+                                actionType: connectionActionTypes.addLogoType,
+                                isActive: true,
+                            },
+                        ],
+                    },
+                },
             },
         ],
         onlineDevices: [

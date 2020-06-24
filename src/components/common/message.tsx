@@ -11,7 +11,7 @@ export const Message = React.memo(
                     {message}
                     {shouldHideCloseButton ? null : (
                         <Button
-                            className="close-button"
+                            className="close-message-button"
                             buttonName="x"
                             buttonHandler={onClose}
                         />

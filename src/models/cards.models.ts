@@ -1,4 +1,8 @@
 import { cardTypes, connectionTypes } from '../constants/cards.constants';
+import {
+    connectionActionTypes,
+    modalContentTypes,
+} from '../constants/modal.constants';
 
 export type BaseCard = {
     cardId: string;
@@ -26,13 +30,32 @@ export type ApplicationsCard = BaseCard & {
         applications: Array<any>;
     };
 };
+
+type ConnectionAction = {
+    isActive: boolean;
+    actionType: connectionActionTypes;
+};
+
+export type ConnectionInfo = {
+    type: modalContentTypes;
+    url: string;
+    credentials: {
+        networkId: string;
+        password: string | null;
+    };
+    actions: {
+        main: Array<ConnectionAction>;
+        WPS: ConnectionAction;
+    };
+};
+
 export type Connection = {
     connectionId: string;
     name: string;
     isActive: boolean;
     range: string;
     channel: number;
-    connectionInfo: any;
+    connectionInfo: ConnectionInfo;
 };
 export type ConnectionProps = {
     connection: Connection;

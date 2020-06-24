@@ -7,6 +7,7 @@ import {
     showConnectionInfoButtonLabel,
 } from '../../../constants/cards.constants';
 import { LoaderContext } from '../../../context/loader.context';
+import { ModalContext } from '../../../context/modal.context';
 
 export const ConnectionComponent = ({
     connection: {
@@ -21,6 +22,8 @@ export const ConnectionComponent = ({
     const [connectionStatus, setConnectionStatus] = useState(isActive);
     const [isWaiting, setStatus] = useState(false);
     const { setLoader } = useContext(LoaderContext);
+
+    const { setModal } = useContext(ModalContext);
 
     const triggerCheckbox = useCallback(
         async (isActive: boolean) => {
@@ -67,7 +70,9 @@ export const ConnectionComponent = ({
                 <Button
                     className="show-more-button"
                     buttonName={showConnectionInfoButtonLabel}
-                    buttonHandler={console.log}
+                    buttonHandler={() =>
+                        setModal({ ...connectionInfo, name, range })
+                    }
                 />
             </section>
         </section>

@@ -5,13 +5,16 @@ import { LoginPage } from './login/login';
 import { DashboardPage } from './dashboard/dashboard';
 import { dashboardPath } from '../constants/router.constants';
 import { WithLoaderContext } from '../context/loader.context';
+import { WithModalContext } from '../context/modal.context';
 
 export const AppRouter = () => (
     <Router>
         <Switch>
             <Route path={dashboardPath}>
                 <WithLoaderContext>
-                    <DashboardPage />
+                    <WithModalContext>
+                        <DashboardPage />
+                    </WithModalContext>
                 </WithLoaderContext>
             </Route>
             <Route path="/">
