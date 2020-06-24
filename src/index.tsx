@@ -7,11 +7,10 @@ import './index.scss';
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
+ReactDOM.unstable_createRoot(document.getElementById('root') as Element).render(
     <React.StrictMode>
         <AppRouter />
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
