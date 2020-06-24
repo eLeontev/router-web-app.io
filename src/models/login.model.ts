@@ -8,7 +8,6 @@ export type SetErrorMessage = (errorMessage: string) => void;
 export type Login = (loginValues: LoginValues) => void;
 
 export type UseLoginReturnedValues = {
-    isLoading: boolean;
     errorMessage: string;
     hideErrorMessage: SetErrorMessage;
     login: Login;

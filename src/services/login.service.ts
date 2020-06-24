@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import {
@@ -15,6 +15,7 @@ import {
     defaultCredentials,
 } from '../constants/login.constants';
 import { dashboardPath } from '../constants/router.constants';
+import { LoaderContext } from '../context/loader.context';
 
 export class LoginService {
     private minCountOfLoginSymbols = minCountOfLoginSymbols;
@@ -22,17 +23,17 @@ export class LoginService {
 
     public useLogin(): UseLoginReturnedValues {
         const [errorMessage, setErrorMessage] = useState(noErrorMessage);
-        const [isLoading, setLoader] = useState(false);
+        const { setLoader } = useContext(LoaderContext);
+
         const history = useHistory();
 
         const login = useCallback(
             (loginValues: LoginValues) =>
                 this.login(setLoader, setErrorMessage, history, loginValues),
-            [history]
+            [history, setLoader]
         );
 
         return {
-            isLoading,
             errorMessage,
             login,
             hideErrorMessage: () => setErrorMessage(noErrorMessage),

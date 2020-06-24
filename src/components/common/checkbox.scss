@@ -6,12 +6,16 @@ $checkboxSize: 25px;
     border-radius: 13px;
     position: relative;
 
-    &__enabled {
+    &__active {
         background-color: #0098d9;
     }
 
-    &__disabled {
+    &__inactive {
         background-color: #D7DBE4;
+    }
+
+    &__disabled {
+        background-color: gray;
     }
 
     &--bar {

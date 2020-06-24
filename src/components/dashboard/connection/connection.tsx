@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
 import { ConnectionProps } from '../../../models/cards.models';
@@ -6,6 +6,7 @@ import {
     channgelLabel,
     showConnectionInfoButtonLabel,
 } from '../../../constants/cards.constants';
+import { LoaderContext } from '../../../context/loader.context';
 
 export const ConnectionComponent = ({
     connection: {
@@ -18,18 +19,28 @@ export const ConnectionComponent = ({
     },
 }: ConnectionProps) => {
     const [connectionStatus, setConnectionStatus] = useState(isActive);
+    const [isWaiting, setStatus] = useState(false);
+    const { setLoader } = useContext(LoaderContext);
+
     const triggerCheckbox = useCallback(
         async (isActive: boolean) => {
             setConnectionStatus(isActive);
 
+            setStatus(true);
+            setLoader(true);
             try {
-                await Promise.resolve(connectionId);
+                await new Promise((res) =>
+                    setTimeout(() => res(connectionId), 2000)
+                );
                 setConnectionStatus(isActive);
             } catch {
                 setConnectionStatus(!isActive);
+            } finally {
+                setStatus(false);
+                setLoader(false);
             }
         },
-        [connectionId]
+        [connectionId, setLoader, setStatus]
     );
 
     return (
@@ -37,6 +48,7 @@ export const ConnectionComponent = ({
             <section className="connection-main">
                 <section className="connection-main__status">
                     <Checkbox
+                        isDisable={isWaiting}
                         isActive={connectionStatus}
                         triggerCheckbox={triggerCheckbox}
                     />

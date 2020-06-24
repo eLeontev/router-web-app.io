@@ -8,10 +8,10 @@ import { Cards } from '../../components/dashboard/cards/cards';
 import { cardLoaderInstance } from '../../services/card-loader.service';
 
 export const DashboardPage = ({ cardLoader = cardLoaderInstance }: any) => {
-    const { isLoading, leftCards, rightCards } = cardLoader.useLoadCards();
+    const { leftCards, rightCards } = cardLoader.useLoadCards();
     return (
         <>
-            <Loader isLoading={isLoading} />
+            <Loader />
             <Header />
             <section className="content">
                 <NavigationBar isCollapsed={true} />

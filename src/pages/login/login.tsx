@@ -14,17 +14,11 @@ const passwordInputName = 'password';
 export const LoginPage = ({ loginService = loginInstance }: any) => {
     const [loginValue, onLoginChange] = useState('');
     const [passwordValue, onPasswordChange] = useState('');
-
-    const {
-        isLoading,
-        errorMessage,
-        hideErrorMessage,
-        login,
-    } = loginService.useLogin();
+    const { errorMessage, hideErrorMessage, login } = loginService.useLogin();
 
     return (
         <>
-            <Loader isLoading={isLoading} />
+            <Loader />
             <section className="login">
                 <h2 className="_aligned">Login page</h2>
                 <section className="login-form">
