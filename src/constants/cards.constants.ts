@@ -1,4 +1,6 @@
-import { Cards } from '../models/cards.models';
+import { Cards } from '../models/dashboard.model';
+
+export const invalidCardsMessage = 'The cards loading was failed';
 
 export const defaultCards: Cards = {
     leftCards: [],

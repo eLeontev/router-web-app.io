@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useContext } from 'react';
 import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
-import { ConnectionProps } from '../../../models/cards.models';
+import { ConnectionProps } from '../../../models/dashboard.model';
 import {
     channgelLabel,
     showConnectionInfoButtonLabel,

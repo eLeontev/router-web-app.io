@@ -2,5 +2,11 @@ import React from 'react';
 import { Input, searchPlaceholder } from './input';
 
 export const SearchBar = () => (
-    <Input name="search" type="search" placeholder={searchPlaceholder} />
+    <Input
+        value=""
+        name="search"
+        type="search"
+        placeholder={searchPlaceholder}
+        onChange={(value: string) => console.log(value)}
+    />
 );

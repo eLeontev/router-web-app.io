@@ -1,6 +1,6 @@
 import { modalContentTypes } from '../constants/modal.constants';
 import { SFC } from 'react';
-import { ConnectionInfo } from './cards.models';
+import { ConnectionInfo } from './dashboard.model';
 
 export type ConnectionInfoProps = ConnectionInfo & {
     name: string;

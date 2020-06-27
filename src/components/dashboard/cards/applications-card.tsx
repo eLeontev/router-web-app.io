@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardProps, ApplicationsCard } from '../../../models/cards.models';
+import { CardProps, ApplicationsCard } from '../../../models/dashboard.model';
 
 export const hasNoApplicationsMessage = 'Applications not installed';
 

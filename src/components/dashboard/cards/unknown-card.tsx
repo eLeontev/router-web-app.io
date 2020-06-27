@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardProps } from '../../../models/cards.models';
+import { CardProps } from '../../../models/dashboard.model';
 import { Message } from '../../common/message';
 
 export const UnknownCard = ({ card: { type } }: CardProps) => (

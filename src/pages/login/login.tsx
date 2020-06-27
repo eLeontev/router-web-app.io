@@ -1,59 +1,87 @@
-import React, { useState, useCallback } from 'react';
+import React, { useReducer } from 'react';
 import './login.scss';
 
 import { Input } from '../../components/common/input';
 import { Button } from '../../components/common/button';
 
-import { loginInstance } from '../../services/login.service';
 import { Message } from '../../components/common/message';
-import { Loader } from '../../components/common/loader';
-import { defaultCredentials } from '../../constants/login.constants';
+import {
+    initialState,
+    loginActionTypes,
+} from '../../constants/login.constants';
+import { ConcurencyLoginHandler } from '../../components/concurency/concurency-login-handler';
+import { LoginState, LoginReducer } from '../../models/login.model';
+import { loginReducer } from '../../reducers/login.reducer';
+
+const {
+    cleanup,
+    cleanuperror,
+    cleanuplogin,
+    setdefault,
+    validate,
+} = loginActionTypes;
 
 const loginInputName = 'login';
 const passwordInputName = 'password';
 
-export const LoginPage = ({ loginService = loginInstance }: any) => {
-    const [loginValue, onLoginChange] = useState('');
-    const [passwordValue, onPasswordChange] = useState('');
-    const { errorMessage, hideErrorMessage, login } = loginService.useLogin();
-
-    const setDefaultCredentials = useCallback(() => {
-        onLoginChange(defaultCredentials.loginValue);
-        onPasswordChange(defaultCredentials.passwordValue);
-    }, [onLoginChange, onPasswordChange]);
+export const LoginPage = () => {
+    const [
+        { login, password, shouldLogin, errorMessage },
+        dispatch,
+    ] = useReducer<LoginReducer, LoginState>(
+        loginReducer,
+        initialState,
+        () => initialState
+    );
 
     return (
         <>
-            <Loader />
+            <section id="root-portal-modal"></section>
+            {shouldLogin ? (
+                <ConcurencyLoginHandler
+                    loginValues={{ login, password }}
+                    errorHandler={(errorMessage: string): undefined => {
+                        dispatch({ type: cleanuplogin, value: errorMessage });
+                        return;
+                    }}
+                />
+            ) : null}
             <section className="login">
                 <h2 className="_aligned">Login page</h2>
                 <Button
-                    className="hint-button"
+                    className="hint-button hint-button__left"
+                    buttonName="cleanup"
+                    buttonHandler={() => dispatch({ type: cleanup })}
+                />
+                <Button
+                    className="hint-button  hint-button__right"
                     buttonName="set default"
-                    buttonHandler={setDefaultCredentials}
+                    buttonHandler={() => dispatch({ type: setdefault })}
                 />
                 <section className="login-form">
                     <Input
                         name={loginInputName}
-                        value={loginValue}
-                        onChange={onLoginChange}
+                        value={login}
+                        onChange={(value: string) =>
+                            dispatch({ type: loginActionTypes.login, value })
+                        }
                     />
                     <Input
                         name={passwordInputName}
-                        value={passwordValue}
-                        onChange={onPasswordChange}
+                        value={password}
+                        onChange={(value: string) =>
+                            dispatch({ type: loginActionTypes.password, value })
+                        }
                         type="password"
                     />
                     <Button
                         buttonName="Login"
-                        buttonHandler={() =>
-                            login({ loginValue, passwordValue })
-                        }
+                        buttonHandler={() => dispatch({ type: validate })}
                     />
                     <Message
                         type="error"
                         message={errorMessage}
-                        onClose={hideErrorMessage}
+                        onClose={() => dispatch({ type: cleanuperror })}
                     />
                 </section>
             </section>

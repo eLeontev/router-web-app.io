@@ -1,5 +1,5 @@
 import React from 'react';
-import { OnlineDeviceProps } from '../../../models/cards.models';
+import { OnlineDeviceProps } from '../../../models/dashboard.model';
 import { connectionTypeMessages } from '../../../constants/cards.constants';
 
 const getConnectionModificator = (isHome: boolean) =>

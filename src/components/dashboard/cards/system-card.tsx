@@ -3,7 +3,7 @@ import {
     CardProps,
     SystemCard,
     SystemParamProps,
-} from '../../../models/cards.models';
+} from '../../../models/dashboard.model';
 
 export const SystemParamComponent = ({
     systemParam: { label, value },

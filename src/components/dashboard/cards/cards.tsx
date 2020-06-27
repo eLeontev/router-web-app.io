@@ -1,7 +1,7 @@
 import React from 'react';
 import './cards.scss';
 
-import * as models from '../../../models/cards.models';
+import * as models from '../../../models/dashboard.model';
 import { cardTypes } from '../../../constants/cards.constants';
 import { UnknownCard } from './unknown-card';
 import { ApplicationsCardComponent } from './applications-card';

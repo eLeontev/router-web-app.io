@@ -11,7 +11,7 @@ import {
     SystemCard,
     WiFiCard,
     Cards,
-} from '../models/cards.models';
+} from '../models/dashboard.model';
 import {
     connectionActionTypes,
     modalContentTypes,

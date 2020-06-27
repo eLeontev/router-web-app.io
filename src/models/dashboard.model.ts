@@ -3,7 +3,11 @@ import {
     connectionActionTypes,
     modalContentTypes,
 } from '../constants/modal.constants';
+import { CardLoaderService } from '../services/card-loader.service';
 
+export type DashboardProps = {
+    cardLoader?: CardLoaderService;
+};
 export type BaseCard = {
     cardId: string;
     type: cardTypes;

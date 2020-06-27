@@ -4,7 +4,7 @@ import {
     WiFiCard,
     Connection,
     OnlineDevice,
-} from '../../../models/cards.models';
+} from '../../../models/dashboard.model';
 import { onlineDeviceTitle } from '../../../constants/cards.constants';
 import { ConnectionComponent } from '../connection/connection';
 import { OnlineDeviceComponent } from '../online-device/online-device';

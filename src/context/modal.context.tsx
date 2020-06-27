@@ -5,7 +5,7 @@ export const ModalContext = React.createContext<ModalInfoContext>(
     (null as unknown) as ModalInfoContext
 );
 
-export const WithModalContext = ({ children }: any) => {
+export const WithModalContext = ({ children }: { children: any }) => {
     const [modalInfo, setModal] = useState(null as ModalInfo);
 
     return (

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export const LoaderContext = React.createContext(null as any);
 
-export const WithLoaderContext = ({ children }: any) => {
+export const WithLoaderContext = ({ children }: { children: any }) => {
     const [isLoading, setLoader] = useState(false);
 
     return (
