@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router-dom';
 
@@ -17,7 +17,10 @@ export const DashboardLoader = ({ dashboardRequest }: DashboardLoaderProps) => {
     const history = useHistory();
 
     const cards = dashboardRequest.read();
-    history.push({ pathname: dashboardPath, state: cards });
+
+    useEffect(() => {
+        history.push({ pathname: dashboardPath, state: cards });
+    }, [history, cards]);
 
     return null;
 };
