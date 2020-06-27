@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react';
+import { History } from 'history';
+
 import { defaultCards } from '../constants/cards.constants';
-import { Cards, CardsResponse } from '../models/dashboard.model';
 import { cardsMocks } from '../mock/cards.mock';
+import { dashboardPath } from '../constants/router.constants';
+
+import { Cards, CardsResponse } from '../models/dashboard.model';
 
 export type SetCards = (cards: Cards) => void;
 
 export class CardLoaderService {
-    public useLoadCards(preloadedCards: Cards): CardsResponse {
+    public useLoadCards(history: History<Cards>): CardsResponse {
         const [isLoading, setLoader] = useState(false);
         const [{ leftCards, rightCards }, setCards] = useState(defaultCards);
 
         useEffect(() => {
+            const preloadedCards = history.location.state;
+
             if (preloadedCards) {
+                history.replace(dashboardPath, undefined);
                 return setCards(preloadedCards);
             }
 
             setLoader(true);
             this.fetchCards(setCards).finally(() => setLoader(false));
-        }, [preloadedCards]);
+        }, [history]);
 
         return { isLoading, leftCards, rightCards };
     }

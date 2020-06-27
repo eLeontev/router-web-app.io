@@ -14,9 +14,7 @@ export const DashboardPage = ({
     cardLoader = cardLoaderInstance,
 }: DashboardProps) => {
     const history = useHistory<Cards>();
-    const { leftCards, rightCards } = cardLoader.useLoadCards(
-        history.location.state
-    );
+    const { leftCards, rightCards } = cardLoader.useLoadCards(history);
 
     return (
         <>
