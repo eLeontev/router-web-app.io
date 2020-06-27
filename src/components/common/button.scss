@@ -40,3 +40,18 @@
         transition: all .2s ease-in 0s;
     }
 }
+
+.hint-button {
+    color: #0098d9;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 10px;
+
+    &:hover {
+        color: #124169;
+    }
+}
