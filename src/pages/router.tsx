@@ -8,7 +8,7 @@ import { WithLoaderContext } from '../context/loader.context';
 import { WithModalContext } from '../context/modal.context';
 
 export const AppRouter = () => (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
         <Switch>
             <Route path={dashboardPath}>
                 <WithLoaderContext>
