@@ -23,6 +23,7 @@ const getActionButton = (
 ) => (
     <ButtonWithPostHandler
         key={actionType}
+        isActive={isActive}
         className={`modal-action-button ${getActionStatus(isActive)}`}
         buttonName={actionNames[actionType]}
         buttonHandler={

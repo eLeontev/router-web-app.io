@@ -16,16 +16,21 @@ export const Button = React.memo(
 
 const getSuccessStatus = (isSuccess: boolean) => (isSuccess ? `success` : '');
 
-export const ButtonWithPostHandler = (props: ButtonProps) => {
-    const { className = '' } = props;
+export const ButtonWithPostHandler = (
+    props: ButtonProps & { isActive: boolean }
+) => {
+    const { className = '', isActive } = props;
     const [isSuccess, setPostHandlerResult] = useState(false);
 
     useEffect(() => {
+        let timerId: NodeJS.Timeout;
+
         if (isSuccess) {
-            setTimeout(() => {
+            timerId = setTimeout(() => {
                 setPostHandlerResult(false);
             }, 2000);
         }
+        return () => timerId && clearTimeout(timerId);
     }, [isSuccess]);
 
     return (
@@ -33,7 +38,7 @@ export const ButtonWithPostHandler = (props: ButtonProps) => {
             {...props}
             className={`${className} ${getSuccessStatus(isSuccess)}`}
             buttonHandler={() =>
-                isSuccess
+                isSuccess || !isActive
                     ? null
                     : Promise.resolve(props.buttonHandler()).then(() =>
                           setPostHandlerResult(true)
