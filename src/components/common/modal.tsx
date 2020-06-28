@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, PropsWithChildren } from 'react';
 import './modal.scss';
 
 import { ModalContext } from '../../context/modal.context';
@@ -7,10 +7,10 @@ import { ModalContentComponents } from '../../models/modals.model';
 import { modalContentTypes } from '../../constants/modal.constants';
 import { ConnectionModalContent } from '../modal-content/connection.content';
 
-export type ModalComponent = {
+export type ModalComponent = PropsWithChildren<{
     setModal: (value: null) => void;
-    children: any;
-};
+}>;
+
 const modalContentComponents: ModalContentComponents = {
     [modalContentTypes.connectionContentType]: ConnectionModalContent,
 };
@@ -38,11 +38,11 @@ export const ModalComponent = React.memo(
 
 export const Modal = React.memo(() => {
     const { modalInfo, setModal } = useContext(ModalContext);
-    const ModalContent: any = modalInfo
+    const ModalContent = modalInfo
         ? modalContentComponents[modalInfo.type]
         : null;
 
-    return ModalContent ? (
+    return ModalContent && modalInfo ? (
         <ModalComponent setModal={setModal}>
             <ModalContent {...modalInfo} />
         </ModalComponent>
