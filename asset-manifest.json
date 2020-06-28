@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/router-web-app.io/static/css/main.0a122c13.chunk.css",
-    "main.js": "/router-web-app.io/static/js/main.f75a6b04.chunk.js",
-    "main.js.map": "/router-web-app.io/static/js/main.f75a6b04.chunk.js.map",
+    "main.js": "/router-web-app.io/static/js/main.1861ed45.chunk.js",
+    "main.js.map": "/router-web-app.io/static/js/main.1861ed45.chunk.js.map",
     "runtime-main.js": "/router-web-app.io/static/js/runtime-main.d7dd1f2a.js",
     "runtime-main.js.map": "/router-web-app.io/static/js/runtime-main.d7dd1f2a.js.map",
     "static/js/2.8879ec5e.chunk.js": "/router-web-app.io/static/js/2.8879ec5e.chunk.js",
     "static/js/2.8879ec5e.chunk.js.map": "/router-web-app.io/static/js/2.8879ec5e.chunk.js.map",
     "index.html": "/router-web-app.io/index.html",
-    "precache-manifest.da8a8b8ebe2340bbb73b9805636cd5bc.js": "/router-web-app.io/precache-manifest.da8a8b8ebe2340bbb73b9805636cd5bc.js",
+    "precache-manifest.4e0b502e57518e6ff683bdf9528e15aa.js": "/router-web-app.io/precache-manifest.4e0b502e57518e6ff683bdf9528e15aa.js",
     "service-worker.js": "/router-web-app.io/service-worker.js",
     "static/css/main.0a122c13.chunk.css.map": "/router-web-app.io/static/css/main.0a122c13.chunk.css.map",
     "static/js/2.8879ec5e.chunk.js.LICENSE.txt": "/router-web-app.io/static/js/2.8879ec5e.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d7dd1f2a.js",
     "static/js/2.8879ec5e.chunk.js",
     "static/css/main.0a122c13.chunk.css",
-    "static/js/main.f75a6b04.chunk.js"
+    "static/js/main.1861ed45.chunk.js"
   ]
 }
