@@ -26,3 +26,12 @@ export type Action = {
 };
 
 export type LoginReducer = (state: LoginState, action: Action) => LoginState;
+
+export type LoaderInfoContext = {
+    isLoading: boolean;
+    setLoader: SetLoader;
+};
+
+export type ActionHandlers = {
+    [actionType in loginActionTypes]: (...args: any) => any;
+};

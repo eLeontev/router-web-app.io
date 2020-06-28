@@ -31,7 +31,3 @@ export enum loginActionTypes {
     cleanuplogin = 'cleanuplogin',
     validate = 'validate',
 }
-
-export type ActionHandlers = {
-    [actionType in loginActionTypes]: (...args: any) => any;
-};

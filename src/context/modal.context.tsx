@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, PropsWithChildren } from 'react';
 import { ModalInfoContext, ModalInfo } from '../models/modals.model';
 
 export const ModalContext = React.createContext<ModalInfoContext>(
     (null as unknown) as ModalInfoContext
 );
 
-export const WithModalContext = ({ children }: { children: any }) => {
+export const WithModalContext = ({ children }: PropsWithChildren<{}>) => {
     const [modalInfo, setModal] = useState(null as ModalInfo);
 
     return (

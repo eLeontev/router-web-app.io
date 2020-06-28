@@ -4,10 +4,14 @@ import {
     minCountOfLoginSymbols,
     minCountOfPasswordSymbols,
     invalidCredentionalsMessage,
-    ActionHandlers,
     loginActionTypes,
 } from '../constants/login.constants';
-import { LoginReducer, LoginState, Action } from '../models/login.model';
+import {
+    LoginReducer,
+    LoginState,
+    Action,
+    ActionHandlers,
+} from '../models/login.model';
 
 const {
     cleanup,
@@ -32,7 +36,7 @@ export const actionHandlers: ActionHandlers = {
     }),
     [cleanuperror]: () => ({ errorMessage: '' }),
     [cleanuplogin]: (errorMessage: string) => ({
-        shouldLogin: '',
+        shouldLogin: false,
         errorMessage,
     }),
     [validate]: (v: null, { login, password }: LoginState) => {
