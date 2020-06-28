@@ -1,8 +1,10 @@
 import React, { useContext, PropsWithChildren } from 'react';
+
 import './modal.scss';
 
-import { ModalContext } from '../../context/modal.context';
 import { Button } from './button';
+
+import { ModalContext } from '../../context/modal.context';
 import { ModalContentComponents } from '../../models/modals.model';
 import { modalContentTypes } from '../../constants/modal.constants';
 import { ConnectionModalContent } from '../modal-content/connection.content';

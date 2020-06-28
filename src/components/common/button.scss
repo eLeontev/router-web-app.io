@@ -24,6 +24,34 @@
 
 .show-more-button {
     min-width: 200px;
+}
+
+.modal-action-button {
+    width: 170px;
+
+    &__inactive {
+        opacity: 0.4;
+        cursor: default;
+    }
+
+    &.success {
+        position: relative;
+
+        &:after {
+            content: ' \2714';
+            color: #1e9e40;
+        }
+    }
+}
+
+.acitons-wps {
+    .modal-action-button {
+        width: 100%;
+    }
+}
+
+.show-more-button,
+.modal-action-button {
     height: 40px;
     background-color: #fff;
     border: 1px solid #0098d9;
@@ -33,6 +61,10 @@
     padding: 0 15px;
     color: #0098d9;
     font-size: 14px;
+}
+
+.show-more-button,
+.modal-action-button__active {
 
     &:hover {
         background-color: #124169;

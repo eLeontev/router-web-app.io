@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './button.scss';
 
 export type ButtonProps = {
@@ -13,3 +13,32 @@ export const Button = React.memo(
         </button>
     )
 );
+
+const getSuccessStatus = (isSuccess: boolean) => (isSuccess ? `success` : '');
+
+export const ButtonWithPostHandler = (props: ButtonProps) => {
+    const { className = '' } = props;
+    const [isSuccess, setPostHandlerResult] = useState(false);
+
+    useEffect(() => {
+        if (isSuccess) {
+            setTimeout(() => {
+                setPostHandlerResult(false);
+            }, 2000);
+        }
+    }, [isSuccess]);
+
+    return (
+        <Button
+            {...props}
+            className={`${className} ${getSuccessStatus(isSuccess)}`}
+            buttonHandler={() =>
+                isSuccess
+                    ? null
+                    : Promise.resolve(props.buttonHandler()).then(() =>
+                          setPostHandlerResult(true)
+                      )
+            }
+        />
+    );
+};

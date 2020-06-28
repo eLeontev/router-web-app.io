@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import './connection.content.scss';
 
 import { ConnectionInfoProps } from '../../models/modals.model';
 import { generateQR } from '../../services/qr-code-generator.service';
+import { ButtonWithPostHandler } from '../common/button';
+import { ConnectionAction } from '../../models/dashboard.model';
+import { actionNames } from '../../constants/actions.constants';
+import { modalActionHandlers } from '../../actions/actions';
 
 const networkNameLablel = 'Network name (SSID)';
 const passwordLablel = 'Password';
@@ -9,15 +14,35 @@ const description = `Scan this QR code with your phone's camera to connect to th
 
 const getTitle = (name: string, range: string) =>
     `Connection information for the '${name}' ${range} Wi-Fi network`;
+const getActionStatus = (isActive: boolean) =>
+    `modal-action-button__${isActive ? 'active' : 'inactive'}`;
+
+const getActionButton = (
+    { actionType, isActive }: ConnectionAction,
+    connectionInfoProps: ConnectionInfoProps
+) => (
+    <ButtonWithPostHandler
+        key={actionType}
+        className={`modal-action-button ${getActionStatus(isActive)}`}
+        buttonName={actionNames[actionType]}
+        buttonHandler={
+            isActive
+                ? () => modalActionHandlers[actionType](connectionInfoProps)
+                : () => {}
+        }
+    />
+);
 
 export const ConnectionModalContent = React.memo(
-    ({
-        actions,
-        credentials: { networkId, password },
-        url,
-        name,
-        range,
-    }: ConnectionInfoProps) => {
+    (connectionInfoProps: ConnectionInfoProps) => {
+        const {
+            actions,
+            credentials: { networkId, password },
+            url,
+            name,
+            range,
+        } = connectionInfoProps;
+
         const [qrCodeBase64, setQRCode] = useState('');
         useEffect(() => {
             generateQR(url).then(setQRCode).catch(setQRCode);
@@ -50,6 +75,18 @@ export const ConnectionModalContent = React.memo(
                         <b className="modal-connection-credentials-pair_value">
                             {` ${password}`}
                         </b>
+                    </section>
+                </section>
+                <section className="actions">
+                    <section className="actions-main">
+                        {actions.main.map((action: ConnectionAction) =>
+                            getActionButton(action, connectionInfoProps)
+                        )}
+                    </section>
+                    <section className="acitons-wps">
+                        {actions.WPS
+                            ? getActionButton(actions.WPS, connectionInfoProps)
+                            : null}
                     </section>
                 </section>
             </section>
