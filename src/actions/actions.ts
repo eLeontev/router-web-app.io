@@ -10,9 +10,15 @@ export const copyPasteActionHandler = async ({
     }
 };
 
+export const printActionHandler = async ({
+    credentials,
+}: ConnectionInfoProps) => {
+    window.print();
+};
+
 export const modalActionHandlers: ModalActionHandlers = {
     [connectionActionTypes.copyType]: copyPasteActionHandler,
     [connectionActionTypes.addLogoType]: copyPasteActionHandler,
-    [connectionActionTypes.printType]: copyPasteActionHandler,
+    [connectionActionTypes.printType]: printActionHandler,
     [connectionActionTypes.wpsType]: copyPasteActionHandler,
 };

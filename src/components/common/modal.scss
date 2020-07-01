@@ -31,6 +31,10 @@
         padding-bottom: 15px;
     }
 
+    &_print-title {
+        display: none;
+    }
+
     &_description {
         font-size: 14px;
     }
@@ -42,5 +46,35 @@
 
     &-credentials {
         font-size: 18px;
+    }
+}
+
+@media print {
+    .close-modal-button {
+        display: none;
+    }
+
+    .modal-connection {
+        border: 1px solid gray;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 550px;
+        height: 550px;
+        transform: translate(-50%, -50%);
+
+
+        &_title {
+            display: none;
+        }
+
+        .actions {
+            display: none;
+        }
+
+        &_print-title {
+            display: block;
+            font-size: 110px;
+        }
     }
 }

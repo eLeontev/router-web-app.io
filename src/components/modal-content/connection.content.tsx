@@ -51,6 +51,7 @@ export const ConnectionModalContent = React.memo(
 
         return (
             <section className="modal-connection">
+                <h1 className="modal-connection_print-title">KEENETIC</h1>
                 <h3 className="modal-connection_title">
                     {getTitle(name, range)}
                 </h3>
