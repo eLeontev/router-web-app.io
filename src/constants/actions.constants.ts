@@ -8,4 +8,4 @@ export const actionNames: ActionNames = {
     activatedWpsType: 'Stop WPS session',
 };
 
-export const wpsActivationDuration = 120000; // 2min
+export const wpsActivationDuration = 120; // 2min in sec

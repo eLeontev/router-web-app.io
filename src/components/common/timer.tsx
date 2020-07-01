@@ -19,7 +19,7 @@ export const Timer = ({ duration, fallback }: TimerProps) => {
     const [restTime, setRestTime] = useState(duration);
 
     useEffect(() => {
-        const timerId = setTimeout(fallback, duration);
+        const timerId = setTimeout(fallback, duration * tickDuration);
         return () => clearTimeout(timerId);
     }, [fallback, duration]);
 
