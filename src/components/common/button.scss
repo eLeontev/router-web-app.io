@@ -34,7 +34,7 @@
         cursor: default;
     }
 
-    &.success {
+    &.success:not(.wps) {
         position: relative;
 
         &:after {

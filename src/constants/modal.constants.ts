@@ -8,3 +8,6 @@ export enum connectionActionTypes {
     addLogoType = 'addLogoType',
     wpsType = 'wpsType',
 }
+
+export const networkNameLablel = 'Network name (SSID)';
+export const passwordLablel = 'Password';

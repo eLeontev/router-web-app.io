@@ -1,12 +1,16 @@
 import { connectionActionTypes } from '../constants/modal.constants';
-import { ConnectionInfoProps } from './modals.model';
+import { ConnectionInfoPropsWithSetters } from './modals.model';
 
 export type ActionNames = {
-    [actionType in connectionActionTypes]: string;
+    activatedWpsType: string;
+    [connectionActionTypes.addLogoType]: string;
+    [connectionActionTypes.copyType]: string;
+    [connectionActionTypes.printType]: string;
+    [connectionActionTypes.wpsType]: string;
 };
 
 export type ModalActionHandler = (
-    actionPayload: ConnectionInfoProps
+    actionPayload: ConnectionInfoPropsWithSetters
 ) => Promise<void>;
 
 export type ModalActionHandlers = {

@@ -5,4 +5,7 @@ export const actionNames: ActionNames = {
     copyType: 'Copy password',
     printType: 'Print',
     wpsType: 'WPS',
+    activatedWpsType: 'Stop WPS session',
 };
+
+export const wpsActivationDuration = 120000; // 2min

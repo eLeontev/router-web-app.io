@@ -2,7 +2,7 @@
     &-background {
         z-index: 10;
         background-color: rgba(0, 0, 8, 0.25);
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
@@ -13,7 +13,6 @@
         position: absolute;
         top: 40px;
         width: 560px;
-        height: 560px;
         overflow-y: scroll;
         background-color: #fff;
         transform: translateX(-50%);
@@ -52,6 +51,10 @@
 @media print {
     .close-modal-button {
         display: none;
+    }
+
+    .modal-content {
+        height: 560px;
     }
 
     .modal-connection {

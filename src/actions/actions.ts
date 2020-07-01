@@ -1,24 +1,13 @@
 import { connectionActionTypes } from '../constants/modal.constants';
-import { ConnectionInfoProps } from '../models/modals.model';
 import { ModalActionHandlers } from '../models/actions.model';
-
-export const copyPasteActionHandler = async ({
-    credentials: { password },
-}: ConnectionInfoProps) => {
-    if (password && navigator.clipboard) {
-        return await navigator.clipboard.writeText(password);
-    }
-};
-
-export const printActionHandler = async ({
-    credentials,
-}: ConnectionInfoProps) => {
-    window.print();
-};
+import { copyPasteActionHandler } from './copy-paste.action';
+import { addLogoActionHandler } from './add-logo.action';
+import { printActionHandler } from './print.action';
+import { wpsActionHanlder } from './wps.action';
 
 export const modalActionHandlers: ModalActionHandlers = {
     [connectionActionTypes.copyType]: copyPasteActionHandler,
-    [connectionActionTypes.addLogoType]: copyPasteActionHandler,
+    [connectionActionTypes.addLogoType]: addLogoActionHandler,
     [connectionActionTypes.printType]: printActionHandler,
-    [connectionActionTypes.wpsType]: copyPasteActionHandler,
+    [connectionActionTypes.wpsType]: wpsActionHanlder,
 };

@@ -1,0 +1,31 @@
+.timer {
+    .duration {
+        font-size: 24px;
+        font-weight: normal;
+        color: #0098d9
+    }
+
+    .progress-bar {
+        height: 10px;
+        border: 1px solid #D7DBE4;
+        border-radius: 4px;
+        overflow: hidden;
+
+        &_rest {
+            animation: 120s linear forwards reduce_timer_width;
+            height: 100%;
+            width: 100%;
+            background-color: #0098d9;
+        }
+    }
+}
+
+@keyframes reduce_timer_width {
+    from {
+        transform: translateX(0px);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
