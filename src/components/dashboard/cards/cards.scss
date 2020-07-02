@@ -39,11 +39,16 @@ $cardContentPadding: 20px;
 }
 
 .connection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding-bottom: $cardContentPadding;
 
     &-main {
-        padding-bottom: $cardContentPadding;
         display: flex;
+        padding-bottom: $cardContentPadding;
+        padding-right: $cardContentPadding;
         flex-direction: row;
         align-items: center;
 
