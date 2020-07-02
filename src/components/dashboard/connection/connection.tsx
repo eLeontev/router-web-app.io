@@ -1,38 +1,21 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React from 'react';
 import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
-import { ConnectionProps } from '../../../models/dashboard.model';
+
+import { useButtonToOpenModal, useTriggerCheckbox } from './connection.hooks';
 import { channgelLabel, showConnectionInfoButtonLabel } from '../../../constants/cards.constants';
-import { LoaderContext } from '../../../context/loader.context';
-import { ModalContext } from '../../../context/modal.context';
+
+import { ConnectionProps } from '../../../models/dashboard.model';
 
 export const ConnectionComponent = ({
     connection: { channel, connectionInfo, isActive, name, range, connectionId },
 }: ConnectionProps) => {
-    const [connectionStatus, setConnectionStatus] = useState(isActive);
-    const [isWaiting, setStatus] = useState(false);
-    const { setLoader } = useContext(LoaderContext);
-
-    const { setModal } = useContext(ModalContext);
-
-    const triggerCheckbox = useCallback(
-        async (isActive: boolean) => {
-            setConnectionStatus(isActive);
-
-            setStatus(true);
-            setLoader(true);
-            try {
-                await new Promise((res) => setTimeout(() => res(connectionId), 2000));
-                setConnectionStatus(isActive);
-            } catch {
-                setConnectionStatus(!isActive);
-            } finally {
-                setStatus(false);
-                setLoader(false);
-            }
-        },
-        [connectionId, setLoader, setStatus]
+    const { triggerCheckbox, isWaiting, connectionStatus } = useTriggerCheckbox(
+        connectionId,
+        isActive
     );
+
+    const setModalContext = useButtonToOpenModal(connectionInfo, name, range, connectionStatus);
 
     return (
         <section className="connection">
@@ -41,7 +24,7 @@ export const ConnectionComponent = ({
                     <Checkbox
                         isDisable={isWaiting}
                         isActive={connectionStatus}
-                        triggerCheckbox={triggerCheckbox}
+                        triggerCheckbox={() => triggerCheckbox(!connectionStatus)}
                     />
                 </section>
                 <section className="details">
@@ -58,7 +41,7 @@ export const ConnectionComponent = ({
                 <Button
                     className="show-more-button"
                     buttonName={showConnectionInfoButtonLabel}
-                    buttonHandler={() => setModal({ ...connectionInfo, name, range })}
+                    buttonHandler={setModalContext}
                 />
             </section>
         </section>
