@@ -99,15 +99,24 @@ $cardContentPadding: 20px;
             text-align: center;
             line-height: 70px;
             position: relative;
+            text-decoration: none;
 
             &__home {
                 background-color: #e3daeb;
                 color: #73489c;
+
+                &:hover {
+                    background-color: #a98fc2;
+                }
             }
 
             &__guest {
                 background-color: #d1ebd8;
                 color: #1e9e40;
+
+                &:hover {
+                    background-color: #78c48c;
+                }
             }
 
             &__hint {
