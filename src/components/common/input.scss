@@ -1,0 +1,55 @@
+input:last-child {
+    margin-bottom: 0;
+}
+
+.search-input {
+    position: relative;
+    border: none;
+    outline: none;
+    background-color: #d5ebf7;
+    border-radius: 14px;
+    height: 28px;
+    width: 300px;
+
+    &:focus {
+        background-color: #fff;
+        animation: 0.4s linear forwards focus_to_search;
+    }
+
+    &:not(:focus) {
+        animation: 0.4s linear forwards blur_to_search;
+    }
+}
+
+.search-content {
+    position: relative;
+    &:after {
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background: url(../../sprite.svg) -49px -1066.69px no-repeat;
+    }
+}
+
+@keyframes focus_to_search {
+    from {
+        border-radius: 14px;
+    }
+
+    to {
+        border-radius: 2px;
+    }
+}
+
+@keyframes blur_to_search {
+    from {
+        border-radius: 2px;
+    }
+
+    to {
+        border-radius: 14px;
+    }
+}
