@@ -1,3 +1,7 @@
+@mixin setDynamicAnimationDuration($duration) {
+    animation: #{$duration + 's'} linear forwards reduce_timer_width;
+}
+
 .timer {
     .duration {
         font-size: 24px;
@@ -12,10 +16,13 @@
         overflow: hidden;
 
         &_rest {
-            animation: 120s linear forwards reduce_timer_width;
             height: 100%;
             width: 100%;
             background-color: #0098d9;
+
+            &--120 {
+                @include setDynamicAnimationDuration(120);
+            }
         }
     }
 }

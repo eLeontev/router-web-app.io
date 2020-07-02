@@ -15,6 +15,8 @@ const getFormattedRestTime = (resTime: number): string => {
     return `0${min}: ${sec > 9 ? sec : `0${sec}`}`;
 };
 
+const getDurationModifier = (duration: number) => `progress-bar_rest--${duration}`;
+
 export const Timer = ({ duration, fallback }: TimerProps) => {
     const [restTime, setRestTime] = useState(duration);
 
@@ -36,7 +38,7 @@ export const Timer = ({ duration, fallback }: TimerProps) => {
         <section className="timer">
             <h3 className="duration">{formattedRestTime}</h3>
             <section className="progress-bar">
-                <p className="progress-bar_rest"></p>
+                <p className={`progress-bar_rest ${getDurationModifier(duration)}`}></p>
             </section>
         </section>
     );
