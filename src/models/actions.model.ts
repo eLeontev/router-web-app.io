@@ -9,9 +9,7 @@ export type ActionNames = {
     [connectionActionTypes.wpsType]: string;
 };
 
-export type ModalActionHandler = (
-    actionPayload: ConnectionInfoPropsWithSetters
-) => Promise<void>;
+export type ModalActionHandler = (actionPayload: ConnectionInfoPropsWithSetters) => Promise<void>;
 
 export type ModalActionHandlers = {
     [actionType in connectionActionTypes]: ModalActionHandler;

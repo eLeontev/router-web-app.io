@@ -8,10 +8,7 @@ import { loadDashboard } from '../../services/login-and-load-dashboard';
 import { dashboardPath } from '../../constants/router.constants';
 
 import { Cards } from '../../models/dashboard.model';
-import {
-    DashboardLoaderProps,
-    ConcurencyLoginHandlerProps,
-} from '../../models/concurency.model';
+import { DashboardLoaderProps, ConcurencyLoginHandlerProps } from '../../models/concurency.model';
 
 export const DashboardLoader = ({ dashboardRequest }: DashboardLoaderProps) => {
     const history = useHistory();
@@ -31,9 +28,7 @@ export const ConcurencyLoginHandler = ({
     getDashboardRequest = loadDashboard,
 }: ConcurencyLoginHandlerProps) => {
     const [dashboardRequest] = useState(
-        suspenceFetch<Cards | undefined>(
-            getDashboardRequest(loginValues, errorHandler)
-        )
+        suspenceFetch<Cards | undefined>(getDashboardRequest(loginValues, errorHandler))
     );
 
     return (

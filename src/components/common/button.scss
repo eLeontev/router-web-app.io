@@ -1,6 +1,6 @@
 .close-message-button {
-    background-color: #42403E;
-    color: #F8F6EC;
+    background-color: #42403e;
+    color: #f8f6ec;
     width: 20px;
     height: 20px;
     border: none;
@@ -15,7 +15,7 @@
     right: 0;
     border: none;
     background-color: transparent;
-    color: #A9AFBB;
+    color: #a9afbb;
     width: 25px;
     height: 25px;
     line-height: 0;
@@ -65,11 +65,10 @@
 
 .show-more-button,
 .modal-action-button__active {
-
     &:hover {
         background-color: #124169;
         color: #fff;
-        transition: all .2s ease-in 0s;
+        transition: all 0.2s ease-in 0s;
     }
 }
 

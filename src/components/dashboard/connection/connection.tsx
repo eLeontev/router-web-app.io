@@ -2,22 +2,12 @@ import React, { useState, useCallback, useContext } from 'react';
 import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
 import { ConnectionProps } from '../../../models/dashboard.model';
-import {
-    channgelLabel,
-    showConnectionInfoButtonLabel,
-} from '../../../constants/cards.constants';
+import { channgelLabel, showConnectionInfoButtonLabel } from '../../../constants/cards.constants';
 import { LoaderContext } from '../../../context/loader.context';
 import { ModalContext } from '../../../context/modal.context';
 
 export const ConnectionComponent = ({
-    connection: {
-        channel,
-        connectionInfo,
-        isActive,
-        name,
-        range,
-        connectionId,
-    },
+    connection: { channel, connectionInfo, isActive, name, range, connectionId },
 }: ConnectionProps) => {
     const [connectionStatus, setConnectionStatus] = useState(isActive);
     const [isWaiting, setStatus] = useState(false);
@@ -32,9 +22,7 @@ export const ConnectionComponent = ({
             setStatus(true);
             setLoader(true);
             try {
-                await new Promise((res) =>
-                    setTimeout(() => res(connectionId), 2000)
-                );
+                await new Promise((res) => setTimeout(() => res(connectionId), 2000));
                 setConnectionStatus(isActive);
             } catch {
                 setConnectionStatus(!isActive);
@@ -70,9 +58,7 @@ export const ConnectionComponent = ({
                 <Button
                     className="show-more-button"
                     buttonName={showConnectionInfoButtonLabel}
-                    buttonHandler={() =>
-                        setModal({ ...connectionInfo, name, range })
-                    }
+                    buttonHandler={() => setModal({ ...connectionInfo, name, range })}
                 />
             </section>
         </section>

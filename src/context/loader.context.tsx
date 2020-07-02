@@ -9,8 +9,6 @@ export const WithLoaderContext = ({ children }: PropsWithChildren<{}>) => {
     const [isLoading, setLoader] = useState(false);
 
     return (
-        <LoaderContext.Provider value={{ isLoading, setLoader }}>
-            {children}
-        </LoaderContext.Provider>
+        <LoaderContext.Provider value={{ isLoading, setLoader }}>{children}</LoaderContext.Provider>
     );
 };

@@ -6,19 +6,15 @@ export type ButtonProps = {
     buttonName: string;
     buttonHandler: () => void;
 };
-export const Button = React.memo(
-    ({ className, buttonName, buttonHandler }: ButtonProps) => (
-        <button className={className} onClick={buttonHandler}>
-            {buttonName}
-        </button>
-    )
-);
+export const Button = React.memo(({ className, buttonName, buttonHandler }: ButtonProps) => (
+    <button className={className} onClick={buttonHandler}>
+        {buttonName}
+    </button>
+));
 
 const getSuccessStatus = (isSuccess: boolean) => (isSuccess ? `success` : '');
 
-export const ButtonWithPostHandler = (
-    props: ButtonProps & { isActive: boolean }
-) => {
+export const ButtonWithPostHandler = (props: ButtonProps & { isActive: boolean }) => {
     const { className = '', isActive } = props;
     const [isSuccess, setPostHandlerResult] = useState(false);
 
@@ -40,9 +36,7 @@ export const ButtonWithPostHandler = (
             buttonHandler={() =>
                 isSuccess || !isActive
                     ? null
-                    : Promise.resolve(props.buttonHandler()).then(() =>
-                          setPostHandlerResult(true)
-                      )
+                    : Promise.resolve(props.buttonHandler()).then(() => setPostHandlerResult(true))
             }
         />
     );

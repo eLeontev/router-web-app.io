@@ -5,34 +5,21 @@ import { Input } from '../../components/common/input';
 import { Button } from '../../components/common/button';
 
 import { Message } from '../../components/common/message';
-import {
-    initialState,
-    loginActionTypes,
-} from '../../constants/login.constants';
+import { initialState, loginActionTypes } from '../../constants/login.constants';
 import { ConcurencyLoginHandler } from '../../components/concurency/concurency-login-handler';
 import { LoginState, LoginReducer } from '../../models/login.model';
 import { loginReducer } from '../../reducers/login.reducer';
 
-const {
-    cleanup,
-    cleanuperror,
-    cleanuplogin,
-    setdefault,
-    validate,
-} = loginActionTypes;
+const { cleanup, cleanuperror, cleanuplogin, setdefault, validate } = loginActionTypes;
 
 const loginInputName = 'login';
 const passwordInputName = 'password';
 
 export const LoginPage = () => {
-    const [
-        { login, password, shouldLogin, errorMessage },
-        dispatch,
-    ] = useReducer<LoginReducer, LoginState>(
-        loginReducer,
-        initialState,
-        () => initialState
-    );
+    const [{ login, password, shouldLogin, errorMessage }, dispatch] = useReducer<
+        LoginReducer,
+        LoginState
+    >(loginReducer, initialState, () => initialState);
 
     return (
         <>
@@ -74,10 +61,7 @@ export const LoginPage = () => {
                         }
                         type="password"
                     />
-                    <Button
-                        buttonName="Login"
-                        buttonHandler={() => dispatch({ type: validate })}
-                    />
+                    <Button buttonName="Login" buttonHandler={() => dispatch({ type: validate })} />
                     <Message
                         type="error"
                         message={errorMessage}

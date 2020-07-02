@@ -18,11 +18,7 @@ export const Card = React.memo(({ card }: models.CardProps) => {
     const CardComponent = cardsComponents[card.type];
     return (
         <section className="card">
-            {CardComponent ? (
-                <CardComponent card={card} />
-            ) : (
-                <UnknownCard card={card} />
-            )}
+            {CardComponent ? <CardComponent card={card} /> : <UnknownCard card={card} />}
         </section>
     );
 });

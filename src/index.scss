@@ -1,53 +1,51 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 h1,
 h2,
 h3 {
-  margin: 0;
-  padding: 5px 0;
+    margin: 0;
+    padding: 5px 0;
 
-  &._aligned {
-    text-align: center;
-  }
+    &._aligned {
+        text-align: center;
+    }
 }
 
 input,
 button {
-  padding: 5px;
-  margin-bottom: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
 }
 
 input:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
-input[type="search"] {
-  border: none;
-  outline: none;
-  background-color: #D5EBF7;
-  border-radius: 5px;
+input[type='search'] {
+    border: none;
+    outline: none;
+    background-color: #d5ebf7;
+    border-radius: 5px;
 
-  &:focus {
-    background-color: #fff;
-  }
+    &:focus {
+        background-color: #fff;
+    }
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }

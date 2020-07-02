@@ -1,7 +1,4 @@
-import {
-    ConnectionInfoPropsWithSetters,
-    SetLogo,
-} from '../models/modals.model';
+import { ConnectionInfoPropsWithSetters, SetLogo } from '../models/modals.model';
 
 export const getCreatedFileInput = () => {
     const fileInput = document.createElement('input') as HTMLInputElement;
@@ -35,9 +32,7 @@ export const fileInputUploadHandler = (
 
     parent.removeChild(fileInput);
 };
-export const addLogoActionHandler = async ({
-    setLogo,
-}: ConnectionInfoPropsWithSetters) => {
+export const addLogoActionHandler = async ({ setLogo }: ConnectionInfoPropsWithSetters) => {
     const fileInput = getCreatedFileInput();
 
     const parent = document.getElementById('root') as HTMLElement;

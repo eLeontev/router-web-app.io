@@ -30,9 +30,7 @@ export const Timer = ({ duration, fallback }: TimerProps) => {
         return () => clearInterval(timerId);
     }, []);
 
-    const formattedRestTime = useMemo(() => getFormattedRestTime(restTime), [
-        restTime,
-    ]);
+    const formattedRestTime = useMemo(() => getFormattedRestTime(restTime), [restTime]);
 
     return (
         <section className="timer">

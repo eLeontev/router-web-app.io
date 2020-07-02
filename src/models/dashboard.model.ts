@@ -1,8 +1,5 @@
 import { cardTypes, connectionTypes } from '../constants/cards.constants';
-import {
-    connectionActionTypes,
-    modalContentTypes,
-} from '../constants/modal.constants';
+import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
 import { CardLoaderService } from '../services/card-loader.service';
 
 export type DashboardProps = {

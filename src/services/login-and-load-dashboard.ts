@@ -1,7 +1,4 @@
-import {
-    defaultCredentials,
-    invalidCredentionalsMessage,
-} from '../constants/login.constants';
+import { defaultCredentials, invalidCredentionalsMessage } from '../constants/login.constants';
 import { invalidCardsMessage } from '../constants/cards.constants';
 
 import { cardsMocks } from '../mock/cards.mock';
@@ -13,10 +10,7 @@ import { ErrorHandler } from '../models/concurency.model';
 export const login = ({ login, password }: LoginValues): Promise<string> => {
     return new Promise((resolve, reject) =>
         setTimeout(() => {
-            if (
-                login === defaultCredentials.login &&
-                password === defaultCredentials.password
-            ) {
+            if (login === defaultCredentials.login && password === defaultCredentials.password) {
                 resolve('userToken');
             } else {
                 reject(invalidCredentionalsMessage);
@@ -39,5 +33,4 @@ export const fetchDashboard = (userToken: string): Promise<Cards> =>
 export const loadDashboard = (
     loginValues: LoginValues,
     errorHandler: ErrorHandler
-): Promise<Cards | undefined> =>
-    login(loginValues).then(fetchDashboard).catch(errorHandler);
+): Promise<Cards | undefined> => login(loginValues).then(fetchDashboard).catch(errorHandler);

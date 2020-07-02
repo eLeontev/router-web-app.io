@@ -14,17 +14,15 @@ const setCheckboxBarClassName = (isActive: boolean) =>
 
 const setCheckboxClassNameDisabled = (isDisable: boolean) =>
     isDisable ? 'checkbox__disabled' : 'checkbox__enabled';
-export const Checkbox = React.memo(
-    ({ isActive, triggerCheckbox, isDisable }: CheckboxProps) => (
-        <section
-            className={`checkbox ${setCheckboxClassName(
-                isActive
-            )} ${setCheckboxClassNameDisabled(isDisable)}`}
-        >
-            <span
-                onClick={() => !isDisable && triggerCheckbox(!isActive)}
-                className={`checkbox--bar ${setCheckboxBarClassName(isActive)}`}
-            ></span>
-        </section>
-    )
-);
+export const Checkbox = React.memo(({ isActive, triggerCheckbox, isDisable }: CheckboxProps) => (
+    <section
+        className={`checkbox ${setCheckboxClassName(isActive)} ${setCheckboxClassNameDisabled(
+            isDisable
+        )}`}
+    >
+        <span
+            onClick={() => !isDisable && triggerCheckbox(!isActive)}
+            className={`checkbox--bar ${setCheckboxBarClassName(isActive)}`}
+        ></span>
+    </section>
+));

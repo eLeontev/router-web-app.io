@@ -23,10 +23,7 @@ export const getActionButton = (
         buttonName={actionNames[actionType]}
         buttonHandler={
             isActive
-                ? () =>
-                      modalActionHandlers[actionType](
-                          connectionInfoPropsWithSetters
-                      )
+                ? () => modalActionHandlers[actionType](connectionInfoPropsWithSetters)
                 : () => {}
         }
     />
@@ -35,9 +32,7 @@ export const getActionButton = (
 export const Actions = (props: ConnectionInfoPropsWithSetters) => (
     <section className="actions">
         <section className="actions-main">
-            {props.actions.main.map((action: ConnectionAction) =>
-                getActionButton(action, props)
-            )}
+            {props.actions.main.map((action: ConnectionAction) => getActionButton(action, props))}
         </section>
         <WPSAction {...props} />
     </section>

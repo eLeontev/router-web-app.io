@@ -2,7 +2,7 @@ $offsetBetweenCards: 15px;
 $cardInnerOffset: 10px;
 
 .cards {
-    background-color: #EEEFF1;
+    background-color: #eeeff1;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -23,7 +23,7 @@ $cardContentPadding: 20px;
     padding: $cardInnerOffset;
     margin-bottom: $offsetBetweenCards;
     background-color: #fff;
-    box-shadow: 0 1px 5px 0 rgba(108, 108, 108, .7);
+    box-shadow: 0 1px 5px 0 rgba(108, 108, 108, 0.7);
 
     &__title {
         padding: 15px 0;
@@ -58,7 +58,7 @@ $cardContentPadding: 20px;
         }
 
         &--minor {
-            color: #62687F;
+            color: #62687f;
             font-size: 14px;
             display: flex;
             flex-direction: row;

@@ -17,32 +17,27 @@ const modalContentComponents: ModalContentComponents = {
     [modalContentTypes.connectionContentType]: ConnectionModalContent,
 };
 
-export const ModalComponent = React.memo(
-    ({ children, setModal }: ModalComponent) => (
-        <section
-            className="modal-background"
-            onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
-                (e.target as HTMLElement).className === 'modal-background' &&
-                setModal(null)
-            }
-        >
-            <section className="modal-content">
-                <Button
-                    className="close-modal-button"
-                    buttonName="x"
-                    buttonHandler={() => setModal(null)}
-                />
-                {children}
-            </section>
+export const ModalComponent = React.memo(({ children, setModal }: ModalComponent) => (
+    <section
+        className="modal-background"
+        onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) =>
+            (e.target as HTMLElement).className === 'modal-background' && setModal(null)
+        }
+    >
+        <section className="modal-content">
+            <Button
+                className="close-modal-button"
+                buttonName="x"
+                buttonHandler={() => setModal(null)}
+            />
+            {children}
         </section>
-    )
-);
+    </section>
+));
 
 export const Modal = React.memo(() => {
     const { modalInfo, setModal } = useContext(ModalContext);
-    const ModalContent = modalInfo
-        ? modalContentComponents[modalInfo.type]
-        : null;
+    const ModalContent = modalInfo ? modalContentComponents[modalInfo.type] : null;
 
     return ModalContent && modalInfo ? (
         <ModalComponent setModal={setModal}>

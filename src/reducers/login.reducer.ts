@@ -6,12 +6,7 @@ import {
     invalidCredentionalsMessage,
     loginActionTypes,
 } from '../constants/login.constants';
-import {
-    LoginReducer,
-    LoginState,
-    Action,
-    ActionHandlers,
-} from '../models/login.model';
+import { LoginReducer, LoginState, Action, ActionHandlers } from '../models/login.model';
 
 const {
     cleanup,

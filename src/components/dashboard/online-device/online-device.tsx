@@ -12,9 +12,7 @@ export const OnlineDeviceComponent = ({
         <p className={`connections-count ${getConnectionModificator(isHome)}`}>
             {countOfConnections}
             {countOfConnections ? (
-                <span className="connections-count__hint">
-                    {countOfConnections}
-                </span>
+                <span className="connections-count__hint">{countOfConnections}</span>
             ) : null}
         </p>
         <p className="device-type">{connectionTypeMessages[type]}</p>

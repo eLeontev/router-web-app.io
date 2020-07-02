@@ -13,9 +13,7 @@ export const ApplicationsCardComponent = (props: CardProps) => {
         <section className="application-card">
             <h3 className="card__title">{title}</h3>
             <section className="card-content">
-                {applications.length
-                    ? 'Applications'
-                    : hasNoApplicationsMessage}
+                {applications.length ? 'Applications' : hasNoApplicationsMessage}
             </section>
         </section>
     );

@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-    CardProps,
-    SystemCard,
-    SystemParamProps,
-} from '../../../models/dashboard.model';
+import { CardProps, SystemCard, SystemParamProps } from '../../../models/dashboard.model';
 
-export const SystemParamComponent = ({
-    systemParam: { label, value },
-}: SystemParamProps) => (
+export const SystemParamComponent = ({ systemParam: { label, value } }: SystemParamProps) => (
     <section className="param-pair">
         <p className="param-pair__label">{label}</p>
         <p className="param-pair__value">{value}</p>
@@ -24,10 +18,7 @@ export const SystemCardComponent = (props: CardProps) => {
             <h3 className="card__title">{title}</h3>
             <section className="card-content">
                 {systemParams.map((systemParam) => (
-                    <SystemParamComponent
-                        key={systemParam.label}
-                        systemParam={systemParam}
-                    />
+                    <SystemParamComponent key={systemParam.label} systemParam={systemParam} />
                 ))}
             </section>
         </section>

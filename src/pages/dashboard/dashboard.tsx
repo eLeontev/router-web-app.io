@@ -10,9 +10,7 @@ import { Modal } from '../../components/common/modal';
 import { useHistory } from 'react-router-dom';
 import { DashboardProps, Cards } from '../../models/dashboard.model';
 
-export const DashboardPage = ({
-    cardLoader = cardLoaderInstance,
-}: DashboardProps) => {
+export const DashboardPage = ({ cardLoader = cardLoaderInstance }: DashboardProps) => {
     const history = useHistory<Cards>();
     const { leftCards, rightCards } = cardLoader.useLoadCards(history);
 

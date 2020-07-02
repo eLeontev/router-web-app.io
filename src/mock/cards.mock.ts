@@ -6,16 +6,8 @@ import {
     connectionTypes,
     guestWiFiCardTitle,
 } from '../constants/cards.constants';
-import {
-    ApplicationsCard,
-    SystemCard,
-    WiFiCard,
-    Cards,
-} from '../models/dashboard.model';
-import {
-    connectionActionTypes,
-    modalContentTypes,
-} from '../constants/modal.constants';
+import { ApplicationsCard, SystemCard, WiFiCard, Cards } from '../models/dashboard.model';
+import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
 
 export const applicationsCatrd: ApplicationsCard = {
     cardId: 'applicationsCatrd_1',

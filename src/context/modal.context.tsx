@@ -9,8 +9,6 @@ export const WithModalContext = ({ children }: PropsWithChildren<{}>) => {
     const [modalInfo, setModal] = useState(null as ModalInfo);
 
     return (
-        <ModalContext.Provider value={{ modalInfo, setModal }}>
-            {children}
-        </ModalContext.Provider>
+        <ModalContext.Provider value={{ modalInfo, setModal }}>{children}</ModalContext.Provider>
     );
 };

@@ -11,13 +11,7 @@ export type InputProps = {
 export const searchPlaceholder = 'Search for settings';
 
 export const Input = React.memo(
-    ({
-        value,
-        onChange,
-        name,
-        type = 'text',
-        placeholder = '',
-    }: InputProps) => (
+    ({ value, onChange, name, type = 'text', placeholder = '' }: InputProps) => (
         <input
             name={name}
             type={type}

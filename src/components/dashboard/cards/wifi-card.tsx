@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    CardProps,
-    WiFiCard,
-    Connection,
-    OnlineDevice,
-} from '../../../models/dashboard.model';
+import { CardProps, WiFiCard, Connection, OnlineDevice } from '../../../models/dashboard.model';
 import { onlineDeviceTitle } from '../../../constants/cards.constants';
 import { ConnectionComponent } from '../connection/connection';
 import { OnlineDeviceComponent } from '../online-device/online-device';

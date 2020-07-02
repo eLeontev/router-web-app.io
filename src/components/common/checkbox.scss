@@ -11,7 +11,7 @@ $checkboxSize: 25px;
     }
 
     &__inactive {
-        background-color: #D7DBE4;
+        background-color: #d7dbe4;
     }
 
     &__disabled {
@@ -29,12 +29,12 @@ $checkboxSize: 25px;
 
         &__active {
             animation: 0.2s linear forwards activate_checkbox;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
         }
 
         &__inactive {
             animation: 0.2s linear forwards deactivate_checkbox;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
         }
     }
 }
