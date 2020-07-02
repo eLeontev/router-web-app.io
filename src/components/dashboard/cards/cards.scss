@@ -1,18 +1,20 @@
 $offsetBetweenCards: 15px;
 $cardInnerOffset: 10px;
-
+$maxCardWidth: 700px;
 .cards {
-    background-color: #eeeff1;
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     padding-top: $offsetBetweenCards;
     padding-right: $offsetBetweenCards;
-    flex-wrap: wrap;
+    background-color: #eeeff1;
 
     &-left,
     &-right {
         padding-left: $offsetBetweenCards;
+        max-width: #{$maxCardWidth + $offsetBetweenCards};
         width: calc(50% - 15px);
     }
 }
@@ -24,6 +26,7 @@ $cardContentPadding: 20px;
     margin-bottom: $offsetBetweenCards;
     background-color: #fff;
     box-shadow: 0 1px 5px 0 rgba(108, 108, 108, 0.7);
+    max-width: $maxCardWidth;
 
     &__title {
         padding: 15px 0;
