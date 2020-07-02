@@ -1,4 +1,4 @@
-  
+
 # Logs
 logs
 *.log
@@ -36,7 +36,6 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build
 build
 
 # Dependency directories
@@ -105,9 +104,13 @@ dist
 # TernJS port file
 .tern-port
 
-# vscode 
+# vscode
 .vscode
 launch.json
+
+
+#.wStorm
+.idea
 
 # ts
 bundle
