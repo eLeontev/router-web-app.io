@@ -1,12 +1,18 @@
 import {
-    cardTypes,
     applicationsCardTitle,
-    systemCardTitle,
-    homeWiFiCardTitle,
+    cardTypes,
     connectionTypes,
     guestWiFiCardTitle,
+    homeWiFiCardTitle,
+    systemCardTitle,
 } from '../constants/cards.constants';
-import { ApplicationsCard, SystemCard, WiFiCard, Cards } from '../models/dashboard.model';
+import {
+    ApplicationsCard,
+    Cards,
+    paramTypes,
+    SystemCard,
+    WiFiCard,
+} from '../models/dashboard.model';
 import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
 
 export const applicationsCatrd: ApplicationsCard = {
@@ -23,38 +29,55 @@ export const systemCatrd: SystemCard = {
     type: cardTypes.systemType,
     title: systemCardTitle,
     cardContent: {
+        startedTime: '7/2/2020',
         systemParams: [
             {
                 label: 'Model',
                 value: 'Speedster (KN-3010)',
+                isActive: false,
+                paramType: paramTypes.inactive,
             },
             {
                 label: 'Service tag',
                 value: '067-483-550-015-477',
+                isActive: false,
+                paramType: paramTypes.inactive,
             },
             {
                 label: 'OS version',
                 value: '3.4.6',
+                isActive: false,
+                paramType: paramTypes.inactive,
             },
             {
                 label: 'Auto-update',
                 value: 'Enabled',
+                isActive: false,
+                paramType: paramTypes.inactive,
             },
             {
                 label: 'Uptime',
-                value: '3 days 01:33:01',
+                value: '',
+                isActive: true,
+                paramType: paramTypes.uptime,
             },
             {
                 label: 'Current time',
-                value: '6/21/2020 17:50:20',
+                value: '',
+                isActive: true,
+                paramType: paramTypes.currentTime,
             },
             {
                 label: 'CPU usage',
                 value: '4%',
+                isActive: true,
+                paramType: paramTypes.cpuUsage,
             },
             {
                 label: 'RAM usage',
                 value: '40% (51/128 Mbytes)',
+                isActive: true,
+                paramType: paramTypes.ramUsage,
             },
         ],
     },

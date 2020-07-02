@@ -11,19 +11,40 @@ export type BaseCard = {
     title: string;
 };
 
+export enum paramTypes {
+    inactive = 'inactive',
+    uptime = 'uptime',
+    currentTime = 'currentTime',
+    cpuUsage = 'cpuUsage',
+    ramUsage = 'ramUsage',
+}
+
+export type SystemParamValue = string | number | Date;
 export type SystemParam = {
     label: string;
-    value: string | number;
+    value: SystemParamValue;
+    isActive: boolean;
+    paramType: paramTypes;
 };
 
-export type SystemParamProps = {
-    systemParam: SystemParam;
-};
+export type SystemParams = Array<SystemParam>;
+export type UpdateParams = (systemParams: SystemParams) => void;
 
 export type SystemCard = BaseCard & {
     cardContent: {
-        systemParams: Array<SystemParam>;
+        startedTime: string;
+        systemParams: SystemParams;
     };
+};
+
+export type DynamicParamProps = {
+    systemParams: SystemParams;
+    startedTime: string;
+};
+
+export type SplitParams = {
+    staticSystemParams: SystemParams;
+    dynamicSystemParams: SystemParams;
 };
 
 export type ApplicationsCard = BaseCard & {

@@ -33,3 +33,5 @@ export const connectionTypeMessages = {
 export const channgelLabel = 'Channel';
 export const showConnectionInfoButtonLabel = 'Show connection info';
 export const onlineDeviceTitle = 'Online devices';
+
+export const updateActiveParamsInterval = 1000;
