@@ -11,11 +11,13 @@ export const applicationsCardTitle = 'Applications';
 export const systemCardTitle = 'About the system';
 export const homeWiFiCardTitle = 'Home segment';
 export const guestWiFiCardTitle = 'Guest segment';
+export const networkPortsCardTitle = 'Network ports';
 
 export enum cardTypes {
     applicationType = 'applicationType',
     systemType = 'systemType',
     wifiType = 'wifiType',
+    portType = 'portType',
 }
 export enum connectionTypes {
     wired = 'wired',
