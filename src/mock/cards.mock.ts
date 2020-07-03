@@ -335,11 +335,11 @@ export const internetCard: InternetCard = {
                 providerLabel: 'Using Ethernet',
                 providerType: 'PPPoE',
             },
-            traffic: {
+            trafficInfo: {
                 download: {
                     current: {
-                        unit: 'Mbit/s',
-                        value: 10.12,
+                        unit: '',
+                        value: 0,
                     },
                     max: {
                         unit: 'Mbit/s',
@@ -349,8 +349,8 @@ export const internetCard: InternetCard = {
                 },
                 upload: {
                     current: {
-                        unit: 'kbit/s',
-                        value: 281,
+                        unit: '',
+                        value: 0,
                     },
                     max: {
                         unit: 'Mbit/s',
@@ -393,23 +393,23 @@ export const internetCard: InternetCard = {
             },
             {
                 label: 'Download',
-                type: internetDetailsType.related,
-                value: trafficType.download,
+                type: internetDetailsType.download,
+                value: '',
             },
             {
                 label: 'Upload',
-                type: internetDetailsType.related,
-                value: trafficType.upload,
+                type: internetDetailsType.upload,
+                value: '',
             },
             {
                 label: 'Received',
-                type: internetDetailsType.dynamic,
-                value: '54 Gbytes',
+                type: internetDetailsType.received,
+                value: '',
             },
             {
                 label: 'Sent',
-                type: internetDetailsType.dynamic,
-                value: '11.5 Gbytes',
+                type: internetDetailsType.sent,
+                value: '',
             },
             {
                 label: 'DNS servers',

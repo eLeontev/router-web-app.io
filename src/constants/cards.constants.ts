@@ -34,11 +34,12 @@ export const connectionTypeMessages = {
     [connectionTypes.wired]: wiredConnectionTypeMessage,
 };
 
-export const channgelLabel = 'Channel';
+export const channelLabel = 'Channel';
 export const showConnectionInfoButtonLabel = 'Show connection info';
 export const onlineDeviceTitle = 'Online devices';
 
 export const updateActiveParamsInterval = 1000;
+export const internetRequestDelay = 3000;
 
 export enum trafficType {
     upload = 'upload',
@@ -54,11 +55,16 @@ export enum internetDetailsType {
     default = 'default',
     reboot = 'reboot',
     configuration = 'configuration',
-    related = 'related',
-    dynamic = 'dynamic',
+    download = 'download',
+    upload = 'upload',
+    sent = 'sent',
+    received = 'received',
 }
 
 export const providerHeaderLabel = 'Provider';
 
 export const moreDetailsLabel = 'More details';
 export const hiddenDetailsLabel = 'Hide details';
+
+export const units = ['kbit/s', 'Mbit/s'];
+export const countOfDisplayedNodes = 100;
