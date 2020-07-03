@@ -3,7 +3,7 @@ import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
 
 import { useButtonToOpenModal, useTriggerCheckbox } from './connection.hooks';
-import { channgelLabel, showConnectionInfoButtonLabel } from '../../../constants/cards.constants';
+import { channelLabel, showConnectionInfoButtonLabel } from '../../../constants/cards.constants';
 
 import { ConnectionProps } from '../../../models/dashboard.model';
 
@@ -32,7 +32,7 @@ export const ConnectionComponent = ({
                     <section className="details--minor">
                         <p className="details--minor__range">{range}, </p>
                         <p className="details--minor__channel">
-                            {channgelLabel} {channel}
+                            {channelLabel} {channel}
                         </p>
                     </section>
                 </section>
