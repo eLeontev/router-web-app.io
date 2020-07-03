@@ -67,4 +67,7 @@ export const moreDetailsLabel = 'More details';
 export const hiddenDetailsLabel = 'Hide details';
 
 export const units = ['kbit/s', 'Mbit/s'];
+export const mModifier = 1000;
+export const bModifier = 1;
+
 export const countOfDisplayedNodes = 100;
