@@ -30,11 +30,13 @@ export type SystemParam = {
 export type SystemParams = Array<SystemParam>;
 export type UpdateParams = (systemParams: SystemParams) => void;
 
+export type SystemCardContent = {
+    startedTime: string;
+    systemParams: SystemParams;
+};
+
 export type SystemCard = BaseCard & {
-    cardContent: {
-        startedTime: string;
-        systemParams: SystemParams;
-    };
+    cardContent: SystemCardContent;
 };
 
 export type DynamicParamProps = {
@@ -47,10 +49,12 @@ export type SplitParams = {
     dynamicSystemParams: SystemParams;
 };
 
+export type ApplicationsCardContent = {
+    applications: Array<any>;
+};
+
 export type ApplicationsCard = BaseCard & {
-    cardContent: {
-        applications: Array<any>;
-    };
+    cardContent: ApplicationsCardContent;
 };
 
 export type ConnectionAction = {
@@ -93,14 +97,40 @@ export type OnlineDeviceProps = {
     onlineDevice: OnlineDevice;
 };
 
-export type WiFiCard = BaseCard & {
-    cardContent: {
-        connections: Array<Connection>;
-        onlineDevices: Array<OnlineDevice>;
-    };
+export type WiFiCardContent = {
+    connections: Array<Connection>;
+    onlineDevices: Array<OnlineDevice>;
 };
 
-export type Card = SystemCard | ApplicationsCard | WiFiCard;
+export type WiFiCard = BaseCard & {
+    cardContent: WiFiCardContent;
+};
+
+export type Port = {
+    portId: string;
+    portType: string;
+    portSpeed: number;
+    portUnit: string;
+    isActive: boolean;
+};
+
+export type Ports = Array<Port>;
+
+export type NetworkPortsCardContent = {
+    networkPortId: string;
+    ports: Ports;
+};
+
+export type NetworkPortsCard = BaseCard & {
+    cardContent: NetworkPortsCardContent;
+};
+
+export type Card = SystemCard | ApplicationsCard | WiFiCard | NetworkPortsCard;
+export type CardContent =
+    | SystemCardContent
+    | ApplicationsCardContent
+    | WiFiCardContent
+    | NetworkPortsCardContent;
 
 export type CardsResponse = {
     isLoading: boolean;
@@ -119,5 +149,5 @@ export type CardProps = {
 };
 
 export type CardsComponents = {
-    [cardType in cardTypes]: (card: CardProps) => any;
+    [cardType in cardTypes]: (card: CardContent) => JSX.Element;
 };

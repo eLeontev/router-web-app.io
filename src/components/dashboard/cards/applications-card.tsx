@@ -1,20 +1,14 @@
 import React from 'react';
-import { CardProps, ApplicationsCard } from '../../../models/dashboard.model';
+import { CardContent, ApplicationsCardContent } from '../../../models/dashboard.model';
 
 export const hasNoApplicationsMessage = 'Applications not installed';
 
-export const ApplicationsCardComponent = (props: CardProps) => {
-    const {
-        title,
-        cardContent: { applications },
-    } = props.card as ApplicationsCard;
+export const ApplicationsCardComponent = (cardContent: CardContent) => {
+    const { applications } = cardContent as ApplicationsCardContent;
 
     return (
-        <section className="application-card">
-            <h3 className="card__title">{title}</h3>
-            <section className="card-content">
-                {applications.length ? 'Applications' : hasNoApplicationsMessage}
-            </section>
+        <section className="card-content">
+            {applications.length ? 'Applications' : hasNoApplicationsMessage}
         </section>
     );
 };

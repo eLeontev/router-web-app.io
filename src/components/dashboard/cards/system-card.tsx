@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
-    CardProps,
+    CardContent,
     DynamicParamProps,
-    SystemCard,
+    SystemCardContent,
     SystemParam,
     SystemParams,
 } from '../../../models/dashboard.model';
@@ -35,23 +35,17 @@ export const DynamicParams = ({ systemParams, startedTime }: DynamicParamProps) 
     return <>{renderSystemParams(params)}</>;
 };
 
-export const SystemCardComponent = (props: CardProps) => {
-    const {
-        title,
-        cardContent: { systemParams, startedTime },
-    } = props.card as SystemCard;
+export const SystemCardComponent = (cardContent: CardContent) => {
+    const { systemParams, startedTime } = cardContent as SystemCardContent;
 
     const { staticSystemParams, dynamicSystemParams } = useMemo(
         () => splitSystemParams(systemParams),
         [systemParams]
     );
     return (
-        <section className="application-card">
-            <h3 className="card__title">{title}</h3>
-            <section className="card-content">
-                {renderSystemParams(staticSystemParams)}
-                <DynamicParams systemParams={dynamicSystemParams} startedTime={startedTime} />
-            </section>
+        <section className="card-content">
+            {renderSystemParams(staticSystemParams)}
+            <DynamicParams systemParams={dynamicSystemParams} startedTime={startedTime} />
         </section>
     );
 };

@@ -7,18 +7,28 @@ import { UnknownCard } from './unknown-card';
 import { ApplicationsCardComponent } from './applications-card';
 import { SystemCardComponent } from './system-card';
 import { WifiCardComponent } from './wifi-card';
+import { NetworkPortsCardComponent } from './network-ports-card';
 
 const cardsComponents: models.CardsComponents = {
     [cardTypes.applicationType]: ApplicationsCardComponent,
     [cardTypes.systemType]: SystemCardComponent,
     [cardTypes.wifiType]: WifiCardComponent,
+    [cardTypes.portType]: NetworkPortsCardComponent,
 };
 
 export const Card = React.memo(({ card }: models.CardProps) => {
     const CardComponent = cardsComponents[card.type];
+    const title = card.title;
     return (
         <section className="card">
-            {CardComponent ? <CardComponent card={card} /> : <UnknownCard card={card} />}
+            <section className="application-card">
+                <h3 className="card__title">{title}</h3>
+                {CardComponent ? (
+                    <CardComponent {...card.cardContent} />
+                ) : (
+                    <UnknownCard type={card.type} />
+                )}
+            </section>
         </section>
     );
 });
