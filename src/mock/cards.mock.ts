@@ -4,14 +4,16 @@ import {
     connectionTypes,
     guestWiFiCardTitle,
     homeWiFiCardTitle,
+    networkPortsCardTitle,
     systemCardTitle,
 } from '../constants/cards.constants';
 import {
-    ApplicationsCard,
-    Cards,
     paramTypes,
+    Cards,
+    ApplicationsCard,
     SystemCard,
     WiFiCard,
+    NetworkPortsCard,
 } from '../models/dashboard.model';
 import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
 
@@ -271,7 +273,53 @@ export const guestWiFiCard: WiFiCard = {
     },
 };
 
+export const networkPortsCard: NetworkPortsCard = {
+    cardId: 'networkPorts-1',
+    type: cardTypes.portType,
+    title: networkPortsCardTitle,
+    cardContent: {
+        networkPortId: 'port-id_0',
+        ports: [
+            {
+                isActive: true,
+                portId: 'port-id_0',
+                portSpeed: 100,
+                portType: 'FDX',
+                portUnit: 'M',
+            },
+            {
+                isActive: true,
+                portId: 'port-id_1',
+                portSpeed: 100,
+                portType: 'FDX',
+                portUnit: 'M',
+            },
+            {
+                isActive: false,
+                portId: 'port-id_2',
+                portSpeed: 0,
+                portType: '',
+                portUnit: '',
+            },
+            {
+                isActive: false,
+                portId: 'port-id_3',
+                portSpeed: 0,
+                portType: '',
+                portUnit: '',
+            },
+            {
+                isActive: false,
+                portId: 'port-id_4',
+                portSpeed: 0,
+                portType: '',
+                portUnit: '',
+            },
+        ],
+    },
+};
+
 export const cardsMocks: Cards = {
     leftCards: [applicationsCatrd, systemCatrd],
-    rightCards: [homeWiFiCard, guestWiFiCard],
+    rightCards: [homeWiFiCard, guestWiFiCard, networkPortsCard],
 };
