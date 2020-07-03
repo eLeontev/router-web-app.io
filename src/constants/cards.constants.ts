@@ -45,6 +45,11 @@ export enum trafficType {
     download = 'download',
 }
 
+export const trafficTypeLabel: { [label in trafficType]: string } = {
+    [trafficType.download]: 'Download',
+    [trafficType.upload]: 'Upload',
+};
+
 export enum internetDetailsType {
     default = 'default',
     reboot = 'reboot',
@@ -52,3 +57,8 @@ export enum internetDetailsType {
     related = 'related',
     dynamic = 'dynamic',
 }
+
+export const providerHeaderLabel = 'Provider';
+
+export const moreDetailsLabel = 'More details';
+export const hiddenDetailsLabel = 'Hide details';

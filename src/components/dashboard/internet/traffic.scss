@@ -1,0 +1,36 @@
+.traffics {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.traffic {
+    min-width: 300px;
+    width: 50%;
+    padding-bottom: 20px;
+
+    &-info_actual {
+        padding-bottom: 5px;
+    }
+
+    &-info_max-speed {
+        color: #62687f;
+        font-size: 12px;
+    }
+
+    &-graph {
+        height: 90px;
+        margin-right: 5px;
+    }
+
+    &__download {
+        .traffic-graph {
+            background-color: #0098d9;
+        }
+    }
+
+    &__upload {
+        .traffic-graph {
+            background-color: #fad9dc;
+        }
+    }
+}
