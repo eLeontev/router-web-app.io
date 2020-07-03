@@ -7,6 +7,7 @@
 .detail-pair {
     display: flex;
     padding-bottom: 12px;
+    flex-wrap: wrap;
 
     &:last-of-type {
         padding-bottom: 0;
@@ -14,5 +15,17 @@
 
     &-label {
         min-width: 170px;
+    }
+
+    &-value {
+        flex-grow: 1;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 930px) {
+    .detail-pair-value {
+      padding-bottom: 15px;
+        border-bottom: 1px solid #0098d9;
     }
 }
