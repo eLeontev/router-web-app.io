@@ -16,6 +16,7 @@ $maxCardWidth: 700px;
         padding-left: $offsetBetweenCards;
         max-width: #{$maxCardWidth + $offsetBetweenCards};
         width: calc(50% - 15px);
+        min-width: 320px;
     }
 }
 
@@ -38,6 +39,12 @@ $cardContentPadding: 20px;
         border-top: 1px solid #0098d9;
         padding-top: $cardContentPadding;
         padding-bottom: $cardContentPadding;
+
+        &_port {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
     }
 }
 
@@ -139,11 +146,47 @@ $cardContentPadding: 20px;
 .param-pair {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding-bottom: 10px;
     font-size: 14px;
 
     &__label {
-        width: 170px;
         padding-right: 10px;
+    }
+
+    &__value {
+        width: 170px;
+    }
+}
+
+.port {
+    width: 48px;
+    padding-right: 10px;
+    font-size: 14px;
+
+    &:last-of-type {
+        padding-right: 0;
+    }
+
+    &_icon {
+        position: relative;
+        line-height: 30px;
+        height: 40px;
+        text-align: center;
+        background: url(../../../sprite.svg) -934px -613.69px no-repeat;
+
+        &__network {
+            position: absolute;
+            right: -4px;
+            top: 28px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff url(../../../sprite.svg) -240.3px -1108.2px no-repeat;
+        }
+    }
+
+    &-info {
+        text-align: center;
     }
 }
