@@ -4,16 +4,20 @@ import {
     connectionTypes,
     guestWiFiCardTitle,
     homeWiFiCardTitle,
+    internetCardTitle,
+    internetDetailsType,
     networkPortsCardTitle,
     systemCardTitle,
+    trafficType,
 } from '../constants/cards.constants';
 import {
-    paramTypes,
-    Cards,
     ApplicationsCard,
+    Cards,
+    InternetCard,
+    NetworkPortsCard,
+    paramTypes,
     SystemCard,
     WiFiCard,
-    NetworkPortsCard,
 } from '../models/dashboard.model';
 import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
 
@@ -26,12 +30,13 @@ export const applicationsCatrd: ApplicationsCard = {
     },
 };
 
+const startedTime = '7/2/2020';
 export const systemCatrd: SystemCard = {
     cardId: 'systemCatrd_1',
     type: cardTypes.systemType,
     title: systemCardTitle,
     cardContent: {
-        startedTime: '7/2/2020',
+        startedTime,
         systemParams: [
             {
                 label: 'Model',
@@ -319,7 +324,102 @@ export const networkPortsCard: NetworkPortsCard = {
     },
 };
 
+export const internetCard: InternetCard = {
+    cardId: 'internetCard_ 1',
+    type: cardTypes.internetType,
+    title: internetCardTitle,
+    cardContent: {
+        main: {
+            startedTime,
+            provider: {
+                providerLabel: 'Using Ethernet',
+                providerType: 'PPPoE',
+            },
+            traffic: {
+                download: {
+                    current: {
+                        unit: 'Mbit/s',
+                        value: 10.12,
+                    },
+                    max: {
+                        unit: 'Mbit/s',
+                        value: 100,
+                    },
+                    type: trafficType.download,
+                },
+                upload: {
+                    current: {
+                        unit: 'kbit/s',
+                        value: 281,
+                    },
+                    max: {
+                        unit: 'Mbit/s',
+                        value: 50,
+                    },
+                    type: trafficType.upload,
+                },
+            },
+        },
+        details: [
+            {
+                label: 'Status',
+                type: internetDetailsType.reboot,
+                value: 'Connection established',
+            },
+            {
+                label: 'Internet safety',
+                type: internetDetailsType.configuration,
+                value: 'AdGuard DNS is enabled',
+            },
+            {
+                label: 'Authentication type',
+                type: internetDetailsType.default,
+                value: 'PPPoE',
+            },
+            {
+                label: 'IP address',
+                type: internetDetailsType.default,
+                value: '192.168.1.1',
+            },
+            {
+                label: 'Subnet mask',
+                type: internetDetailsType.default,
+                value: '125.125.125.125',
+            },
+            {
+                label: 'MAC Address',
+                type: internetDetailsType.default,
+                value: '13:ld:78:c1:5d:09',
+            },
+            {
+                label: 'Download',
+                type: internetDetailsType.related,
+                value: trafficType.download,
+            },
+            {
+                label: 'Upload',
+                type: internetDetailsType.related,
+                value: trafficType.upload,
+            },
+            {
+                label: 'Received',
+                type: internetDetailsType.dynamic,
+                value: '54 Gbytes',
+            },
+            {
+                label: 'Sent',
+                type: internetDetailsType.dynamic,
+                value: '11.5 Gbytes',
+            },
+            {
+                label: 'DNS servers',
+                type: internetDetailsType.default,
+                value: '543.217.093.5',
+            },
+        ],
+    },
+};
 export const cardsMocks: Cards = {
-    leftCards: [applicationsCatrd, systemCatrd],
+    leftCards: [internetCard, applicationsCatrd, systemCatrd],
     rightCards: [homeWiFiCard, guestWiFiCard, networkPortsCard],
 };

@@ -12,12 +12,14 @@ export const systemCardTitle = 'About the system';
 export const homeWiFiCardTitle = 'Home segment';
 export const guestWiFiCardTitle = 'Guest segment';
 export const networkPortsCardTitle = 'Network ports';
+export const internetCardTitle = 'Internet';
 
 export enum cardTypes {
     applicationType = 'applicationType',
     systemType = 'systemType',
     wifiType = 'wifiType',
     portType = 'portType',
+    internetType = 'internetType',
 }
 export enum connectionTypes {
     wired = 'wired',
@@ -37,3 +39,16 @@ export const showConnectionInfoButtonLabel = 'Show connection info';
 export const onlineDeviceTitle = 'Online devices';
 
 export const updateActiveParamsInterval = 1000;
+
+export enum trafficType {
+    upload = 'upload',
+    download = 'download',
+}
+
+export enum internetDetailsType {
+    default = 'default',
+    reboot = 'reboot',
+    configuration = 'configuration',
+    related = 'related',
+    dynamic = 'dynamic',
+}

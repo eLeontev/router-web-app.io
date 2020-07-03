@@ -8,12 +8,14 @@ import { ApplicationsCardComponent } from './applications-card';
 import { SystemCardComponent } from './system-card';
 import { WifiCardComponent } from './wifi-card';
 import { NetworkPortsCardComponent } from './network-ports-card';
+import { InternetCardComponent } from './internet-card';
 
 const cardsComponents: models.CardsComponents = {
     [cardTypes.applicationType]: ApplicationsCardComponent,
     [cardTypes.systemType]: SystemCardComponent,
     [cardTypes.wifiType]: WifiCardComponent,
     [cardTypes.portType]: NetworkPortsCardComponent,
+    [cardTypes.internetType]: InternetCardComponent,
 };
 
 export const Card = React.memo(({ card }: models.CardProps) => {

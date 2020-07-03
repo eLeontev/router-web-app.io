@@ -1,5 +1,10 @@
 import { CardLoaderService } from '../services/card-loader.service';
-import { cardTypes, connectionTypes } from '../constants/cards.constants';
+import {
+    cardTypes,
+    connectionTypes,
+    internetDetailsType,
+    trafficType,
+} from '../constants/cards.constants';
 import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
 
 export type DashboardProps = {
@@ -125,12 +130,54 @@ export type NetworkPortsCard = BaseCard & {
     cardContent: NetworkPortsCardContent;
 };
 
-export type Card = SystemCard | ApplicationsCard | WiFiCard | NetworkPortsCard;
+export type InternetProvider = {
+    providerLabel: string;
+    providerType: string;
+};
+
+export type TrafficValue = {
+    value: number;
+    unit: string;
+};
+
+export type Traffic = {
+    type: trafficType;
+    max: TrafficValue;
+    current: TrafficValue;
+};
+
+export type TrafficInfo = {
+    download: Traffic;
+    upload: Traffic;
+};
+
+export type InternetDetail = {
+    label: string;
+    value: string;
+    type: internetDetailsType;
+};
+export type InternetDetails = Array<InternetDetail>;
+
+export type InternetCardContent = {
+    main: {
+        provider: InternetProvider;
+        traffic: TrafficInfo;
+        startedTime: string;
+    };
+    details: InternetDetails;
+};
+
+export type InternetCard = BaseCard & {
+    cardContent: InternetCardContent;
+};
+
+export type Card = SystemCard | ApplicationsCard | WiFiCard | NetworkPortsCard | InternetCard;
 export type CardContent =
     | SystemCardContent
     | ApplicationsCardContent
     | WiFiCardContent
-    | NetworkPortsCardContent;
+    | NetworkPortsCardContent
+    | InternetCardContent;
 
 export type CardsResponse = {
     isLoading: boolean;
