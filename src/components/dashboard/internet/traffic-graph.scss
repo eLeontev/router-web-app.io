@@ -1,0 +1,15 @@
+.traffic-graph {
+    position: relative;
+
+    .line {
+        &__upload {
+            stroke: #e84855;
+            fill: #fad9dc;
+        }
+
+        &__download {
+            stroke: #124169;
+            fill: #0098d9;
+        }
+    }
+}
