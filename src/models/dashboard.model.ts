@@ -139,6 +139,7 @@ export type TrafficValue = {
     value: number;
     unit: string;
 };
+export type TrafficValues = Array<TrafficValue>;
 
 export type Traffic = {
     type: trafficType;
@@ -161,7 +162,7 @@ export type InternetDetails = Array<InternetDetail>;
 export type InternetCardContent = {
     main: {
         provider: InternetProvider;
-        traffic: TrafficInfo;
+        trafficInfo: TrafficInfo;
         startedTime: string;
     };
     details: InternetDetails;
