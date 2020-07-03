@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './details.scss';
 
-import { InternetDetail, InternetDetails } from '../../../models/dashboard.model';
+import { Button } from '../../common/button';
+
+import { InternetContext } from '../../../context/internet.context';
 import {
     hiddenDetailsLabel,
     internetDetailsType,
     moreDetailsLabel,
 } from '../../../constants/cards.constants';
-import { Button } from '../../common/button';
+
+import { InternetDetail, InternetDetails } from '../../../models/dashboard.model';
+
+const { download, upload, received, sent, reboot, configuration } = internetDetailsType;
 
 export type InternetDetailsProps = {
     details: InternetDetails;
@@ -20,14 +25,30 @@ export const DefaultDetailRenderer = ({ label, value }: InternetDetail) => (
     </section>
 );
 
+export const DynamicSentReceivedDetailRenderer = (detail: InternetDetail) => {
+    const { internetState } = useContext(InternetContext);
+    const value = detail.type === sent ? internetState.sent : internetState.received;
+
+    return <DefaultDetailRenderer {...detail} value={value} />;
+};
+
+export const DynamicTrafficDetailRenderer = (detail: InternetDetail) => {
+    const { internetState } = useContext(InternetContext);
+    let { value, unit } = detail.type === upload ? internetState.upload : internetState.download;
+
+    return <DefaultDetailRenderer {...detail} value={`${value} ${unit}`} />;
+};
+
 export const detailRenderers: {
     [renderer in internetDetailsType]: (detail: InternetDetail) => JSX.Element;
 } = {
+    [configuration]: DefaultDetailRenderer,
+    [reboot]: DefaultDetailRenderer,
+    [sent]: DynamicSentReceivedDetailRenderer,
+    [received]: DynamicSentReceivedDetailRenderer,
+    [download]: DynamicTrafficDetailRenderer,
+    [upload]: DynamicTrafficDetailRenderer,
     [internetDetailsType.default]: DefaultDetailRenderer,
-    [internetDetailsType.dynamic]: DefaultDetailRenderer,
-    [internetDetailsType.related]: DefaultDetailRenderer,
-    [internetDetailsType.configuration]: DefaultDetailRenderer,
-    [internetDetailsType.reboot]: DefaultDetailRenderer,
 };
 
 export const renderDetail = (detail: InternetDetail, index: number) => {
@@ -46,7 +67,7 @@ export const DetailsRenderer = ({ details }: InternetDetailsProps) => {
             <Button
                 className="details-button"
                 buttonHandler={() => toggleDetailsVisibility(!isHidden)}
-                buttonName={isHidden ? hiddenDetailsLabel : moreDetailsLabel}
+                buttonName={isHidden ? moreDetailsLabel : hiddenDetailsLabel}
             />
             {isHidden ? null : <section className="details-info">{renderDetails(details)}</section>}
         </section>
