@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { RecoilRoot } from 'recoil';
 
 import { LoginPage } from './login/login';
 import { DashboardPage } from './dashboard/dashboard';
@@ -22,11 +21,9 @@ export const AppRouter = () => (
                 </WithLoaderContext>
             </Route>
             <Route path="/">
-                <RecoilRoot>
-                    <WithLoaderContext>
-                        <LoginPage />
-                    </WithLoaderContext>
-                </RecoilRoot>
+                <WithLoaderContext>
+                    <LoginPage />
+                </WithLoaderContext>
             </Route>
         </Switch>
     </Router>
