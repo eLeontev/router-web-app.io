@@ -19,7 +19,7 @@ $maxCardWidth: 700px;
         padding-left: $offsetBetweenCards;
         max-width: #{$maxCardWidth + $offsetBetweenCards};
         width: calc(50% - 15px);
-        min-width: 400px;
+        min-width: 320px;
     }
 }
 
