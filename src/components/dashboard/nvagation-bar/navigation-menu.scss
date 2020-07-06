@@ -1,0 +1,66 @@
+.navbar-section {
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    min-height: 60px;
+
+    position: relative;
+    overflow: hidden;
+    font-size: 12px;
+
+    &:before {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        top: 20px;
+        left: 20px;
+        content: '';
+    }
+
+    &__status:before {
+        background: url(../../../sprite.svg) -1121.1px -48px no-repeat;
+    }
+    &__internet:before {
+        background: url(../../../sprite.svg) -9px -1068.69px no-repeat;
+    }
+    &__network:before {
+        background: url(../../../sprite.svg) -743.6px -453px no-repeat;
+    }
+    &__rules:before {
+        background: url(../../../sprite.svg) -1079.1px -202px no-repeat;
+    }
+    &__management:before {
+        background: url(../../../sprite.svg) -1079.1px -984.88px no-repeat;
+    }
+
+    &-title {
+        color: #0098d9;
+        text-transform: uppercase;
+        padding-left: 60px;
+        padding-top: 23px;
+        letter-spacing: 1.5px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    &-action {
+        height: 32px;
+        line-height: 32px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        width: 240px;
+        padding-left: 60px;
+
+        &:hover {
+            background-color: #124169;
+            transition: all 0.1665s linear 0.1665s;
+        }
+    }
+
+    &-actions {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './dashboard.scss';
 
 import { Header } from '../../components/dashboard/header/header';
@@ -14,18 +14,13 @@ export const DashboardPage = ({ cardLoader = cardLoaderInstance }: DashboardProp
     const history = useHistory<Cards>();
     const { leftCards, rightCards } = cardLoader.useLoadCards(history);
 
-    const [isNavBarCollapsed, triggerNavBarStatus] = useState(true);
-
     return (
         <>
             <Modal />
             <ContextLoader />
             <Header />
             <main>
-                <NavigationBar
-                    isCollapsed={isNavBarCollapsed}
-                    triggerNavBarStatus={triggerNavBarStatus}
-                />
+                <NavigationBar />
                 <section className={`content`}>
                     <CardsComponent leftCards={leftCards} rightCards={rightCards} />
                 </section>

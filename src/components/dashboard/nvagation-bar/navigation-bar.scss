@@ -15,6 +15,7 @@ nav {
     top: 50px;
     height: calc(100% - 50px);
     background-color: #192a4d;
+    overflow: hidden;
 
     &__navbar-expanded {
         animation: 0.3s linear forwards expand_navbar;
@@ -22,13 +23,8 @@ nav {
 }
 
 .navbar {
-    position: fixed;
-    background-color: #192a4d;
-    height: 100%;
-
-    &__collapsed {
-        width: $collapsedWidth;
-    }
+    height: calc(100% - 60px);
+    position: relative;
 
     &-background {
         cursor: pointer;
@@ -38,6 +34,18 @@ nav {
         left: 0;
         right: 0;
         bottom: 0;
+    }
+
+    .navbar-section:hover {
+        background-color: #124169;
+        transition: all 0.1665s linear 0.1665s;
+    }
+
+    &__expanded {
+        .navbar-section:hover {
+            background-color: transparent;
+            transition: none;
+        }
     }
 }
 
