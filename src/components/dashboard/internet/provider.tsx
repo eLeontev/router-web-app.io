@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useRecoilValue } from 'recoil';
 import './provider.scss';
 
+import { internetState } from '../../../recoil-state/internet/internet.atom';
+
 import { providerHeaderLabel } from '../../../constants/cards.constants';
+
 import { InternetProvider } from '../../../models/dashboard.model';
 import { ParamHandlerArguments, updateUptime } from '../../../mock/system-params.mock';
-import { InternetContext } from '../../../context/internet.context';
 
 export type ProviderProps = InternetProvider & {
     connectionDuration: string;
@@ -12,7 +15,7 @@ export type ProviderProps = InternetProvider & {
 
 export const InternetConnectionDuration = React.memo(
     ({ startedTime, value }: ParamHandlerArguments) => {
-        useContext(InternetContext);
+        useRecoilValue(internetState); // to sync with state update
 
         return (
             <section className="provider-connection-duration">

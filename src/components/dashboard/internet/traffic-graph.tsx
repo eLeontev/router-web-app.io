@@ -3,14 +3,10 @@ import './traffic-graph.scss';
 
 import { renderGraph } from '../../../utils/d3-graph';
 
-import { TrafficValue } from '../../../models/dashboard.model';
 import { getDataset, getLimitedCountOfNodes } from '../../../services/traffic-graph.service';
 
-export type TrafficGraphProps = {
-    max: TrafficValue;
-    current: TrafficValue;
-    isUpload: boolean;
-};
+import { TrafficValue } from '../../../models/dashboard.model';
+import { TrafficGraphProps } from '../../../models/internet.model';
 
 const getModifier = (isUpload: boolean) => (isUpload ? 'upload' : 'download');
 

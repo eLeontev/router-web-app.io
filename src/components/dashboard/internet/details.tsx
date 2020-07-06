@@ -1,9 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import './details.scss';
 
 import { Button } from '../../common/button';
 
-import { InternetContext } from '../../../context/internet.context';
+import { sentReceivedTrafficState } from '../../../recoil-state/internet/sent-received.traffic.selector';
+import { speedTrafficState } from '../../../recoil-state/internet/speed.traffic.selector';
+
 import {
     hiddenDetailsLabel,
     internetDetailsType,
@@ -26,15 +29,15 @@ export const DefaultDetailRenderer = ({ label, value }: InternetDetail) => (
 );
 
 export const DynamicSentReceivedDetailRenderer = (detail: InternetDetail) => {
-    const { internetState } = useContext(InternetContext);
-    const value = detail.type === sent ? internetState.sent : internetState.received;
+    const { received, sent } = useRecoilValue(sentReceivedTrafficState);
+    const value = detail.type === internetDetailsType.sent ? sent : received;
 
     return <DefaultDetailRenderer {...detail} value={value} />;
 };
 
 export const DynamicTrafficDetailRenderer = (detail: InternetDetail) => {
-    const { internetState } = useContext(InternetContext);
-    let { value, unit } = detail.type === upload ? internetState.upload : internetState.download;
+    const { upload, download } = useRecoilValue(speedTrafficState);
+    let { value, unit } = detail.type === internetDetailsType.upload ? upload : download;
 
     return <DefaultDetailRenderer {...detail} value={`${value} ${unit}`} />;
 };
