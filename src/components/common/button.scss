@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .close-message-button {
     background-color: #42403e;
     color: #f8f6ec;
@@ -101,4 +103,11 @@
     padding-bottom: 5px;
     border-bottom: 1px dashed #0098d9;
     color: #0098d9;
+}
+
+@media (max-width: $mediaQueryTabletModal) {
+    .modal-action-button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
 }

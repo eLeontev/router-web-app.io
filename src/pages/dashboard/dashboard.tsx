@@ -19,10 +19,12 @@ export const DashboardPage = ({ cardLoader = cardLoaderInstance }: DashboardProp
             <Modal />
             <ContextLoader />
             <Header />
-            <section className="content">
+            <main>
                 <NavigationBar isCollapsed={true} />
-                <CardsComponent leftCards={leftCards} rightCards={rightCards} />
-            </section>
+                <section className="content">
+                    <CardsComponent leftCards={leftCards} rightCards={rightCards} />
+                </section>
+            </main>
         </>
     );
 };

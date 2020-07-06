@@ -51,5 +51,5 @@ export const renderGraph = (selector: string, modifier: string, dataset: Array<{
         .attr('class', 'h-oriented-borders')
         .call(hAxis)
         .call((g) => g.select('.domain').remove()) // to remove domain
-        .call(g => g.select('.tick').remove()); // to remove the base border
+        .call((g) => g.select('.tick').remove()); // to remove the base border
 };

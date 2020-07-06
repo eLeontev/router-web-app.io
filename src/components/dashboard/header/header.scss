@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 header {
     height: 50px;
     display: flex;
@@ -12,4 +14,23 @@ header {
     width: 100%;
     z-index: 1;
     box-sizing: border-box;
+}
+
+@media (max-width: $mediaQueryTabletModal) {
+    header {
+        h1 {
+            display: flex;
+            flex-direction: column;
+            font-size: 22px;
+            line-height: 1;
+        }
+    }
+}
+
+@media (max-width: $mediaQueryMobile) {
+    header {
+        h1 {
+            transform: translateX(60px);
+        }
+    }
 }

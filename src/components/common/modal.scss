@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .modal {
     &-background {
         z-index: 10;
@@ -77,5 +79,26 @@
             display: block;
             font-size: 110px;
         }
+    }
+}
+
+@media (max-width: $mediaQueryTabletModal) {
+    .modal-content {
+        top: 40px;
+        width: 300px;
+        padding: 10px;
+    }
+
+    .modal-connection-credentials {
+        font-size: 16px;
+    }
+
+    .modal-connection_qr-code {
+        width: 220px;
+        height: 220px;
+    }
+
+    .actions-main {
+        flex-direction: column;
     }
 }

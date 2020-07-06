@@ -5,7 +5,9 @@ import { SearchBar } from '../../common/search-bar';
 
 export const Header = () => (
     <header>
-        <h1>Keenetic Router</h1>
+        <h1>
+            Keenetic <span>Router</span>
+        </h1>
         <SearchBar />
     </header>
 );

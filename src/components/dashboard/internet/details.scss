@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .details-info {
     margin-top: 10px;
     padding-left: 15px;
@@ -23,7 +25,7 @@
     }
 }
 
-@media (max-width: 930px) {
+@media (max-width: $mediaQueryTableDetails) {
     .detail-pair-value {
         padding-bottom: 15px;
         border-bottom: 1px solid #0098d9;

@@ -1,6 +1,7 @@
 .traffic-graph {
     position: relative;
     opacity: 0.4;
+    overflow: hidden;
 
     .line {
         &__upload {

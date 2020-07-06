@@ -1,6 +1,9 @@
+@import '../../../styles/variables';
+
 $offsetBetweenCards: 15px;
 $cardInnerOffset: 10px;
 $maxCardWidth: 700px;
+
 .cards {
     width: 100%;
     display: flex;
@@ -187,5 +190,20 @@ $cardContentPadding: 20px;
 
     &-info {
         text-align: center;
+    }
+}
+
+@media (max-width: $mediaQueryTablet) {
+    .cards {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0;
+
+        &-left,
+        &-right {
+            width: calc(100% - 30px);
+            padding: $offsetBetweenCards;
+        }
     }
 }
