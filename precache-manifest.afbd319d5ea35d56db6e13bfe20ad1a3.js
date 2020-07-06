@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b698529c16af61738ccc99812f54041a",
+    "revision": "76df94b5cead10b1b10bca20c8a8993a",
     "url": "/router-web-app.io/index.html"
   },
   {
-    "revision": "f5a9cb6c64d816a16d26",
-    "url": "/router-web-app.io/static/css/main.cdab9f9c.chunk.css"
+    "revision": "a9cb6d19a74fa56360bf",
+    "url": "/router-web-app.io/static/css/main.a9637970.chunk.css"
   },
   {
-    "revision": "cb904c5a19312f8a37a4",
-    "url": "/router-web-app.io/static/js/2.bec7762d.chunk.js"
+    "revision": "5fc1759e54cdf0629f24",
+    "url": "/router-web-app.io/static/js/2.f7704ffd.chunk.js"
   },
   {
     "revision": "7c76fd6bf040e2ca66cdad5291f58a3d",
-    "url": "/router-web-app.io/static/js/2.bec7762d.chunk.js.LICENSE.txt"
+    "url": "/router-web-app.io/static/js/2.f7704ffd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f5a9cb6c64d816a16d26",
-    "url": "/router-web-app.io/static/js/main.635c747c.chunk.js"
+    "revision": "a9cb6d19a74fa56360bf",
+    "url": "/router-web-app.io/static/js/main.b7996a06.chunk.js"
   },
   {
     "revision": "68516d5c9bf05e3ed18b",
