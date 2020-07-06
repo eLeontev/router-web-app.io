@@ -1,12 +1,12 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 
 import { ProviderRenderer } from '../internet/provider';
 import { TrafficRenderer } from '../internet/traffic';
 import { DetailsRenderer } from '../internet/details';
 
 import { CardContent, InternetCardContent } from '../../../models/dashboard.model';
-import { WithInternetContext } from '../../../context/internet.context';
-import { ContextUpdater } from '../internet/context-updater';
+import { RecoilInternetUpdater } from '../internet/recoil-internet-updater';
 
 export const InternetCardRenderer = (cardContent: InternetCardContent) => {
     const { main, details } = cardContent;
@@ -26,12 +26,12 @@ export const InternetCardRenderer = (cardContent: InternetCardContent) => {
 };
 export const InternetCardComponent = (cardContent: CardContent) => {
     return (
-        <WithInternetContext>
-            <ContextUpdater
+        <RecoilRoot>
+            <RecoilInternetUpdater
                 details={(cardContent as InternetCardContent).details}
                 trafficInfo={(cardContent as InternetCardContent).main.trafficInfo}
             />
             <InternetCardRenderer {...(cardContent as InternetCardContent)} />
-        </WithInternetContext>
+        </RecoilRoot>
     );
 };
