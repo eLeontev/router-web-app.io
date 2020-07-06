@@ -12,7 +12,8 @@ import { Traffic, TrafficValue } from '../../../models/dashboard.model';
 export const getTrafficValue = ({ unit, value }: TrafficValue) => `${value} ${unit}`;
 export const getTrafficModifier = (type: trafficType) => `traffic__${type}`;
 
-export const TrafficRenderer = ({ type, max }: Traffic) => {
+export const TrafficRenderer = React.memo(({ type, max }: Traffic) => {
+    // https://github.com/facebookexperimental/Recoil/issues/12
     const { upload, download } = useRecoilValue(speedTrafficState);
     const trafficValue = type === trafficType.upload ? upload : download;
 
@@ -30,4 +31,4 @@ export const TrafficRenderer = ({ type, max }: Traffic) => {
             <TrafficGraph max={max} current={trafficValue} isUpload={type === trafficType.upload} />
         </section>
     );
-};
+});

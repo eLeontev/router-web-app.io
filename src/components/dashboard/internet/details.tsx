@@ -28,14 +28,16 @@ export const DefaultDetailRenderer = ({ label, value }: InternetDetail) => (
     </section>
 );
 
-export const DynamicSentReceivedDetailRenderer = (detail: InternetDetail) => {
+export const SentReceivedDetailRenderer = (detail: InternetDetail) => {
+    // https:github.com/facebookexperimental/Recoil/issues/12
     const { received, sent } = useRecoilValue(sentReceivedTrafficState);
     const value = detail.type === internetDetailsType.sent ? sent : received;
 
     return <DefaultDetailRenderer {...detail} value={value} />;
 };
 
-export const DynamicTrafficDetailRenderer = (detail: InternetDetail) => {
+export const SpeedTrafficDetailRenderer = (detail: InternetDetail) => {
+    // https:github.com/facebookexperimental/Recoil/issues/12
     const { upload, download } = useRecoilValue(speedTrafficState);
     let { value, unit } = detail.type === internetDetailsType.upload ? upload : download;
 
@@ -47,10 +49,10 @@ export const detailRenderers: {
 } = {
     [configuration]: DefaultDetailRenderer,
     [reboot]: DefaultDetailRenderer,
-    [sent]: DynamicSentReceivedDetailRenderer,
-    [received]: DynamicSentReceivedDetailRenderer,
-    [download]: DynamicTrafficDetailRenderer,
-    [upload]: DynamicTrafficDetailRenderer,
+    [sent]: SentReceivedDetailRenderer,
+    [received]: SentReceivedDetailRenderer,
+    [download]: SpeedTrafficDetailRenderer,
+    [upload]: SpeedTrafficDetailRenderer,
     [internetDetailsType.default]: DefaultDetailRenderer,
 };
 
