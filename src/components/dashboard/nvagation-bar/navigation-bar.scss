@@ -1,18 +1,43 @@
 @import '../../../styles/variables';
 
 $collapsedWidth: 60px;
+$expandedWidth: 300px;
+
+nav {
+    position: relative;
+    z-index: 1;
+}
 
 .navbar-container {
+    cursor: pointer;
     width: $collapsedWidth;
+    position: fixed;
+    top: 50px;
+    height: calc(100% - 50px);
+    background-color: #192a4d;
+
+    &__navbar-expanded {
+        animation: 0.3s linear forwards expand_navbar;
+    }
 }
 
 .navbar {
-    background-color: #192a4d;
     position: fixed;
+    background-color: #192a4d;
     height: 100%;
 
     &__collapsed {
         width: $collapsedWidth;
+    }
+
+    &-background {
+        cursor: pointer;
+        background-color: rgba(37, 36, 43, 0.7);
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
 
@@ -20,5 +45,25 @@ $collapsedWidth: 60px;
     .navbar {
         height: 50px;
         z-index: 1;
+    }
+}
+
+@keyframes collapse_navbar {
+    from {
+        width: $expandedWidth;
+    }
+
+    to {
+        width: $collapsedWidth;
+    }
+}
+
+@keyframes expand_navbar {
+    from {
+        width: $collapsedWidth;
+    }
+
+    to {
+        width: $expandedWidth;
     }
 }
