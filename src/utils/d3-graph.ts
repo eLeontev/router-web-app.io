@@ -33,12 +33,23 @@ export const renderGraph = (selector: string, modifier: string, dataset: Array<{
     const svg = parent
         .append('svg')
         .attr('width', width + offsetLeft + offsetRight)
-        .attr('height', height + offsetTop + offsetBottom)
-        .append('g')
-        .attr('transform', `translate(${offsetLeft}, ${offsetTop})`);
+        .attr('height', height + offsetTop + offsetBottom);
 
-    svg.append('path')
+    svg.append('g')
+        .attr('transform', `translate(${offsetLeft}, ${offsetTop})`)
+        .append('path')
         .datum(dataset)
         .attr('class', `line__${modifier}`)
         .attr('d', line as any);
+
+    const hAxis = d3
+        .axisRight(d3.scaleLinear().range([height, 0])) // to set base border as he first item to simple remove it
+        .ticks(6)
+        .tickSize(width);
+
+    svg.append('g')
+        .attr('class', 'h-oriented-borders')
+        .call(hAxis)
+        .call((g) => g.select('.domain').remove()) // to remove domain
+        .call(g => g.select('.tick').remove()); // to remove the base border
 };

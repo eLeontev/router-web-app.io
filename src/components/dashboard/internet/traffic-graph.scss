@@ -1,5 +1,6 @@
 .traffic-graph {
     position: relative;
+    opacity: 0.4;
 
     .line {
         &__upload {
@@ -11,5 +12,12 @@
             stroke: #124169;
             fill: #0098d9;
         }
+    }
+}
+
+.h-oriented-borders {
+    .tick {
+        stroke-opacity: 0.1;
+        stroke-dasharray: 1;
     }
 }
