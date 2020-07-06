@@ -46,6 +46,8 @@ export enum trafficType {
     download = 'download',
 }
 
+export const trafficTimeFormat = 'HH:mm';
+
 export const trafficTypeLabel: { [label in trafficType]: string } = {
     [trafficType.download]: 'Download',
     [trafficType.upload]: 'Upload',

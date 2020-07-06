@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil';
 import './traffic.scss';
 
 import { TrafficGraph } from './traffic-graph';
+import { TrafficTiming } from './traffic-timing';
 
 import { speedTrafficState } from '../../../recoil-state/internet/speed.traffic.selector';
 
@@ -29,6 +30,7 @@ export const TrafficRenderer = React.memo(({ type, max }: Traffic) => {
                 <section className="traffic-info_max-speed">{getTrafficValue(max)}</section>
             </section>
             <TrafficGraph max={max} current={trafficValue} isUpload={type === trafficType.upload} />
+            <TrafficTiming />
         </section>
     );
 });
