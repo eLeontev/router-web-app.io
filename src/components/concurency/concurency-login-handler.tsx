@@ -2,7 +2,7 @@ import React, { Suspense, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router-dom';
 
-import { suspenceFetch } from '../../concurency/suspence-fetch';
+import { suspenseFetch } from '../../concurency/suspence-fetch';
 import { SuspenseLoader } from '../common/loader';
 import { loadDashboard } from '../../services/login-and-load-dashboard';
 import { dashboardPath } from '../../constants/router.constants';
@@ -28,7 +28,7 @@ export const ConcurencyLoginHandler = ({
     getDashboardRequest = loadDashboard,
 }: ConcurencyLoginHandlerProps) => {
     const [dashboardRequest] = useState(
-        suspenceFetch<Cards | undefined>(getDashboardRequest(loginValues, errorHandler))
+        suspenseFetch<Cards | undefined>(getDashboardRequest(loginValues, errorHandler))
     );
 
     return (

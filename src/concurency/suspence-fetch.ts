@@ -1,8 +1,8 @@
-export type SuspenseResourse<R> = {
+export type SuspenseResource<R> = {
     read(): R;
 };
 
-export const suspenceFetch = <R>(promise: Promise<R>): SuspenseResourse<R | undefined> => {
+export const suspenseFetch = <R>(promise: Promise<R>): SuspenseResource<R | undefined> => {
     return wrapPromise<R>(promise);
 };
 

@@ -1,10 +1,10 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import './traffic-graph.scss';
 
 import { renderGraph } from '../../../utils/d3-graph';
 
 import { TrafficValue } from '../../../models/dashboard.model';
-import {getDataset, getLimitedCountOfNodes} from '../../../services/traffic-graph.service';
+import { getDataset, getLimitedCountOfNodes } from '../../../services/traffic-graph.service';
 
 export type TrafficGraphProps = {
     max: TrafficValue;
@@ -20,7 +20,11 @@ export const TrafficGraph = ({ isUpload, current, max }: TrafficGraphProps) => {
 
     useEffect(() => {
         nodesRef.current = getLimitedCountOfNodes(nodesRef.current, current);
-        renderGraph('traffic-graph', getModifier(isUpload), getDataset(nodesRef.current, maxRef.current));
+        renderGraph(
+            'traffic-graph',
+            getModifier(isUpload),
+            getDataset(nodesRef.current, maxRef.current)
+        );
     }, [current, isUpload]);
 
     return <section className={`traffic-graph traffic-graph__${getModifier(isUpload)}`}></section>;
