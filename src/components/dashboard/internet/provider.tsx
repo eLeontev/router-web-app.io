@@ -7,7 +7,7 @@ import { internetState } from '../../../recoil-state/internet/internet.atom';
 import { providerHeaderLabel } from '../../../constants/cards.constants';
 
 import { InternetProvider } from '../../../models/dashboard.model';
-import { ParamHandlerArguments, updateUptime } from '../../../mock/system-params.mock';
+import { ParamHandlerArguments, updateUptime } from '../../../services/system-params.service';
 
 export type ProviderProps = InternetProvider & {
     connectionDuration: string;

@@ -35,7 +35,7 @@ export const updateUptime = ({ startedTime }: ParamHandlerArguments): SystemPara
     return `${diff.format('D')} days ${diff.format('H:mm:ss')}`;
 };
 
-export const updateCurrentTime = (): SystemParamValue => {
+export const getCurrentTime = (): SystemParamValue => {
     const now = moment();
     return now.format('M/DD/YYYY H:mm:ss');
 };
@@ -46,7 +46,7 @@ const paramHandlers: ParamHandlers = {
     [paramTypes.ramUsage]: updateRAMValue,
     [paramTypes.cpuUsage]: updateCPUValue,
     [paramTypes.uptime]: updateUptime,
-    [paramTypes.currentTime]: updateCurrentTime,
+    [paramTypes.currentTime]: getCurrentTime,
     [paramTypes.inactive]: inactive,
 };
 

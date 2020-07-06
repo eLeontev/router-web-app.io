@@ -7,7 +7,7 @@ import {
     SystemParams,
 } from '../../../models/dashboard.model';
 import { splitSystemParams } from '../../../services/system-card.service';
-import { updateParamsMock } from '../../../mock/system-params.mock';
+import { updateParamsMock } from '../../../services/system-params.service';
 import { updateActiveParamsInterval } from '../../../constants/cards.constants';
 
 export const ParamRenderer = ({ label, value }: SystemParam) => (
