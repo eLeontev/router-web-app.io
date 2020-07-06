@@ -22,7 +22,7 @@ export const DashboardLoader = ({ dashboardRequest }: DashboardLoaderProps) => {
     return null;
 };
 
-export const ConcurencyLoginHandler = ({
+export const ConcurrencyLoginHandler = ({
     loginValues,
     errorHandler,
     getDashboardRequest = loadDashboard,

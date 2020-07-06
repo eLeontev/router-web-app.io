@@ -6,7 +6,7 @@ import { Button } from '../../components/common/button';
 
 import { Message } from '../../components/common/message';
 import { initialState, loginActionTypes } from '../../constants/login.constants';
-import { ConcurencyLoginHandler } from '../../components/concurency/concurency-login-handler';
+import { ConcurrencyLoginHandler } from '../../components/concurrency/concurrency-login-handler';
 import { LoginState, LoginReducer } from '../../models/login.model';
 import { loginReducer } from '../../reducers/login.reducer';
 
@@ -25,7 +25,7 @@ export const LoginPage = () => {
         <>
             <section id="root-portal-modal"></section>
             {shouldLogin ? (
-                <ConcurencyLoginHandler
+                <ConcurrencyLoginHandler
                     loginValues={{ login, password }}
                     errorHandler={(errorMessage: string): undefined => {
                         dispatch({ type: cleanuplogin, value: errorMessage });
