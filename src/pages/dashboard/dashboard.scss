@@ -1,14 +1,43 @@
 @import '../../styles/variables';
+@import '../../components/dashboard/nvagation-bar/navigation-bar';
 
 .content {
     display: flex;
     flex-direction: row;
     padding-top: 50px;
     padding-left: 60px;
+
+    &__expanded {
+        animation: 0.3s linear forwards collapse_content;
+    }
+
+    &__collapsed {
+        animation: 0.3s linear forwards expand_content;
+    }
 }
 
 @media (max-width: $mediaQueryMobile) {
     .content {
         padding-left: 0;
+    }
+}
+
+@keyframes expand_content {
+    from {
+        padding-left: $expandedWidth;
+    }
+
+    to {
+        padding-left: $collapsedWidth;
+    }
+}
+
+@keyframes collapse_content {
+    from {
+        padding-left: $collapsedWidth;
+    }
+
+    to {
+        padding-left: $expandedWidth;
     }
 }

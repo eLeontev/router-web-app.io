@@ -4,58 +4,83 @@ $collapsedWidth: 60px;
 $expandedWidth: 300px;
 
 nav {
-    position: relative;
+    position: fixed;
     z-index: 1;
-}
-
-.navbar-container {
+    top: 50px;
+    left: 0;
+    bottom: 0;
     cursor: pointer;
     width: $collapsedWidth;
-    position: fixed;
-    top: 50px;
-    height: calc(100% - 50px);
     background-color: #192a4d;
     overflow: hidden;
 
-    &__navbar-expanded {
+    &.expanded {
         animation: 0.3s linear forwards expand_navbar;
     }
-}
 
-.navbar {
-    height: calc(100% - 60px);
-    position: relative;
-
-    &-background {
-        cursor: pointer;
-        background-color: rgba(37, 36, 43, 0.7);
-        position: fixed;
-        top: 50px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-
-    .navbar-section:hover {
-        background-color: #124169;
-        transition: all 0.1665s linear 0.1665s;
-    }
-
-    &__expanded {
-        .navbar-section:hover {
-            background-color: transparent;
-            transition: none;
-        }
+    &.collapsed {
+        animation: 0.3s linear forwards collapse_navbar;
     }
 }
 
-@media (max-width: $mediaQueryMobile) {
-    .navbar {
-        height: 50px;
-        z-index: 1;
-    }
+.nav-background {
+    cursor: pointer;
+    background-color: rgba(37, 36, 43, 0.7);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-
+//
+//.navbar-container {
+//    cursor: pointer;
+//    width: $collapsedWidth;
+//    position: fixed;
+//    top: 50px;
+//    height: calc(100% - 50px);
+//    background-color: #192a4d;
+//    overflow: hidden;
+//
+//    &__navbar-expanded {
+//        animation: 0.3s linear forwards expand_navbar;
+//    }
+//}
+//
+//.navbar {
+//    height: calc(100% - 60px);
+//    position: relative;
+//
+//    &-background {
+//        cursor: pointer;
+//        background-color: rgba(37, 36, 43, 0.7);
+//        position: fixed;
+//        top: 50px;
+//        left: 0;
+//        right: 0;
+//        bottom: 0;
+//    }
+//
+//    .navbar-section:hover {
+//        background-color: #124169;
+//        transition: all 0.1665s linear 0.1665s;
+//    }
+//
+//    &__expanded {
+//        .navbar-section:hover {
+//            background-color: transparent;
+//            transition: none;
+//        }
+//    }
+//}
+//
+//@media (max-width: $mediaQueryMobile) {
+//    .navbar {
+//        height: 50px;
+//        z-index: 1;
+//    }
+//}
+//
 @keyframes collapse_navbar {
     from {
         width: $expandedWidth;
