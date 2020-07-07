@@ -1,9 +1,10 @@
 import {
-    NavActionLinks,
     NavActionLabels,
+    NavActionLinks,
+    navActionTypes,
     NavSectionTitles,
     navSectionTypes,
-    navActionTypes,
+    SectionsUrls,
 } from '../models/nav.model';
 
 export const navSectionTitles: NavSectionTitles = {
@@ -12,6 +13,8 @@ export const navSectionTitles: NavSectionTitles = {
     [navSectionTypes.internet]: 'internet',
     [navSectionTypes.network]: 'my networks and wifi',
     [navSectionTypes.status]: 'status',
+    [navSectionTypes.none]: '',
+    [navSectionTypes.all]: '',
 };
 
 export const navActionLabels: NavActionLabels = {
@@ -48,7 +51,7 @@ export const navActionLabels: NavActionLabels = {
 
 export const navActionLinks: NavActionLinks = {
     [navActionTypes.logout]: '',
-    [navActionTypes.help]: '',
+    [navActionTypes.help]: 'https://help.keenetic.com/hc/en',
     [navActionTypes.translate]: '',
     [navActionTypes.triggerNav]: '',
 
@@ -77,3 +80,48 @@ export const navActionLinks: NavActionLinks = {
     [navActionTypes.usersAndAccess]: '/controlPanel/administrator',
     [navActionTypes.diagnostics]: '/controlPanel/diagnostics',
 };
+
+export const sectionsUrls: SectionsUrls = [
+    {
+        type: navSectionTypes.status,
+        urls: [navActionLinks.dashboard, navActionLinks.traffic],
+    },
+    {
+        type: navSectionTypes.internet,
+        urls: [
+            navActionLinks.wired,
+            navActionLinks.wirelessISP,
+            navActionLinks.otherConnections,
+            navActionLinks.connectionPriorities,
+        ],
+    },
+    {
+        type: navSectionTypes.network,
+        urls: [
+            navActionLinks.deviceList,
+            navActionLinks.homeSegment,
+            navActionLinks.guestSegment,
+            navActionLinks.wifiSegment,
+        ],
+    },
+    {
+        type: navSectionTypes.rules,
+        urls: [
+            navActionLinks.internetSafety,
+            navActionLinks.firewall,
+            navActionLinks.forwarding,
+            navActionLinks.routing,
+            navActionLinks.domainName,
+            navActionLinks.wirelessACL,
+        ],
+    },
+    {
+        type: navSectionTypes.management,
+        urls: [
+            navActionLinks.systemSettings,
+            navActionLinks.applications,
+            navActionLinks.usersAndAccess,
+            navActionLinks.diagnostics,
+        ],
+    },
+];

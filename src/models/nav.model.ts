@@ -36,6 +36,8 @@ export enum navSectionTypes {
     network = 'network',
     rules = 'rules',
     management = 'management',
+    none = 'none',
+    all = 'all',
 }
 
 export type NavSection = {
@@ -70,3 +72,10 @@ export type NavActionLabels = {
 export type NavActionLinks = {
     [link in navActionTypes]: string;
 };
+
+export type SectionUrls = {
+    type: navSectionTypes;
+    urls: Array<string>;
+};
+
+export type SectionsUrls = Array<SectionUrls>;

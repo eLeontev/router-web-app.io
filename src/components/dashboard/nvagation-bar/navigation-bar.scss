@@ -11,7 +11,7 @@ nav {
     bottom: 0;
     cursor: pointer;
     width: $collapsedWidth;
-    background-color: #192a4d;
+    background-color: #172b4d;
     overflow: hidden;
 
     &.expanded {
@@ -31,56 +31,25 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
+    width: $collapsedWidth;
+
+    &__collapsed {
+        animation: 0.3s linear forwards collapse_navbar;
+    }
+
+    &__expanded {
+        width: 100%;
+    }
 }
-//
-//.navbar-container {
-//    cursor: pointer;
-//    width: $collapsedWidth;
-//    position: fixed;
-//    top: 50px;
-//    height: calc(100% - 50px);
-//    background-color: #192a4d;
-//    overflow: hidden;
-//
-//    &__navbar-expanded {
-//        animation: 0.3s linear forwards expand_navbar;
-//    }
-//}
-//
-//.navbar {
-//    height: calc(100% - 60px);
-//    position: relative;
-//
-//    &-background {
-//        cursor: pointer;
-//        background-color: rgba(37, 36, 43, 0.7);
-//        position: fixed;
-//        top: 50px;
-//        left: 0;
-//        right: 0;
-//        bottom: 0;
-//    }
-//
-//    .navbar-section:hover {
-//        background-color: #124169;
-//        transition: all 0.1665s linear 0.1665s;
-//    }
-//
-//    &__expanded {
-//        .navbar-section:hover {
-//            background-color: transparent;
-//            transition: none;
-//        }
-//    }
-//}
-//
-//@media (max-width: $mediaQueryMobile) {
-//    .navbar {
-//        height: 50px;
-//        z-index: 1;
-//    }
-//}
-//
+
+.nav-container {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: $expandedWidth;
+}
+
 @keyframes collapse_navbar {
     from {
         width: $expandedWidth;

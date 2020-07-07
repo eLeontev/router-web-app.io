@@ -1,30 +1,36 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
+
 import './navigation-bar.scss';
 
-import { NavigationMenu } from './navigation-menu';
+import { NavigationSections } from './navigation-sections';
 import { NavigationFooter } from './navigation-footer';
 
 import { useExpandCollapseHook } from '../../../hooks/expand-collpase.hook';
 
-export type NavigationBarProps = {
-    isNavBarExpanded: boolean;
-    triggerNavBar: () => void;
-};
+import { NavigationBarProps } from '../../../models/navigation.model';
 
 export const NavigationBar = ({ isNavBarExpanded, triggerNavBar }: NavigationBarProps) => {
     const expandCollapseNavBarClassName = useExpandCollapseHook(isNavBarExpanded);
 
     return (
-        <nav className={expandCollapseNavBarClassName}>
-            {isNavBarExpanded ? (
-                <section onClick={triggerNavBar} className="nav-background"></section>
-            ) : null}
-            <section className={`nav-container`}>
-                <section className={`nav`}>
-                    <NavigationMenu isNavBarExpanded={isNavBarExpanded} />
+        <RecoilRoot>
+            <nav className={expandCollapseNavBarClassName}>
+                <section
+                    onClick={triggerNavBar}
+                    className={`nav-background nav-background__${expandCollapseNavBarClassName}`}
+                ></section>
+                <section className="nav-container">
+                    <NavigationSections
+                        isNavBarExpanded={isNavBarExpanded}
+                        triggerNavBar={triggerNavBar}
+                    />
+                    <NavigationFooter
+                        isNavBarExpanded={isNavBarExpanded}
+                        triggerNavBar={triggerNavBar}
+                    />
                 </section>
-                <NavigationFooter triggerNavBar={triggerNavBar} />
-            </section>
-        </nav>
+            </nav>
+        </RecoilRoot>
     );
 };
