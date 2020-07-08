@@ -3,29 +3,24 @@ import { Link } from 'react-router-dom';
 import './navigation-common-actions.scss';
 
 import { navActionLabels, navActionLinks } from '../../../constants/nav.constants';
-import { navBarToggleTime } from '../../../constants/common.constants';
 
 import { navActionTypes } from '../../../models/nav.model';
 
+export const getCommonActionsClassNames = (shouldDisplayCommonActions: boolean) =>
+    `nav-common-actions nav-common-actions__${
+        shouldDisplayCommonActions ? 'expanded' : 'collapsed'
+    }`;
+
 export const CommonNavActions = React.memo(
     ({ isNavBarExpanded }: { isNavBarExpanded: boolean }) => {
-        const [shouldDisplayCommonActions, setCommonActionsVisibility] = useState(isNavBarExpanded);
+        const [shouldExpandCommonActions, setCommonActionsVisibility] = useState(isNavBarExpanded);
 
         useEffect(() => {
-            let timerId: NodeJS.Timeout;
-            if (isNavBarExpanded) {
-                timerId = setTimeout(() => {
-                    setCommonActionsVisibility(true);
-                }, navBarToggleTime);
-            } else {
-                setCommonActionsVisibility(false);
-            }
-
-            return () => clearTimeout(timerId);
+            setCommonActionsVisibility(isNavBarExpanded);
         }, [isNavBarExpanded]);
 
-        return shouldDisplayCommonActions ? (
-            <section className="nav-common-actions">
+        return (
+            <section className={getCommonActionsClassNames(shouldExpandCommonActions)}>
                 <section className="nav-section nav-section__top-border nav-section__logout">
                     <h3
                         onClick={() => {}}
@@ -43,6 +38,6 @@ export const CommonNavActions = React.memo(
                     </section>
                 </section>
             </section>
-        ) : null;
+        );
     }
 );

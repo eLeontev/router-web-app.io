@@ -7,6 +7,7 @@ import {
     navSectionTitles,
 } from '../../../constants/nav.constants';
 import {
+    getActionsClassNames,
     getSectionClassNames,
     getSectionTitleClassNames,
 } from '../../../services/navigation.service';
@@ -36,15 +37,15 @@ export const SectionRenderer = ({
     isActive,
     linkActions,
 }: SectionRendererProps) => (
-    <section onClick={onExpandNavBar} className={getSectionClassNames(type, shouldExpandSection)}>
+    <section onClick={onExpandNavBar} className={getSectionClassNames(type)}>
         <h3
             onClick={onExpandSection}
             className={getSectionTitleClassNames(isActive, shouldExpandSection)}
         >
             {navSectionTitles[type]}
         </h3>
-        {shouldExpandSection ? (
-            <section className="nav-section-actions">{renderLinkActions(linkActions)}</section>
-        ) : null}
+        <section className={getActionsClassNames(shouldExpandSection)}>
+            {renderLinkActions(linkActions)}
+        </section>
     </section>
 );

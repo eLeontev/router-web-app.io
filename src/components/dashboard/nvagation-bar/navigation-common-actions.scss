@@ -1,3 +1,10 @@
+@import '../../../styles/animations';
+
+.nav-common-actions {
+    overflow: hidden;
+    @include expanded--vertical-animation;
+}
+
 .action-as-link,
 .dropdown-as-link {
     width: 50%;

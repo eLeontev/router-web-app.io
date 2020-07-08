@@ -1,0 +1,20 @@
+@mixin expanded--vertical-animation {
+    max-height: 0;
+
+    &__expanded {
+        max-height: 500px;
+        transition: max-height 1s ease-in;
+    }
+}
+
+@mixin collapsed--vertical-animation {
+    &__collapsed {
+        max-height: 0;
+        transition: max-height 1s linear;
+    }
+}
+
+@mixin toggle--vertical-animation {
+    @include expanded--vertical-animation;
+    @include collapsed--vertical-animation;
+}

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { useHistory } from 'react-router-dom';
 
 import { SectionRenderer } from './navigation-section.renderer';
@@ -39,19 +39,4 @@ export const Section = React.memo(({ type, linkActions }: NavSection) => {
             onExpandSection={onExpandSection}
         />
     );
-});
-
-export const DefaultSection = React.memo(() => {
-    const { isNavBarExpanded, toggleNavBar } = useToggleNavBar();
-    const expandSection = useSetRecoilState(expandSectionState);
-    const history = useHistory();
-
-    const onExpandNavBar = useCallback(() => {
-        toggleNavBar();
-        if (!isNavBarExpanded) {
-            expandSection(getActiveSection(history.location.pathname));
-        }
-    }, [isNavBarExpanded, toggleNavBar, expandSection, history.location.pathname]);
-
-    return <section className="nav-section nav-section__empty" onClick={onExpandNavBar}></section>;
 });
