@@ -4,14 +4,12 @@ import './details.scss';
 
 import { Button } from '../../common/button';
 
+import { useGetTranslatedLabels } from '../../../services/i18n.service';
+
 import { sentReceivedTrafficState } from '../../../recoil-state/internet/sent-received.traffic.selector';
 import { speedTrafficState } from '../../../recoil-state/internet/speed.traffic.selector';
 
-import {
-    hiddenDetailsLabel,
-    internetDetailsType,
-    moreDetailsLabel,
-} from '../../../constants/cards.constants';
+import { cardsLabels, internetDetailsType } from '../../../constants/cards.constants';
 
 import { InternetDetail, InternetDetails } from '../../../models/dashboard.model';
 
@@ -66,6 +64,10 @@ export const renderDetails = (details: InternetDetails) =>
 
 export const DetailsRenderer = ({ details }: InternetDetailsProps) => {
     const [isHidden, toggleDetailsVisibility] = useState(true);
+    const [moreDetailsLabel, hiddenDetailsLabel] = useGetTranslatedLabels([
+        cardsLabels.moreDetailsLabel,
+        cardsLabels.hiddenDetailsLabel,
+    ]);
 
     return (
         <section className="details">

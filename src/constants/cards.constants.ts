@@ -34,8 +34,6 @@ export const connectionTypeMessages = {
     [connectionTypes.wired]: wiredConnectionTypeMessage,
 };
 
-export const channelLabel = 'Channel';
-export const showConnectionInfoButtonLabel = 'Show connection info';
 export const onlineDeviceTitle = 'Online devices';
 
 export const updateActiveParamsInterval = 1000;
@@ -48,11 +46,6 @@ export enum trafficType {
 
 export const trafficTimeFormat = 'HH:mm';
 
-export const trafficTypeLabel: { [label in trafficType]: string } = {
-    [trafficType.download]: 'Download',
-    [trafficType.upload]: 'Upload',
-};
-
 export enum internetDetailsType {
     default = 'default',
     reboot = 'reboot',
@@ -63,13 +56,18 @@ export enum internetDetailsType {
     received = 'received',
 }
 
-export const providerHeaderLabel = 'Provider';
-
-export const moreDetailsLabel = 'More details';
-export const hiddenDetailsLabel = 'Hide details';
-
 export const units = ['kbit/s', 'Mbit/s'];
 export const mModifier = 1000;
 export const bModifier = 1;
 
 export const countOfDisplayedNodes = 100;
+
+export enum cardsLabels {
+    channelLabel = 'channelLabel',
+    showConnectionInfoButtonLabel = 'showConnectionInfoButtonLabel',
+    download = 'download',
+    upload = 'upload',
+    providerHeaderLabel = 'providerHeaderLabel',
+    moreDetailsLabel = 'moreDetailsLabel',
+    hiddenDetailsLabel = 'hiddenDetailsLabel',
+}

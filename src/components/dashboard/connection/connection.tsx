@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
 
+import { useGetTranslatedLabels } from '../../../services/i18n.service';
 import { useButtonToOpenModal, useTriggerCheckbox } from './connection.hooks';
-import { channelLabel, showConnectionInfoButtonLabel } from '../../../constants/cards.constants';
+import { cardsLabels } from '../../../constants/cards.constants';
 
 import { ConnectionProps } from '../../../models/dashboard.model';
 
@@ -16,6 +18,11 @@ export const ConnectionComponent = ({
     );
 
     const setModalContext = useButtonToOpenModal(connectionInfo, name, range, connectionStatus);
+
+    const [channelLabel, showConnectionInfoButtonLabel] = useGetTranslatedLabels([
+        cardsLabels.channelLabel,
+        cardsLabels.showConnectionInfoButtonLabel,
+    ]);
 
     return (
         <section className="connection">

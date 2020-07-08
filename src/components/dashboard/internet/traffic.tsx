@@ -6,8 +6,10 @@ import { TrafficGraph } from './traffic-graph';
 import { TrafficTiming } from './traffic-timing';
 
 import { speedTrafficState } from '../../../recoil-state/internet/speed.traffic.selector';
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
 
-import { trafficType, trafficTypeLabel } from '../../../constants/cards.constants';
+import { cardsLabels, trafficType } from '../../../constants/cards.constants';
+
 import { Traffic, TrafficValue } from '../../../models/dashboard.model';
 
 export const getTrafficValue = ({ unit, value }: TrafficValue) => `${value} ${unit}`;
@@ -17,12 +19,15 @@ export const TrafficRenderer = React.memo(({ type, max }: Traffic) => {
     // https://github.com/facebookexperimental/Recoil/issues/12
     const { upload, download } = useRecoilValue(speedTrafficState);
     const trafficValue = type === trafficType.upload ? upload : download;
+    const trafficTypeLabel = useGetTranslatedLabel(
+        type === trafficType.upload ? cardsLabels.upload : cardsLabels.download
+    );
 
     return (
         <section className={`traffic ${getTrafficModifier(type)}`}>
             <section className="traffic-info">
                 <section className="traffic-info_actual">
-                    <span className="traffic-info_actual-type">{trafficTypeLabel[type]}: </span>
+                    <span className="traffic-info_actual-type">{trafficTypeLabel}: </span>
                     <span className="traffic-info_actual-value">
                         {getTrafficValue(trafficValue)}
                     </span>

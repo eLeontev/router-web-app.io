@@ -4,10 +4,12 @@ import './provider.scss';
 
 import { internetState } from '../../../recoil-state/internet/internet.atom';
 
-import { providerHeaderLabel } from '../../../constants/cards.constants';
+import { ParamHandlerArguments, updateUptime } from '../../../services/system-params.service';
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
+
+import { cardsLabels } from '../../../constants/cards.constants';
 
 import { InternetProvider } from '../../../models/dashboard.model';
-import { ParamHandlerArguments, updateUptime } from '../../../services/system-params.service';
 
 export type ProviderProps = InternetProvider & {
     connectionDuration: string;
@@ -28,14 +30,18 @@ export const ProviderRenderer = ({
     providerLabel,
     providerType,
     connectionDuration,
-}: ProviderProps) => (
-    <section className="provider">
-        <h3 className="provider-label">{providerHeaderLabel}</h3>
-        <section className="provider-info">
-            <span className="provider-info_label">{providerLabel}</span>
-            {' / '}
-            <span className="provider-info_type">{providerType}</span>
+}: ProviderProps) => {
+    const providerHeaderLabel = useGetTranslatedLabel(cardsLabels.providerHeaderLabel);
+
+    return (
+        <section className="provider">
+            <h3 className="provider-label">{providerHeaderLabel}</h3>
+            <section className="provider-info">
+                <span className="provider-info_label">{providerLabel}</span>
+                {' / '}
+                <span className="provider-info_type">{providerType}</span>
+            </section>
+            <InternetConnectionDuration value="" startedTime={connectionDuration} />
         </section>
-        <InternetConnectionDuration value="" startedTime={connectionDuration} />
-    </section>
-);
+    );
+};
