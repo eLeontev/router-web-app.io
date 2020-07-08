@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
 import { LoginPage } from './login/login';
 import { DashboardPage } from './dashboard/dashboard';
@@ -16,7 +17,9 @@ export const AppRouter = () => (
             <Route path={dashboardPath}>
                 <WithLoaderContext>
                     <WithModalContext>
-                        <DashboardPage />
+                        <RecoilRoot>
+                            <DashboardPage />
+                        </RecoilRoot>
                     </WithModalContext>
                 </WithLoaderContext>
             </Route>

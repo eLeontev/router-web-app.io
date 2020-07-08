@@ -7,17 +7,16 @@ import { DefaultSection, Section } from './navigation-section';
 import { navSectionsState } from '../../../recoil-state/navigation/nav-sections.atom';
 
 import { NavSection } from '../../../models/nav.model';
-import { NavigationBarProps } from '../../../models/navigation.model';
 
-export const NavigationSections = (props: NavigationBarProps) => {
+export const NavigationSections = () => {
     const sections = useRecoilValue(navSectionsState);
 
     return (
         <section className="nav-sections">
             {sections.map((navSection: NavSection) => (
-                <Section key={navSection.type} {...navSection} {...props} />
+                <Section key={navSection.type} {...navSection} />
             ))}
-            <DefaultSection {...props} />
+            <DefaultSection />
         </section>
     );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil';
 
 import { ProviderRenderer } from '../internet/provider';
 import { TrafficRenderer } from '../internet/traffic';
@@ -26,12 +25,12 @@ export const InternetCardRenderer = (cardContent: InternetCardContent) => {
 };
 export const InternetCardComponent = (cardContent: CardContent) => {
     return (
-        <RecoilRoot>
+        <>
             <RecoilInternetUpdater
                 details={(cardContent as InternetCardContent).details}
                 trafficInfo={(cardContent as InternetCardContent).main.trafficInfo}
             />
             <InternetCardRenderer {...(cardContent as InternetCardContent)} />
-        </RecoilRoot>
+        </>
     );
 };
