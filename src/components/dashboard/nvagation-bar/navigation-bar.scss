@@ -48,6 +48,8 @@ nav {
     flex-direction: column;
     height: 100%;
     width: $expandedWidth;
+    background-color: rgb(23, 43, 77);
+    position: relative;
 }
 
 @keyframes collapse_navbar {
