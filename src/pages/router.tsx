@@ -4,9 +4,10 @@ import { RecoilRoot } from 'recoil';
 
 import { LoginPage } from './login/login';
 import { DashboardPage } from './dashboard/dashboard';
-import { dashboardPath } from '../constants/router.constants';
 import { WithLoaderContext } from '../context/loader.context';
 import { WithModalContext } from '../context/modal.context';
+
+import { dashboardPath, rootPath } from '../constants/router.constants';
 
 const { NODE_ENV, PUBLIC_URL } = process.env;
 const basename = NODE_ENV === 'development' ? '/' : PUBLIC_URL;
@@ -23,7 +24,7 @@ export const AppRouter = () => (
                     </WithModalContext>
                 </WithLoaderContext>
             </Route>
-            <Route path="/">
+            <Route path={rootPath}>
                 <WithLoaderContext>
                     <LoginPage />
                 </WithLoaderContext>
