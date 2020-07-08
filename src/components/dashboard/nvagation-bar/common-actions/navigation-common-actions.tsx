@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './navigation-common-actions.scss';
 
 import { Logout } from './logout';
+import { Translate } from './translate';
 
 import { navActionLabels, navActionLinks } from '../../../../constants/nav.constants';
 
@@ -21,9 +22,7 @@ export const CommonNavActions = React.memo(
                 <Link to={navActionLinks[navActionTypes.help]} className="action-as-link">
                     {navActionLabels[navActionTypes.help]}
                 </Link>
-                <section className="dropdown-as-link">
-                    {navActionLabels[navActionTypes.translate]}
-                </section>
+                <Translate />
             </section>
         </section>
     )
