@@ -1,6 +1,12 @@
+import { MutableRefObject } from 'react';
+
+import { renderGraph } from '../utils/d3-graph';
+
 import { bModifier, countOfDisplayedNodes, mModifier, units } from '../constants/cards.constants';
 
 import { TrafficValue, TrafficValues } from '../models/dashboard.model';
+
+export const getModifier = (isUpload: boolean) => (isUpload ? 'upload' : 'download');
 
 const getRange = (unit: string) => (units.indexOf(unit) ? mModifier : bModifier);
 
@@ -31,4 +37,21 @@ export const getLimitedCountOfNodes = (
     }
 
     return updatedTrafficValues;
+};
+
+const emptyWrapper = (cb: () => void) => cb();
+export const callRenderGraph = (
+    nodesRef: MutableRefObject<TrafficValues>,
+    maxRef: MutableRefObject<TrafficValue>,
+    isUpload: boolean,
+    withTimer: boolean
+): void | NodeJS.Timeout => {
+    const wrapper = withTimer ? setTimeout : emptyWrapper;
+    return wrapper(() => {
+        renderGraph(
+            'traffic-graph',
+            getModifier(isUpload),
+            getDataset(nodesRef.current, maxRef.current)
+        );
+    }, 500);
 };
