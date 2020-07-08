@@ -3,7 +3,7 @@ import { useSetRecoilState } from 'recoil';
 import './navigation-footer.scss';
 
 import { Button } from '../../common/button';
-import { CommonNavActions } from './navigation-common-actions';
+import { CommonNavActions } from './common-actions/navigation-common-actions';
 
 import { navActionLabels } from '../../../constants/nav.constants';
 import { navigationMockData } from '../../../mock/nav.mock';

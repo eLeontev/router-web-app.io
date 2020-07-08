@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './navigation-common-actions.scss';
 
-import { Logout } from './common-actions/logout';
+import { Logout } from './logout';
 
-import { navActionLabels, navActionLinks } from '../../../constants/nav.constants';
+import { navActionLabels, navActionLinks } from '../../../../constants/nav.constants';
 
-import { navActionTypes } from '../../../models/nav.model';
+import { navActionTypes } from '../../../../models/nav.model';
 
 export const getCommonActionsClassNames = (shouldDisplayCommonActions: boolean) =>
     `nav-common-actions nav-common-actions__${
