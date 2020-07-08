@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './navigation-common-actions.scss';
 
 import { navActionLabels, navActionLinks } from '../../../constants/nav.constants';
+import { navBarToggleTime } from '../../../constants/common.constants';
 
 import { navActionTypes } from '../../../models/nav.model';
-import { Link } from 'react-router-dom';
 
 export const CommonNavActions = React.memo(
     ({ isNavBarExpanded }: { isNavBarExpanded: boolean }) => {
@@ -15,7 +16,7 @@ export const CommonNavActions = React.memo(
             if (isNavBarExpanded) {
                 timerId = setTimeout(() => {
                     setCommonActionsVisibility(true);
-                }, 500);
+                }, navBarToggleTime);
             } else {
                 setCommonActionsVisibility(false);
             }

@@ -3,6 +3,7 @@ import { MutableRefObject } from 'react';
 import { renderGraph } from '../utils/d3-graph';
 
 import { bModifier, countOfDisplayedNodes, mModifier, units } from '../constants/cards.constants';
+import { navBarToggleTime } from '../constants/common.constants';
 
 import { TrafficValue, TrafficValues } from '../models/dashboard.model';
 
@@ -53,5 +54,5 @@ export const callRenderGraph = (
             getModifier(isUpload),
             getDataset(nodesRef.current, maxRef.current)
         );
-    }, 500);
+    }, navBarToggleTime);
 };
