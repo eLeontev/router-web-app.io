@@ -1,4 +1,7 @@
 .traffic-graph {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     position: relative;
     opacity: 0.4;
     overflow: hidden;
