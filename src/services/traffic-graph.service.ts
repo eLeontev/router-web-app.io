@@ -2,14 +2,20 @@ import { MutableRefObject } from 'react';
 
 import { renderGraph } from '../utils/d3-graph';
 
-import { bModifier, countOfDisplayedNodes, mModifier, units } from '../constants/cards.constants';
+import {
+    bModifier,
+    cardsLabels,
+    countOfDisplayedNodes,
+    mModifier,
+} from '../constants/cards.constants';
 import { navBarToggleTime } from '../constants/common.constants';
 
 import { TrafficValue, TrafficValues } from '../models/dashboard.model';
 
 export const getModifier = (isUpload: boolean) => (isUpload ? 'upload' : 'download');
 
-const getRange = (unit: string) => (units.indexOf(unit) ? mModifier : bModifier);
+const getRange = (unit: cardsLabels) =>
+    [cardsLabels.kbitsLabel, cardsLabels.mbitsLabel].indexOf(unit) ? mModifier : bModifier;
 
 export const getDataset = (current: TrafficValues, max: TrafficValue) => {
     const maxRange = max.value * mModifier;

@@ -7,7 +7,7 @@ import { i18nLabels } from '../constants/i18n/i18n.constants';
 import { Labels, languages } from '../models/i18n.model';
 
 const getTranslatedLabel = (label: Labels, language: languages): string =>
-    i18nLabels[label][language] || '';
+    i18nLabels[label] ? i18nLabels[label][language] : '';
 
 export const useGetTranslatedLabel = (label: Labels): string => {
     const language = useRecoilValue<languages>(i18nState);

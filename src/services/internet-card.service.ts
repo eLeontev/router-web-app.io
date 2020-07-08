@@ -1,18 +1,19 @@
 import { TrafficValue } from '../models/dashboard.model';
-import { units } from '../constants/cards.constants';
+import { cardsLabels } from '../constants/cards.constants';
 import { SentReceivedTraffic } from '../models/internet.model';
 
-export const generateTrafficValue = (value: string) => {
-    const [strValue, units] = value.split(' ');
-    return `${Number(strValue) + 1} ${units}`;
+const sentReceivedUnits = [cardsLabels.mbitLabel, cardsLabels.mbitLabel];
+export const getSentReceivedTraffic = (): SentReceivedTraffic => ({
+    sent: generateUpDownLoadTraffic(sentReceivedUnits),
+    received: generateUpDownLoadTraffic(sentReceivedUnits),
+});
+
+export const generateUpDownLoadTraffic = (sentReceivedUnits?: Array<cardsLabels>): TrafficValue => {
+    const unitsLabels = sentReceivedUnits
+        ? sentReceivedUnits
+        : [cardsLabels.mbitsLabel, cardsLabels.mbitsLabel];
+    return {
+        unit: unitsLabels[Math.round(Math.random())],
+        value: Math.round(Math.random() * 500) / 10,
+    };
 };
-
-export const getSentReceivedTraffic = (sentReceived: SentReceivedTraffic): SentReceivedTraffic => ({
-    sent: generateTrafficValue(sentReceived.sent || '54 Mbytes'),
-    received: generateTrafficValue(sentReceived.received || '11 Mbytes'),
-});
-
-export const generateUpDownLoadTraffic = (): TrafficValue => ({
-    unit: units[Math.round(Math.random())],
-    value: Math.round(Math.random() * 500) / 10,
-});

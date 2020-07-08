@@ -1,5 +1,6 @@
 import { CardLoaderService } from '../services/card-loader.service';
 import {
+    cardsLabels,
     cardTypes,
     connectionTypes,
     internetDetailsType,
@@ -13,7 +14,7 @@ export type DashboardProps = {
 export type BaseCard = {
     cardId: string;
     type: cardTypes;
-    title: string;
+    title: cardsLabels;
 };
 
 export enum paramTypes {
@@ -26,7 +27,7 @@ export enum paramTypes {
 
 export type SystemParamValue = string | number | Date;
 export type SystemParam = {
-    label: string;
+    label: cardsLabels;
     value: SystemParamValue;
     isActive: boolean;
     paramType: paramTypes;
@@ -131,13 +132,13 @@ export type NetworkPortsCard = BaseCard & {
 };
 
 export type InternetProvider = {
-    providerLabel: string;
+    providerLabel: cardsLabels;
     providerType: string;
 };
 
 export type TrafficValue = {
     value: number;
-    unit: string;
+    unit: cardsLabels;
 };
 export type TrafficValues = Array<TrafficValue>;
 
@@ -153,8 +154,8 @@ export type TrafficInfo = {
 };
 
 export type InternetDetail = {
-    label: string;
-    value: string;
+    label: cardsLabels;
+    value: string | number;
     type: internetDetailsType;
 };
 export type InternetDetails = Array<InternetDetail>;

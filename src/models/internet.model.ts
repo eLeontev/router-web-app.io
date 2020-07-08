@@ -3,13 +3,13 @@ import { TrafficValue } from './dashboard.model';
 export type InternetState = {
     download: TrafficValue;
     upload: TrafficValue;
-    received: string;
-    sent: string;
+    received: TrafficValue;
+    sent: TrafficValue;
 };
 
 export type SentReceivedTraffic = {
-    sent: string;
-    received: string;
+    sent: TrafficValue;
+    received: TrafficValue;
 };
 
 export type TrafficGraphProps = {

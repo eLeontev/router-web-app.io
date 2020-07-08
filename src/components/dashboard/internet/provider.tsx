@@ -5,7 +5,7 @@ import './provider.scss';
 import { internetState } from '../../../recoil-state/internet/internet.atom';
 
 import { ParamHandlerArguments, updateUptime } from '../../../services/system-params.service';
-import { useGetTranslatedLabel } from '../../../services/i18n.service';
+import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
 import { cardsLabels } from '../../../constants/cards.constants';
 
@@ -18,10 +18,13 @@ export type ProviderProps = InternetProvider & {
 export const InternetConnectionDuration = React.memo(
     ({ startedTime, value }: ParamHandlerArguments) => {
         useRecoilValue(internetState); // to sync with state update
-
+        const [connectedLabel, daysLabel] = useGetTranslatedLabels([
+            cardsLabels.connectedLabel,
+            cardsLabels.daysLabel,
+        ]);
         return (
             <section className="provider-connection-duration">
-                Connected: {updateUptime({ startedTime, value })}
+                {`${connectedLabel}: ${updateUptime({ startedTime, value, daysLabel })}`}
             </section>
         );
     }
@@ -31,13 +34,16 @@ export const ProviderRenderer = ({
     providerType,
     connectionDuration,
 }: ProviderProps) => {
-    const providerHeaderLabel = useGetTranslatedLabel(cardsLabels.providerHeaderLabel);
+    const [providerHeaderLabel, i18nProviderLabel] = useGetTranslatedLabels([
+        cardsLabels.providerHeaderLabel,
+        providerLabel,
+    ]);
 
     return (
         <section className="provider">
             <h3 className="provider-label">{providerHeaderLabel}</h3>
             <section className="provider-info">
-                <span className="provider-info_label">{providerLabel}</span>
+                <span className="provider-info_label">{i18nProviderLabel}</span>
                 {' / '}
                 <span className="provider-info_type">{providerType}</span>
             </section>

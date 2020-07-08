@@ -3,13 +3,22 @@ import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 import { internetState } from '../../../recoil-state/internet/internet.atom';
 
-import { internetDetailsType, internetRequestDelay } from '../../../constants/cards.constants';
+import {
+    cardsLabels,
+    internetDetailsType,
+    internetRequestDelay,
+} from '../../../constants/cards.constants';
 import {
     generateUpDownLoadTraffic,
     getSentReceivedTraffic,
 } from '../../../services/internet-card.service';
 
-import { InternetDetail, InternetDetails, TrafficInfo } from '../../../models/dashboard.model';
+import {
+    InternetDetail,
+    InternetDetails,
+    TrafficInfo,
+    TrafficValue,
+} from '../../../models/dashboard.model';
 import { InternetState, SentReceivedTraffic } from '../../../models/internet.model';
 
 export type ContextUpdaterProps = {
@@ -17,8 +26,16 @@ export type ContextUpdaterProps = {
     trafficInfo: TrafficInfo;
 };
 
-export const getValue = (details: InternetDetails, type: internetDetailsType): string =>
-    (details.find((detail: InternetDetail) => detail.type === type) || { value: '' }).value;
+export const getValue = (details: InternetDetails, type: internetDetailsType): TrafficValue => {
+    const { value } = details.find((detail: InternetDetail) => detail.type === type) || {
+        value: '',
+    };
+
+    return {
+        value: Number(value),
+        unit: cardsLabels.mbitLabel,
+    };
+};
 
 const useInitInternetState = (
     updateInternetState: SetterOrUpdater<InternetState>,
@@ -40,7 +57,7 @@ const useUpdateInternetState = (
 ) => {
     useEffect(() => {
         const timerId = setInterval(() => {
-            const sentReceivedTraffic = getSentReceivedTraffic(sentReceivedRef.current);
+            const sentReceivedTraffic = getSentReceivedTraffic();
             sentReceivedRef.current = sentReceivedTraffic;
 
             updateInternetState({

@@ -8,14 +8,18 @@ import {
 } from '../../../models/dashboard.model';
 import { splitSystemParams } from '../../../services/system-card.service';
 import { updateParamsMock } from '../../../services/system-params.service';
-import { updateActiveParamsInterval } from '../../../constants/cards.constants';
+import { cardsLabels, updateActiveParamsInterval } from '../../../constants/cards.constants';
+import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
-export const ParamRenderer = ({ label, value }: SystemParam) => (
-    <section className="param-pair">
-        <p className="param-pair__label">{label}</p>
-        <p className="param-pair__value">{value}</p>
-    </section>
-);
+export const ParamRenderer = React.memo(({ label, value }: SystemParam) => {
+    const [i18nLabel, i18nValue] = useGetTranslatedLabels([label, value as cardsLabels]);
+    return (
+        <section className="param-pair">
+            <p className="param-pair__label">{i18nLabel}</p>
+            <p className="param-pair__value">{i18nValue || value}</p>
+        </section>
+    );
+});
 
 export const renderSystemParams = (systemParams: SystemParams) =>
     systemParams.map((systemParam: SystemParam) => (
@@ -24,13 +28,17 @@ export const renderSystemParams = (systemParams: SystemParams) =>
 
 export const DynamicParams = ({ systemParams, startedTime }: DynamicParamProps) => {
     const [params, updateParams] = useState(systemParams);
+    const [daysLabel, mbitLabel] = useGetTranslatedLabels([
+        cardsLabels.daysLabel,
+        cardsLabels.mbitLabel,
+    ]);
 
     useEffect(() => {
         const timerId = setInterval(() => {
-            updateParamsMock(params, updateParams, startedTime);
+            updateParamsMock(params, updateParams, startedTime, daysLabel, mbitLabel);
         }, updateActiveParamsInterval);
         return () => clearInterval(timerId);
-    }, [updateParams, params, startedTime]);
+    }, [updateParams, params, startedTime, daysLabel, mbitLabel]);
 
     return <>{renderSystemParams(params)}</>;
 };

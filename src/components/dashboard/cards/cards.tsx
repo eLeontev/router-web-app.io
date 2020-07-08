@@ -9,6 +9,7 @@ import { SystemCardComponent } from './system-card';
 import { WifiCardComponent } from './wifi-card';
 import { NetworkPortsCardComponent } from './network-ports-card';
 import { InternetCardComponent } from './internet-card';
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
 
 const cardsComponents: models.CardsComponents = {
     [cardTypes.applicationType]: ApplicationsCardComponent,
@@ -20,7 +21,7 @@ const cardsComponents: models.CardsComponents = {
 
 export const Card = React.memo(({ card }: models.CardProps) => {
     const CardComponent = cardsComponents[card.type];
-    const title = card.title;
+    const title = useGetTranslatedLabel(card.title);
     return (
         <section className="card">
             <section className="application-card">

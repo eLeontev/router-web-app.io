@@ -7,13 +7,6 @@ export const defaultCards: Cards = {
     rightCards: [],
 };
 
-export const applicationsCardTitle = 'Applications';
-export const systemCardTitle = 'About the system';
-export const homeWiFiCardTitle = 'Home segment';
-export const guestWiFiCardTitle = 'Guest segment';
-export const networkPortsCardTitle = 'Network ports';
-export const internetCardTitle = 'Internet';
-
 export enum cardTypes {
     applicationType = 'applicationType',
     systemType = 'systemType',
@@ -25,16 +18,6 @@ export enum connectionTypes {
     wired = 'wired',
     wifi = 'wifi',
 }
-
-export const wifiConnectionTypeMessage = 'Wi-Fi';
-export const wiredConnectionTypeMessage = 'Wired';
-
-export const connectionTypeMessages = {
-    [connectionTypes.wifi]: wifiConnectionTypeMessage,
-    [connectionTypes.wired]: wiredConnectionTypeMessage,
-};
-
-export const onlineDeviceTitle = 'Online devices';
 
 export const updateActiveParamsInterval = 1000;
 export const internetRequestDelay = 3000;
@@ -56,7 +39,6 @@ export enum internetDetailsType {
     received = 'received',
 }
 
-export const units = ['kbit/s', 'Mbit/s'];
 export const mModifier = 1000;
 export const bModifier = 1;
 
@@ -70,4 +52,49 @@ export enum cardsLabels {
     providerHeaderLabel = 'providerHeaderLabel',
     moreDetailsLabel = 'moreDetailsLabel',
     hiddenDetailsLabel = 'hiddenDetailsLabel',
+    applicationsCardTitleLabel = 'applicationsCardTitleLabel',
+    systemCardTitleLabel = 'systemCardTitleLabel',
+    homeWiFiCardTitleLabel = 'homeWiFiCardTitleLabel',
+    guestWiFiCardTitleLabel = 'guestWiFiCardTitleLabel',
+    networkPortsCardTitleLabel = 'networkPortsCardTitleLabel',
+    internetCardTitleLabel = 'internetCardTitleLabel',
+    hasNoApplicationsMessageLabel = 'hasNoApplicationsMessageLabel',
+    onlineDeviceTitleLabel = 'onlineDeviceTitleLabel',
+    wifiConnectionTypeMessageLabel = 'wifiConnectionTypeMessageLabel',
+    wiredConnectionTypeMessageLabel = 'wiredConnectionTypeMessageLabel',
+    connectedLabel = 'connectedLabel',
+    daysLabel = 'daysLabel',
+
+    modelLabel = 'modelLabel',
+    serviceTagLabel = 'serviceTagLabel',
+    osVersionLabel = 'osVersionLabel',
+    autoUpdateLabel = 'autoUpdateLabel',
+    upTimeLabel = 'upTimeLabel',
+    currentTimeLabel = 'currentTimeLabel',
+    cpuUsageLabel = 'cpuUsageLabel',
+    ramUsageLabel = 'ramUsageLabel',
+
+    enabledLabel = 'enabledLabel',
+    kbitsLabel = 'kbitsLabel',
+    mbitsLabel = 'mbitsLabel',
+    mbitLabel = 'mbitLabel',
+
+    usingEthernetLabel = 'usingEthernetLabel',
+
+    statusLabel = 'statusLabel',
+    internetSafetyLabel = 'internetSafetyLabel',
+    authenticationTypeLabel = 'authenticationTypeLabel',
+    ipAddressLabel = 'ipAddressLabel',
+    subnetMaskLabel = 'subnetMaskLabel',
+    macAddressLabel = 'macAddressLabel',
+    downloadLabel = 'downloadLabel',
+    uploadLabel = 'uploadLabel',
+    receivedLabel = 'receivedLabel',
+    sentLabel = 'sentLabel',
+    dnsServersLabel = 'dnsServersLabel',
+
+    connectionEstablishedLabel = 'connectionEstablishedLabel',
+    rebootLabel = 'rebootLabel',
+    configureLabel = 'configureLabel',
+    adGuardIsEnabledLabel = 'adGuardIsEnabledLabel',
 }

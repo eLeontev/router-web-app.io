@@ -1,13 +1,8 @@
 import {
-    applicationsCardTitle,
+    cardsLabels,
     cardTypes,
     connectionTypes,
-    guestWiFiCardTitle,
-    homeWiFiCardTitle,
-    internetCardTitle,
     internetDetailsType,
-    networkPortsCardTitle,
-    systemCardTitle,
     trafficType,
 } from '../constants/cards.constants';
 import {
@@ -24,7 +19,7 @@ import { connectionActionTypes, modalContentTypes } from '../constants/modal.con
 export const applicationsCatrd: ApplicationsCard = {
     cardId: 'applicationsCatrd_1',
     type: cardTypes.applicationType,
-    title: applicationsCardTitle,
+    title: cardsLabels.applicationsCardTitleLabel,
     cardContent: {
         applications: [],
     },
@@ -34,54 +29,54 @@ const startedTime = '7/2/2020';
 export const systemCatrd: SystemCard = {
     cardId: 'systemCatrd_1',
     type: cardTypes.systemType,
-    title: systemCardTitle,
+    title: cardsLabels.systemCardTitleLabel,
     cardContent: {
         startedTime,
         systemParams: [
             {
-                label: 'Model',
+                label: cardsLabels.modelLabel,
                 value: 'Speedster (KN-3010)',
                 isActive: false,
                 paramType: paramTypes.inactive,
             },
             {
-                label: 'Service tag',
+                label: cardsLabels.serviceTagLabel,
                 value: '067-483-550-015-477',
                 isActive: false,
                 paramType: paramTypes.inactive,
             },
             {
-                label: 'OS version',
+                label: cardsLabels.osVersionLabel,
                 value: '3.4.6',
                 isActive: false,
                 paramType: paramTypes.inactive,
             },
             {
-                label: 'Auto-update',
-                value: 'Enabled',
+                label: cardsLabels.autoUpdateLabel,
+                value: 'enabledLabel',
                 isActive: false,
                 paramType: paramTypes.inactive,
             },
             {
-                label: 'Uptime',
+                label: cardsLabels.upTimeLabel,
                 value: '',
                 isActive: true,
                 paramType: paramTypes.uptime,
             },
             {
-                label: 'Current time',
+                label: cardsLabels.currentTimeLabel,
                 value: '',
                 isActive: true,
                 paramType: paramTypes.currentTime,
             },
             {
-                label: 'CPU usage',
+                label: cardsLabels.cpuUsageLabel,
                 value: '4%',
                 isActive: true,
                 paramType: paramTypes.cpuUsage,
             },
             {
-                label: 'RAM usage',
+                label: cardsLabels.ramUsageLabel,
                 value: '40% (51/128 Mbytes)',
                 isActive: true,
                 paramType: paramTypes.ramUsage,
@@ -93,7 +88,7 @@ export const systemCatrd: SystemCard = {
 export const homeWiFiCard: WiFiCard = {
     cardId: 'homeWiFiCard_ 1',
     type: cardTypes.wifiType,
-    title: homeWiFiCardTitle,
+    title: cardsLabels.homeWiFiCardTitleLabel,
     cardContent: {
         connections: [
             {
@@ -187,7 +182,7 @@ export const homeWiFiCard: WiFiCard = {
 export const guestWiFiCard: WiFiCard = {
     cardId: 'guestWiFiCard_ 1',
     type: cardTypes.wifiType,
-    title: guestWiFiCardTitle,
+    title: cardsLabels.guestWiFiCardTitleLabel,
     cardContent: {
         connections: [
             {
@@ -281,7 +276,7 @@ export const guestWiFiCard: WiFiCard = {
 export const networkPortsCard: NetworkPortsCard = {
     cardId: 'networkPorts-1',
     type: cardTypes.portType,
-    title: networkPortsCardTitle,
+    title: cardsLabels.networkPortsCardTitleLabel,
     cardContent: {
         networkPortId: 'port-id_0',
         ports: [
@@ -327,33 +322,33 @@ export const networkPortsCard: NetworkPortsCard = {
 export const internetCard: InternetCard = {
     cardId: 'internetCard_ 1',
     type: cardTypes.internetType,
-    title: internetCardTitle,
+    title: cardsLabels.internetCardTitleLabel,
     cardContent: {
         main: {
             startedTime,
             provider: {
-                providerLabel: 'Using Ethernet',
+                providerLabel: cardsLabels.usingEthernetLabel,
                 providerType: 'PPPoE',
             },
             trafficInfo: {
                 download: {
                     current: {
-                        unit: '',
+                        unit: cardsLabels.kbitsLabel,
                         value: 0,
                     },
                     max: {
-                        unit: 'Mbit/s',
+                        unit: cardsLabels.mbitsLabel,
                         value: 100,
                     },
                     type: trafficType.download,
                 },
                 upload: {
                     current: {
-                        unit: '',
+                        unit: cardsLabels.kbitsLabel,
                         value: 0,
                     },
                     max: {
-                        unit: 'Mbit/s',
+                        unit: cardsLabels.mbitsLabel,
                         value: 50,
                     },
                     type: trafficType.upload,
@@ -362,57 +357,57 @@ export const internetCard: InternetCard = {
         },
         details: [
             {
-                label: 'Status',
+                label: cardsLabels.statusLabel,
                 type: internetDetailsType.reboot,
-                value: 'Connection established',
+                value: cardsLabels.connectionEstablishedLabel,
             },
             {
-                label: 'Internet safety',
+                label: cardsLabels.internetSafetyLabel,
                 type: internetDetailsType.configuration,
-                value: 'AdGuard DNS is enabled',
+                value: cardsLabels.adGuardIsEnabledLabel,
             },
             {
-                label: 'Authentication type',
+                label: cardsLabels.authenticationTypeLabel,
                 type: internetDetailsType.default,
                 value: 'PPPoE',
             },
             {
-                label: 'IP address',
+                label: cardsLabels.ipAddressLabel,
                 type: internetDetailsType.default,
                 value: '192.168.1.1',
             },
             {
-                label: 'Subnet mask',
+                label: cardsLabels.subnetMaskLabel,
                 type: internetDetailsType.default,
                 value: '125.125.125.125',
             },
             {
-                label: 'MAC Address',
+                label: cardsLabels.macAddressLabel,
                 type: internetDetailsType.default,
                 value: '13:ld:78:c1:5d:09',
             },
             {
-                label: 'Download',
+                label: cardsLabels.downloadLabel,
                 type: internetDetailsType.download,
                 value: '',
             },
             {
-                label: 'Upload',
+                label: cardsLabels.uploadLabel,
                 type: internetDetailsType.upload,
                 value: '',
             },
             {
-                label: 'Received',
+                label: cardsLabels.receivedLabel,
                 type: internetDetailsType.received,
-                value: '',
+                value: 0,
             },
             {
-                label: 'Sent',
+                label: cardsLabels.sentLabel,
                 type: internetDetailsType.sent,
-                value: '',
+                value: 0,
             },
             {
-                label: 'DNS servers',
+                label: cardsLabels.dnsServersLabel,
                 type: internetDetailsType.default,
                 value: '543.217.093.5',
             },

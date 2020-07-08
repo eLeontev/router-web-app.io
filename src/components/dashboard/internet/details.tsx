@@ -4,14 +4,13 @@ import './details.scss';
 
 import { Button } from '../../common/button';
 
-import { useGetTranslatedLabels } from '../../../services/i18n.service';
-
-import { sentReceivedTrafficState } from '../../../recoil-state/internet/sent-received.traffic.selector';
-import { speedTrafficState } from '../../../recoil-state/internet/speed.traffic.selector';
+import { useGetTranslatedLabel, useGetTranslatedLabels } from '../../../services/i18n.service';
 
 import { cardsLabels, internetDetailsType } from '../../../constants/cards.constants';
 
-import { InternetDetail, InternetDetails } from '../../../models/dashboard.model';
+import { InternetDetail, InternetDetails, TrafficValue } from '../../../models/dashboard.model';
+import { internetState } from '../../../recoil-state/internet/internet.atom';
+import { InternetState } from '../../../models/internet.model';
 
 const { download, upload, received, sent, reboot, configuration } = internetDetailsType;
 
@@ -19,27 +18,41 @@ export type InternetDetailsProps = {
     details: InternetDetails;
 };
 
-export const DefaultDetailRenderer = ({ label, value }: InternetDetail) => (
-    <section className="detail-pair">
-        <section className="detail-pair-label">{label}</section>
-        <section className="detail-pair-value">{value}</section>
-    </section>
-);
-
-export const SentReceivedDetailRenderer = (detail: InternetDetail) => {
-    // https:github.com/facebookexperimental/Recoil/issues/12
-    const { received, sent } = useRecoilValue(sentReceivedTrafficState);
-    const value = detail.type === internetDetailsType.sent ? sent : received;
-
-    return <DefaultDetailRenderer {...detail} value={value} />;
+export const DefaultDetailRenderer = ({ label, value }: InternetDetail) => {
+    const [i18nLabel, i18nValue] = useGetTranslatedLabels([label, value as cardsLabels]);
+    return (
+        <section className="detail-pair">
+            <section className="detail-pair-label">{i18nLabel}</section>
+            <section className="detail-pair-value">{i18nValue || value}</section>
+        </section>
+    );
 };
 
-export const SpeedTrafficDetailRenderer = (detail: InternetDetail) => {
-    // https:github.com/facebookexperimental/Recoil/issues/12
-    const { upload, download } = useRecoilValue(speedTrafficState);
-    let { value, unit } = detail.type === internetDetailsType.upload ? upload : download;
+const DetailsRendererWithTranslatedValues = ({ detail, trafficValue }: any) => {
+    const i18nUnit = useGetTranslatedLabel(trafficValue.unit);
+    if (isNaN(trafficValue.value)) {
+        debugger
+    }
+    return <DefaultDetailRenderer {...detail} value={`${trafficValue.value} ${i18nUnit}`} />;
+};
 
-    return <DefaultDetailRenderer {...detail} value={`${value} ${unit}`} />;
+export const getTrafficValue = (type: internetDetailsType, state: InternetState): TrafficValue => {
+    const trafficValues: any = {
+        [internetDetailsType.upload]: state.upload,
+        [internetDetailsType.download]: state.download,
+        [internetDetailsType.sent]: state.sent,
+        [internetDetailsType.received]: state.received,
+    };
+
+    return trafficValues[type];
+};
+
+export const TrafficDetailRenderer = (detail: InternetDetail) => {
+    // https:github.com/facebookexperimental/Recoil/issues/12
+    const state = useRecoilValue(internetState);
+    const trafficValue = getTrafficValue(detail.type, state);
+
+    return <DetailsRendererWithTranslatedValues detail={detail} trafficValue={trafficValue} />;
 };
 
 export const detailRenderers: {
@@ -47,10 +60,10 @@ export const detailRenderers: {
 } = {
     [configuration]: DefaultDetailRenderer,
     [reboot]: DefaultDetailRenderer,
-    [sent]: SentReceivedDetailRenderer,
-    [received]: SentReceivedDetailRenderer,
-    [download]: SpeedTrafficDetailRenderer,
-    [upload]: SpeedTrafficDetailRenderer,
+    [sent]: TrafficDetailRenderer,
+    [received]: TrafficDetailRenderer,
+    [download]: TrafficDetailRenderer,
+    [upload]: TrafficDetailRenderer,
     [internetDetailsType.default]: DefaultDetailRenderer,
 };
 
