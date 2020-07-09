@@ -3,12 +3,15 @@ import './login.scss';
 
 import { Input } from '../../components/common/input';
 import { Button } from '../../components/common/button';
-
 import { Message } from '../../components/common/message';
-import { initialState, loginActionTypes } from '../../constants/login.constants';
-import { ConcurrencyLoginHandler } from '../../components/concurrency/concurrency-login-handler';
-import { LoginState, LoginReducer } from '../../models/login.model';
+
 import { loginReducer } from '../../reducers/login.reducer';
+import { ConcurrencyLoginHandler } from '../../components/concurrency/concurrency-login-handler';
+import { useGetLoginPageLabels } from '../../services/i18n.login.service';
+
+import { initialState, loginActionTypes } from '../../constants/login.constants';
+
+import { LoginState, LoginReducer } from '../../models/login.model';
 
 const { cleanup, cleanuperror, cleanuplogin, setdefault, validate } = loginActionTypes;
 
@@ -20,6 +23,7 @@ export const LoginPage = () => {
         LoginReducer,
         LoginState
     >(loginReducer, initialState, () => initialState);
+    const i18nLabels = useGetLoginPageLabels(errorMessage);
 
     return (
         <>
@@ -34,15 +38,15 @@ export const LoginPage = () => {
                 />
             ) : null}
             <section className="login">
-                <h2 className="_aligned">Login page</h2>
+                <h2 className="_aligned">{i18nLabels.loginTitleLabel}</h2>
                 <Button
                     className="hint-button hint-button__left"
-                    buttonName="cleanup"
+                    buttonName={i18nLabels.resetLabel}
                     buttonHandler={() => dispatch({ type: cleanup })}
                 />
                 <Button
                     className="hint-button  hint-button__right"
-                    buttonName="set default"
+                    buttonName={i18nLabels.setDefaultLabel}
                     buttonHandler={() => dispatch({ type: setdefault })}
                 />
                 <section className="login-form">
@@ -61,10 +65,13 @@ export const LoginPage = () => {
                         }
                         type="password"
                     />
-                    <Button buttonName="Login" buttonHandler={() => dispatch({ type: validate })} />
+                    <Button
+                        buttonName={i18nLabels.loginButtonLabel}
+                        buttonHandler={() => dispatch({ type: validate })}
+                    />
                     <Message
                         type="error"
-                        message={errorMessage}
+                        message={i18nLabels.invalidCredentialsMessageLabel}
                         onClose={() => dispatch({ type: cleanuperror })}
                     />
                 </section>

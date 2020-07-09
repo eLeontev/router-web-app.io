@@ -3,10 +3,9 @@ import {
     defaultCredentials,
     minCountOfLoginSymbols,
     minCountOfPasswordSymbols,
-    invalidCredentionalsMessage,
     loginActionTypes,
 } from '../constants/login.constants';
-import { LoginReducer, LoginState, Action, ActionHandlers } from '../models/login.model';
+import {LoginReducer, LoginState, Action, ActionHandlers, loginLabels} from '../models/login.model';
 
 const {
     cleanup,
@@ -47,7 +46,7 @@ export const actionHandlers: ActionHandlers = {
 
         return {
             shouldLogin: false,
-            errorMessage: invalidCredentionalsMessage,
+            errorMessage: loginLabels.invalidCredentialsMessageLabel,
         };
     },
 };

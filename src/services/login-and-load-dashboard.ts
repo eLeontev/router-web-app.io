@@ -1,9 +1,9 @@
-import { defaultCredentials, invalidCredentionalsMessage } from '../constants/login.constants';
+import { defaultCredentials } from '../constants/login.constants';
 import { invalidCardsMessage } from '../constants/cards.constants';
 
 import { cardsMocks } from '../mock/cards.mock';
 
-import { LoginValues } from '../models/login.model';
+import {loginLabels, LoginValues} from '../models/login.model';
 import { Cards } from '../models/dashboard.model';
 import { ErrorHandler } from '../models/concurency.model';
 
@@ -13,7 +13,7 @@ export const login = ({ login, password }: LoginValues): Promise<string> => {
             if (login === defaultCredentials.login && password === defaultCredentials.password) {
                 resolve('userToken');
             } else {
-                reject(invalidCredentionalsMessage);
+                reject(loginLabels.invalidCredentialsMessageLabel);
             }
         }, 1000)
     );
