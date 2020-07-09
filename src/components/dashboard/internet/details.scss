@@ -22,10 +22,23 @@
     &-value {
         flex-grow: 1;
         min-width: 200px;
+
+        &-message {
+            color: #1e9e40;
+        }
+
+        &-link {
+            color: #0098d9;
+            text-decoration: none;
+        }
     }
 }
 
-@media (max-width: $mediaQueryTableDetails) {
+@media (max-width: $mediaQueryTablet) {
+    .detail-pair {
+        flex-direction: column;
+    }
+
     .detail-pair-value {
         padding-bottom: 15px;
         border-bottom: 1px solid #0098d9;

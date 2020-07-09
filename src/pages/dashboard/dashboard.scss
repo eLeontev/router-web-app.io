@@ -16,12 +16,6 @@
     }
 }
 
-@media (max-width: $mediaQueryMobile) {
-    .content {
-        padding-left: 0;
-    }
-}
-
 @keyframes expand_content {
     from {
         padding-left: $expandedWidth;
@@ -39,5 +33,25 @@
 
     to {
         padding-left: $expandedWidth;
+    }
+}
+
+@media (max-width: $mediaCancelCollapse) {
+    .content {
+        &__expanded,
+        &__collapsed {
+            animation: none;
+        }
+    }
+}
+
+@media (max-width: $mediaQueryMobile) {
+    .content {
+        padding-left: 0;
+
+        &__expanded,
+        &__collapsed {
+            animation: none;
+        }
     }
 }
