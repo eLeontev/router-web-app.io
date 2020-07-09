@@ -1,5 +1,13 @@
 @import '../../styles/variables';
 
+@mixin link-button {
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: #0098d9;
+}
+
 .close-message-button {
     background-color: #42403e;
     color: #f8f6ec;
@@ -97,12 +105,9 @@
 }
 
 .details-button {
-    border: none;
-    background-color: transparent;
-    padding: 0;
+    @include link-button;
     padding-bottom: 5px;
     border-bottom: 1px dashed #0098d9;
-    color: #0098d9;
 }
 
 .navbar-footer {
@@ -133,6 +138,10 @@
             background: url(../../sprite.svg) -1121.1px -382px no-repeat;
         }
     }
+}
+
+.detail-pair-value-button {
+    @include link-button;
 }
 
 @media (max-width: $mediaQueryTabletModal) {
