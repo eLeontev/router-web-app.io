@@ -3,7 +3,7 @@ import { invalidCardsMessage } from '../constants/cards.constants';
 
 import { cardsMocks } from '../mock/cards.mock';
 
-import {loginLabels, LoginValues} from '../models/login.model';
+import { loginLabels, LoginValues } from '../models/login.model';
 import { Cards } from '../models/dashboard.model';
 import { ErrorHandler } from '../models/concurency.model';
 

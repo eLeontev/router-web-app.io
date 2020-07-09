@@ -5,13 +5,12 @@ import './navigation-footer.scss';
 import { Button } from '../../common/button';
 import { CommonNavActions } from './common-actions/navigation-common-actions';
 
-import { navActionLabels } from '../../../constants/nav.constants';
-import { navigationMockData } from '../../../mock/nav.mock';
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
 
 import { expandSectionState } from '../../../recoil-state/navigation.state';
 import { useToggleNavBar } from '../../../hooks/toggle-nav-bar.recoil.hook';
 
-import { navSectionTypes } from '../../../models/nav.model';
+import { navActionTypes, navSectionTypes } from '../../../models/nav.model';
 
 export const NavigationFooter = React.memo(() => {
     const { isNavBarExpanded, toggleNavBar } = useToggleNavBar();
@@ -26,6 +25,8 @@ export const NavigationFooter = React.memo(() => {
         }
     }, [isNavBarExpanded, expandAllActions]);
 
+    const i18nActionsLabels = useGetTranslatedLabel(navActionTypes.triggerNav);
+
     return (
         <section className="navbar-footer">
             <CommonNavActions isNavBarExpanded={isNavBarExpanded} />
@@ -33,7 +34,7 @@ export const NavigationFooter = React.memo(() => {
             <Button
                 buttonHandler={triggerNavBar}
                 className="navbar-footer_trigger-action"
-                buttonName={navActionLabels[navigationMockData.footer.triggerNavAction.type]}
+                buttonName={i18nActionsLabels}
             ></Button>
         </section>
     );

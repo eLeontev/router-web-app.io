@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import {
-    navActionLabels,
-    navActionLinks,
-    navSectionTitles,
-} from '../../../constants/nav.constants';
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
 import {
     getActionsClassNames,
     getSectionClassNames,
     getSectionTitleClassNames,
 } from '../../../services/navigation.service';
+
+import { navActionLinks } from '../../../constants/nav.constants';
 
 import { LinkAction, LinkActions, navSectionTypes } from '../../../models/nav.model';
 
@@ -22,30 +20,45 @@ export type SectionRendererProps = {
     onExpandSection: () => void;
     linkActions: LinkActions;
 };
-export const renderLinkActions = (linkActions: LinkActions) =>
-    linkActions.map(({ type }: LinkAction) => (
+
+export const LinkActionRenderer = React.memo(({ type }: LinkAction) => {
+    const i18nActionLabel = useGetTranslatedLabel(type);
+
+    return (
         <Link key={type} className="nav-section-action" to={navActionLinks[type]}>
-            {navActionLabels[type]}
+            {i18nActionLabel}
         </Link>
+    );
+});
+
+export const renderLinkActions = (linkActions: LinkActions) =>
+    linkActions.map((linkAction: LinkAction) => (
+        <LinkActionRenderer key={linkAction.type} {...linkAction} />
     ));
 
-export const SectionRenderer = ({
-    onExpandNavBar,
-    type,
-    shouldExpandSection,
-    onExpandSection,
-    isActive,
-    linkActions,
-}: SectionRendererProps) => (
-    <section onClick={onExpandNavBar} className={getSectionClassNames(type)}>
-        <h3
-            onClick={onExpandSection}
-            className={getSectionTitleClassNames(isActive, shouldExpandSection)}
-        >
-            {navSectionTitles[type]}
-        </h3>
-        <section className={getActionsClassNames(shouldExpandSection)}>
-            {renderLinkActions(linkActions)}
-        </section>
-    </section>
+export const SectionRenderer = React.memo(
+    ({
+        onExpandNavBar,
+        type,
+        shouldExpandSection,
+        onExpandSection,
+        isActive,
+        linkActions,
+    }: SectionRendererProps) => {
+        const i18nSectionLabel = useGetTranslatedLabel(type);
+
+        return (
+            <section onClick={onExpandNavBar} className={getSectionClassNames(type)}>
+                <h3
+                    onClick={onExpandSection}
+                    className={getSectionTitleClassNames(isActive, shouldExpandSection)}
+                >
+                    {i18nSectionLabel}
+                </h3>
+                <section className={getActionsClassNames(shouldExpandSection)}>
+                    {renderLinkActions(linkActions)}
+                </section>
+            </section>
+        );
+    }
 );

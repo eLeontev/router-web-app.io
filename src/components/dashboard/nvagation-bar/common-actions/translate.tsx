@@ -3,7 +3,7 @@ import { useSetRecoilState } from 'recoil';
 
 import { i18nState } from '../../../../recoil-state/i18n.state';
 
-import { navActionLabels } from '../../../../constants/nav.constants';
+import { useGetTranslatedLabel } from '../../../../services/i18n.service';
 
 import { navActionTypes } from '../../../../models/nav.model';
 import { languages } from '../../../../models/i18n.model';
@@ -16,9 +16,12 @@ export const Translate = React.memo(() => {
         () => setLanguage((language: languages) => (language === russian ? english : russian)),
         [setLanguage]
     );
+
+    const i18nActionsLabels = useGetTranslatedLabel(navActionTypes.translate);
+
     return (
         <section onClick={changeLanguage} className="dropdown-as-link">
-            {navActionLabels[navActionTypes.translate]}
+            {i18nActionsLabels}
         </section>
     );
 });

@@ -5,7 +5,13 @@ import {
     minCountOfPasswordSymbols,
     loginActionTypes,
 } from '../constants/login.constants';
-import {LoginReducer, LoginState, Action, ActionHandlers, loginLabels} from '../models/login.model';
+import {
+    LoginReducer,
+    LoginState,
+    Action,
+    ActionHandlers,
+    loginLabels,
+} from '../models/login.model';
 
 const {
     cleanup,
