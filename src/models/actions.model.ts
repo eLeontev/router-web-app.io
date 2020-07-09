@@ -1,12 +1,20 @@
 import { connectionActionTypes } from '../constants/modal.constants';
 import { ConnectionInfoPropsWithSetters } from './modals.model';
 
+export enum actionsLabels {
+    addLogoType = 'addLogoType',
+    copyType = 'copyType',
+    printType = 'printType',
+    wpsType = 'wpsType',
+    activatedWpsType = 'activatedWpsType',
+}
+
 export type ActionNames = {
-    activatedWpsType: string;
-    [connectionActionTypes.addLogoType]: string;
-    [connectionActionTypes.copyType]: string;
-    [connectionActionTypes.printType]: string;
-    [connectionActionTypes.wpsType]: string;
+    activatedWpsType: actionsLabels;
+    [connectionActionTypes.addLogoType]: actionsLabels;
+    [connectionActionTypes.copyType]: actionsLabels;
+    [connectionActionTypes.printType]: actionsLabels;
+    [connectionActionTypes.wpsType]: actionsLabels;
 };
 
 export type ModalActionHandler = (actionPayload: ConnectionInfoPropsWithSetters) => Promise<void>;

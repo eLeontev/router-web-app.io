@@ -1,12 +1,13 @@
 import { CardLoaderService } from '../services/card-loader.service';
 import {
-    cardsLabels,
     cardTypes,
     connectionTypes,
     internetDetailsType,
     trafficType,
 } from '../constants/cards.constants';
 import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
+
+import { cardsLabels } from './cards.model';
 
 export type DashboardProps = {
     cardLoader?: CardLoaderService;

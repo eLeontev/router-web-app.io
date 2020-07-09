@@ -22,3 +22,15 @@ export const useGetTranslatedLabels = (labels: Array<Labels>): Array<string> => 
         language,
     ]);
 };
+
+export const useGetDynamicTranslatedLabel = (
+    label: Labels,
+    values: Array<string | number>
+): string => {
+    const language = useRecoilValue<languages>(i18nState);
+
+    return useMemo(() => {
+        let index = 0;
+        return getTranslatedLabel(label, language).replace(/{\$}/g, () => String(values[index++]));
+    }, [language, values, label]);
+};

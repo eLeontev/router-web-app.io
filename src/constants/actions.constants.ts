@@ -1,11 +1,11 @@
-import { ActionNames } from '../models/actions.model';
+import { ActionNames, actionsLabels } from '../models/actions.model';
 
 export const actionNames: ActionNames = {
-    addLogoType: 'Add logo',
-    copyType: 'Copy password',
-    printType: 'Print',
-    wpsType: 'WPS',
-    activatedWpsType: 'Stop WPS session',
+    addLogoType: actionsLabels.addLogoType,
+    copyType: actionsLabels.copyType,
+    printType: actionsLabels.printType,
+    wpsType: actionsLabels.wpsType,
+    activatedWpsType: actionsLabels.activatedWpsType,
 };
 
 export const wpsActivationDuration = 120; // 2min in sec
