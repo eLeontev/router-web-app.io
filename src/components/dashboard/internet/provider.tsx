@@ -7,9 +7,8 @@ import { internetState } from '../../../recoil-state/internet.state';
 import { ParamHandlerArguments, updateUptime } from '../../../services/system-params.service';
 import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
-import { cardsLabels } from '../../../constants/cards.constants';
-
 import { InternetProvider } from '../../../models/dashboard.model';
+import { cardsLabels } from '../../../models/cards.model';
 
 export type ProviderProps = InternetProvider & {
     connectionDuration: string;

@@ -1,14 +1,17 @@
 import React from 'react';
+
+import { OnlineDeviceComponent } from '../online-device/online-device';
+import { ConnectionComponent } from '../connection/connection';
+
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
+
+import { cardsLabels } from '../../../models/cards.model';
 import {
     CardContent,
     Connection,
     OnlineDevice,
     WiFiCardContent,
 } from '../../../models/dashboard.model';
-import { cardsLabels } from '../../../constants/cards.constants';
-import { ConnectionComponent } from '../connection/connection';
-import { OnlineDeviceComponent } from '../online-device/online-device';
-import { useGetTranslatedLabel } from '../../../services/i18n.service';
 
 export const WifiCardComponent = (cardContent: CardContent) => {
     const { connections, onlineDevices } = cardContent as WiFiCardContent;

@@ -1,10 +1,12 @@
 import {
-    cardsLabels,
     cardTypes,
     connectionTypes,
     internetDetailsType,
     trafficType,
 } from '../constants/cards.constants';
+import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
+
+import { cardsLabels } from '../models/cards.model';
 import {
     ApplicationsCard,
     Cards,
@@ -14,7 +16,6 @@ import {
     SystemCard,
     WiFiCard,
 } from '../models/dashboard.model';
-import { connectionActionTypes, modalContentTypes } from '../constants/modal.constants';
 
 export const applicationsCatrd: ApplicationsCard = {
     cardId: 'applicationsCatrd_1',

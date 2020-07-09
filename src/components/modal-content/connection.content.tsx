@@ -3,16 +3,12 @@ import './connection.content.scss';
 
 import { Logo } from '../common/logo';
 import { Actions } from './actions';
-
-import { generateQR } from '../../services/qr-code-generator.service';
-
-import { ConnectionInfoProps } from '../../models/modals.model';
 import { Credentials } from './credentials';
 
-const description = `Scan this QR code with your phone's camera to connect to the Wi-Fi network.`;
+import { generateQR } from '../../services/qr-code-generator.service';
+import { useGetDynamicTranslatedLabel, useGetTranslatedLabel } from '../../services/i18n.service';
 
-const getTitle = (name: string, range: string) =>
-    `Connection information for the '${name}' ${range} Wi-Fi network`;
+import { ConnectionInfoProps, dynamicModalLabels, modalLabels } from '../../models/modals.model';
 
 export const ConnectionModalContent = React.memo((connectionInfoProps: ConnectionInfoProps) => {
     const {
@@ -21,6 +17,12 @@ export const ConnectionModalContent = React.memo((connectionInfoProps: Connectio
         name,
         range,
     } = connectionInfoProps;
+
+    const description = useGetTranslatedLabel(modalLabels.connectionDescriptionLabel);
+    const title = useGetDynamicTranslatedLabel(dynamicModalLabels.connectionTitleLabel, [
+        name,
+        range,
+    ]);
 
     const [qrCodeBase64, setQRCode] = useState('');
     const [logoSrc, setLogo] = useState('');
@@ -32,7 +34,7 @@ export const ConnectionModalContent = React.memo((connectionInfoProps: Connectio
     return (
         <section className="modal-connection">
             <h1 className="modal-connection_print-title">KEENETIC</h1>
-            <h3 className="modal-connection_title">{getTitle(name, range)}</h3>
+            <h3 className="modal-connection_title">{title}</h3>
             {logoSrc ? <Logo src={logoSrc} className="connection-logo" /> : null}
             <p className="modal-connection_description">{description}</p>
             <Logo src={qrCodeBase64} className="modal-connection_qr-code" />

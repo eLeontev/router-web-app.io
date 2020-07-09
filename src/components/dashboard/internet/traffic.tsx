@@ -8,9 +8,10 @@ import { TrafficTiming } from './traffic-timing';
 import { speedTrafficState } from '../../../recoil-state/internet.state';
 import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
-import { cardsLabels, trafficType } from '../../../constants/cards.constants';
+import { trafficType } from '../../../constants/cards.constants';
 
 import { Traffic } from '../../../models/dashboard.model';
+import { cardsLabels } from '../../../models/cards.model';
 
 export const getTrafficValue = ({ unit, value }: { unit: string; value: any }) =>
     `${value} ${unit}`;

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { OnlineDeviceProps } from '../../../models/dashboard.model';
-import { cardsLabels, connectionTypes } from '../../../constants/cards.constants';
 import { useGetTranslatedLabel } from '../../../services/i18n.service';
+import { connectionTypes } from '../../../constants/cards.constants';
+
+import { OnlineDeviceProps } from '../../../models/dashboard.model';
+import { cardsLabels } from '../../../models/cards.model';
 
 const getConnectionModifier = (isHome: boolean) =>
     isHome ? 'connections-count__home' : 'connections-count__guest';

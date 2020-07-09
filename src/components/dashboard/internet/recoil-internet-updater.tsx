@@ -3,23 +3,20 @@ import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 import { internetState } from '../../../recoil-state/internet.state';
 
-import {
-    cardsLabels,
-    internetDetailsType,
-    internetRequestDelay,
-} from '../../../constants/cards.constants';
+import { internetDetailsType, internetRequestDelay } from '../../../constants/cards.constants';
 import {
     generateUpDownLoadTraffic,
     getSentReceivedTraffic,
 } from '../../../services/internet-card.service';
 
+import { InternetState, SentReceivedTraffic } from '../../../models/internet.model';
+import { cardsLabels } from '../../../models/cards.model';
 import {
     InternetDetail,
     InternetDetails,
     TrafficInfo,
     TrafficValue,
 } from '../../../models/dashboard.model';
-import { InternetState, SentReceivedTraffic } from '../../../models/internet.model';
 
 export type ContextUpdaterProps = {
     details: InternetDetails;

@@ -1,4 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
+
+import { splitSystemParams } from '../../../services/system-card.service';
+import { updateParamsMock } from '../../../services/system-params.service';
+import { useGetTranslatedLabels } from '../../../services/i18n.service';
+
+import { updateActiveParamsInterval } from '../../../constants/cards.constants';
+
+import { cardsLabels } from '../../../models/cards.model';
 import {
     CardContent,
     DynamicParamProps,
@@ -6,10 +14,6 @@ import {
     SystemParam,
     SystemParams,
 } from '../../../models/dashboard.model';
-import { splitSystemParams } from '../../../services/system-card.service';
-import { updateParamsMock } from '../../../services/system-params.service';
-import { cardsLabels, updateActiveParamsInterval } from '../../../constants/cards.constants';
-import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
 export const ParamRenderer = React.memo(({ label, value }: SystemParam) => {
     const [i18nLabel, i18nValue] = useGetTranslatedLabels([label, value as cardsLabels]);

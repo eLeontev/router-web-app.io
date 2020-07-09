@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApplicationsCardContent, CardContent } from '../../../models/dashboard.model';
 import { useGetTranslatedLabel } from '../../../services/i18n.service';
-import { cardsLabels } from '../../../constants/cards.constants';
+import { cardsLabels } from '../../../models/cards.model';
 
 export const ApplicationsCardComponent = (cardContent: CardContent) => {
     const { applications } = cardContent as ApplicationsCardContent;

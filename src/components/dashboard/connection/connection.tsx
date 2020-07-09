@@ -5,9 +5,9 @@ import { Checkbox } from '../../common/checkbox';
 
 import { useGetTranslatedLabels } from '../../../services/i18n.service';
 import { useButtonToOpenModal, useTriggerCheckbox } from './connection.hooks';
-import { cardsLabels } from '../../../constants/cards.constants';
 
 import { ConnectionProps } from '../../../models/dashboard.model';
+import { cardsLabels } from '../../../models/cards.model';
 
 export const ConnectionComponent = ({
     connection: { channel, connectionInfo, isActive, name, range, connectionId },

@@ -2,15 +2,11 @@ import { MutableRefObject } from 'react';
 
 import { renderGraph } from '../utils/d3-graph';
 
-import {
-    bModifier,
-    cardsLabels,
-    countOfDisplayedNodes,
-    mModifier,
-} from '../constants/cards.constants';
+import { bModifier, countOfDisplayedNodes, mModifier } from '../constants/cards.constants';
 import { navBarToggleTime } from '../constants/common.constants';
 
 import { TrafficValue, TrafficValues } from '../models/dashboard.model';
+import { cardsLabels } from '../models/cards.model';
 
 export const getModifier = (isUpload: boolean) => (isUpload ? 'upload' : 'download');
 

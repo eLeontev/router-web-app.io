@@ -1,7 +1,7 @@
 import { sAtom, sSelector } from '../utils/simple-recoil.util';
-import { cardsLabels } from '../constants/cards.constants';
 
 import { InternetState, SpeedTrafficState } from '../models/internet.model';
+import { cardsLabels } from '../models/cards.model';
 
 export const internetState = sAtom<InternetState>({
     download: {

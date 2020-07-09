@@ -1,21 +1,20 @@
 import React, { useCallback, useState } from 'react';
 
 import { Button } from '../common/button';
+import { Timer } from '../common/timer';
+
+import { useGetTranslatedLabel } from '../../services/i18n.service';
 
 import { getActionStatus } from './actions';
-import { actionNames, wpsActivationDuration } from '../../constants/actions.constants';
 import { modalActionHandlers } from '../../actions/actions';
+
+import { actionNames, wpsActivationDuration } from '../../constants/actions.constants';
 import { connectionActionTypes } from '../../constants/modal.constants';
+
 import { ConnectionInfoPropsWithSetters } from '../../models/modals.model';
-import { Timer } from '../common/timer';
 
 const actionHandler = modalActionHandlers[connectionActionTypes.wpsType];
 const { wpsType, activatedWpsType } = actionNames;
-
-export type WPSActionProps = {
-    isActive: boolean;
-    connectionInfoPropsWithSetters: ConnectionInfoPropsWithSetters;
-};
 
 export const WPSAction = (props: ConnectionInfoPropsWithSetters) => {
     const { isActive } = props.actions.WPS;
@@ -26,13 +25,13 @@ export const WPSAction = (props: ConnectionInfoPropsWithSetters) => {
         actionHandler(props).catch(() => activateWPS(false));
     }, [props]);
 
-    const actionName = isWPSActivated ? activatedWpsType : wpsType;
+    const actionLabel = useGetTranslatedLabel(isWPSActivated ? activatedWpsType : wpsType);
 
     return (
         <section className="acitons-wps">
             <Button
                 className={`modal-action-button ${getActionStatus(isActive)} wps`}
-                buttonName={actionName}
+                buttonName={actionLabel}
                 buttonHandler={isActive ? buttonHandler : () => {}}
             />
             {isWPSActivated ? (
