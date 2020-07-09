@@ -30,9 +30,6 @@ export const DefaultDetailRenderer = ({ label, value }: InternetDetail) => {
 
 const DetailsRendererWithTranslatedValues = ({ detail, trafficValue }: any) => {
     const i18nUnit = useGetTranslatedLabel(trafficValue.unit);
-    if (isNaN(trafficValue.value)) {
-        debugger
-    }
     return <DefaultDetailRenderer {...detail} value={`${trafficValue.value} ${i18nUnit}`} />;
 };
 
