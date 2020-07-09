@@ -79,3 +79,8 @@ export type SectionUrls = {
 };
 
 export type SectionsUrls = Array<SectionUrls>;
+
+export type NavigationBarProps = {
+    isNavBarExpanded: boolean;
+    toggleNavBar: () => void;
+};

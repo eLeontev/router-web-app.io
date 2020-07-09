@@ -2,8 +2,7 @@ import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { toggleNavBarState } from '../recoil-state/navigation.state';
-
-import { NavigationBarProps } from '../models/navigation.model';
+import { NavigationBarProps } from '../models/nav.model';
 
 export const useToggleNavBar = (): NavigationBarProps => {
     const [isNavBarExpanded, toggleNavBarHandler] = useRecoilState(toggleNavBarState);
