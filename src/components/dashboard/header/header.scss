@@ -1,7 +1,7 @@
 @import '../../../styles/variables';
 
 header {
-    height: 50px;
+    height: $headerHeight;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,7 +30,7 @@ header {
 @media (max-width: $mediaQueryMobile) {
     header {
         h1 {
-            transform: translateX(60px);
+            transform: translateX($headerHeight);
         }
     }
 }

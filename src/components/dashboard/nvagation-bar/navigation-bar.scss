@@ -6,7 +6,7 @@ $expandedWidth: 300px;
 nav {
     position: fixed;
     z-index: 1;
-    top: 50px;
+    top: $headerHeight;
     left: 0;
     bottom: 0;
     cursor: pointer;
@@ -27,7 +27,7 @@ nav {
     cursor: pointer;
     background-color: rgba(37, 36, 43, 0.7);
     position: fixed;
-    top: 50px;
+    top: $headerHeight;
     left: 0;
     right: 0;
     bottom: 0;
@@ -69,5 +69,26 @@ nav {
 
     to {
         width: $expandedWidth;
+    }
+}
+
+@media (max-width: $mediaQueryMobile) {
+    nav {
+        transform: translateY(-100%);
+
+        &.expanded {
+            animation: none;
+            transform: translateY(0);
+            width: 100%;
+            background: none;
+        }
+
+        &.collapsed {
+            animation: none;
+        }
+    }
+
+    .nav-background {
+        top: 0;
     }
 }
