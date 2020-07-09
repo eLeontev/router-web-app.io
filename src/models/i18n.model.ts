@@ -1,6 +1,7 @@
 import { dynamicModalLabels, modalLabels } from './modals.model';
 import { actionsLabels } from './actions.model';
 import { cardsLabels } from './cards.model';
+import { loginLabels } from './login.model';
 
 export enum languages {
     english = 'english',
@@ -30,7 +31,14 @@ export type I18nActionsLabels = {
         [key in languages]: string;
     };
 };
-export type Labels = cardsLabels | modalLabels | dynamicModalLabels | actionsLabels;
+
+export type I18nLoginLabels = {
+    [label in loginLabels]: {
+        [key in languages]: string;
+    };
+};
+
+export type Labels = cardsLabels | modalLabels | dynamicModalLabels | actionsLabels | loginLabels;
 
 export type I18nLabels = {
     [label in Labels]: {

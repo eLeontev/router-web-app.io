@@ -35,3 +35,11 @@ export type LoaderInfoContext = {
 export type ActionHandlers = {
     [actionType in loginActionTypes]: (...args: any) => any;
 };
+
+export enum loginLabels {
+    loginTitleLabel = 'loginTitleLabel',
+    resetLabel = 'resetLabel',
+    setDefaultLabel = 'setDefaultLabel',
+    loginButtonLabel = 'loginButtonLabel',
+    invalidCredentialsMessageLabel = 'invalidCredentialsMessageLabel',
+}

@@ -1,8 +1,5 @@
 import { LoginValues, LoginState } from '../models/login.model';
 
-export const noErrorMessage = '';
-export const invalidCredentionalsMessage = 'The credentials are invalid';
-
 export const initialCredentials: LoginValues = {
     login: '',
     password: '',
