@@ -81,6 +81,10 @@ $cardContentPadding: 20px;
             color: #62687f;
             display: flex;
             flex-direction: row;
+
+            &__range {
+                padding-right: 3px;
+            }
         }
     }
 }

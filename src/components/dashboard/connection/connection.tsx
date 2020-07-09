@@ -37,7 +37,7 @@ export const ConnectionComponent = ({
                 <section className="details">
                     <p className="details__name">{name}</p>
                     <section className="details--minor">
-                        <p className="details--minor__range">{range}, </p>
+                        <p className="details--minor__range">{range},</p>
                         <p className="details--minor__channel">
                             {channelLabel} {channel}
                         </p>
