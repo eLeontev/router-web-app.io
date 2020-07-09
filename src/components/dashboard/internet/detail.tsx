@@ -66,10 +66,7 @@ export const ConfigurableDetailRenderer = (detail: InternetDetail) => {
             <section className="detail-pair-value">
                 <span className="detail-pair-value-message">{i18nValue || detail.value} </span>
                 {isConfigurationType ? (
-                    <Link
-                        className="detail-pair-value-link"
-                        to={navActionLinks['internetSafety']}
-                    >
+                    <Link className="detail-pair-value-link" to={navActionLinks['internetSafety']}>
                         {i18ButtonLabel}
                     </Link>
                 ) : (
