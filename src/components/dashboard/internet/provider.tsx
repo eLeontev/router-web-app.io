@@ -2,7 +2,7 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import './provider.scss';
 
-import { internetState } from '../../../recoil-state/internet/internet.atom';
+import { internetState } from '../../../recoil-state/internet.state';
 
 import { ParamHandlerArguments, updateUptime } from '../../../services/system-params.service';
 import { useGetTranslatedLabels } from '../../../services/i18n.service';

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { SectionRenderer } from './navigation-section.renderer';
 
-import { expandSectionState } from '../../../recoil-state/navigation/expand-collapse.section.atom';
+import { expandSectionState } from '../../../recoil-state/navigation.state';
 import { getActiveSection } from '../../../services/navigation.service';
 import { useToggleNavBar } from '../../../hooks/toggle-nav-bar.recoil.hook';
 

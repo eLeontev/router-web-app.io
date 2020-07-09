@@ -5,7 +5,7 @@ import './traffic.scss';
 import { TrafficGraph } from './traffic-graph';
 import { TrafficTiming } from './traffic-timing';
 
-import { speedTrafficState } from '../../../recoil-state/internet/speed.traffic.selector';
+import { speedTrafficState } from '../../../recoil-state/internet.state';
 import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
 import { cardsLabels, trafficType } from '../../../constants/cards.constants';

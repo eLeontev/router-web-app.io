@@ -1,8 +1,10 @@
 import { TrafficValue } from './dashboard.model';
 
-export type InternetState = {
+export type SpeedTrafficState = {
     download: TrafficValue;
     upload: TrafficValue;
+};
+export type InternetState = SpeedTrafficState & {
     received: TrafficValue;
     sent: TrafficValue;
 };

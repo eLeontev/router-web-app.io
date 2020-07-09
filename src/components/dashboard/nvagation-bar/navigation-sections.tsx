@@ -4,7 +4,7 @@ import './navigation-sections.scss';
 
 import { Section } from './navigation-section';
 
-import { navSectionsState } from '../../../recoil-state/navigation/nav-sections.atom';
+import { navSectionsState } from '../../../recoil-state/navigation.state';
 import { useVerticalPerfectScroll } from '../../../hooks/vertical-scroll.hook';
 import { useDefaultExpandNavBarHandler } from '../../../hooks/expand-nav-bar.hook';
 

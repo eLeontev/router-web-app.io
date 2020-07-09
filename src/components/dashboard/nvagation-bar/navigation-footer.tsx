@@ -8,7 +8,7 @@ import { CommonNavActions } from './common-actions/navigation-common-actions';
 import { navActionLabels } from '../../../constants/nav.constants';
 import { navigationMockData } from '../../../mock/nav.mock';
 
-import { expandSectionState } from '../../../recoil-state/navigation/expand-collapse.section.atom';
+import { expandSectionState } from '../../../recoil-state/navigation.state';
 import { useToggleNavBar } from '../../../hooks/toggle-nav-bar.recoil.hook';
 
 import { navSectionTypes } from '../../../models/nav.model';

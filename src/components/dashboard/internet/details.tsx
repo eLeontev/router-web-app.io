@@ -4,12 +4,12 @@ import './details.scss';
 
 import { Button } from '../../common/button';
 
+import { internetState } from '../../../recoil-state/internet.state';
 import { useGetTranslatedLabel, useGetTranslatedLabels } from '../../../services/i18n.service';
 
 import { cardsLabels, internetDetailsType } from '../../../constants/cards.constants';
 
 import { InternetDetail, InternetDetails, TrafficValue } from '../../../models/dashboard.model';
-import { internetState } from '../../../recoil-state/internet/internet.atom';
 import { InternetState } from '../../../models/internet.model';
 
 const { download, upload, received, sent, reboot, configuration } = internetDetailsType;

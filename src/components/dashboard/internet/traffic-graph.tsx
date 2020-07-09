@@ -7,7 +7,7 @@ import {
     getLimitedCountOfNodes,
     getModifier,
 } from '../../../services/traffic-graph.service';
-import { toggleNavBarState } from '../../../recoil-state/navigation/toggle-nav-bar.atom';
+import { toggleNavBarState } from '../../../recoil-state/navigation.state';
 
 import { TrafficValue, TrafficValues } from '../../../models/dashboard.model';
 import { TrafficGraphProps } from '../../../models/internet.model';

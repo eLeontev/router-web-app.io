@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { toggleNavBarState } from '../recoil-state/navigation/toggle-nav-bar.atom';
+import { toggleNavBarState } from '../recoil-state/navigation.state';
 
 import { NavigationBarProps } from '../models/navigation.model';
 

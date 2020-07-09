@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 
-import { i18nState } from '../recoil-state/i18n/i18n.atom';
+import { i18nState } from '../recoil-state/i18n.state';
 import { i18nLabels } from '../constants/i18n/i18n.constants';
 
 import { Labels, languages } from '../models/i18n.model';

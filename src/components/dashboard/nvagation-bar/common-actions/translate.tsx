@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-import { i18nState } from '../../../../recoil-state/i18n/i18n.atom';
+import { i18nState } from '../../../../recoil-state/i18n.state';
 
 import { navActionLabels } from '../../../../constants/nav.constants';
 

@@ -1,7 +1,7 @@
 import React, { MutableRefObject, useEffect, useRef } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 
-import { internetState } from '../../../recoil-state/internet/internet.atom';
+import { internetState } from '../../../recoil-state/internet.state';
 
 import {
     cardsLabels,
