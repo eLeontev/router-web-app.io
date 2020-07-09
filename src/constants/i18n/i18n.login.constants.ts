@@ -22,5 +22,5 @@ export const i18nLoginLabels: I18nLoginLabels = {
     invalidCredentialsMessageLabel: {
         [russian]: 'Введенные данные не верны',
         [english]: 'The credentials are invalid',
-    }
+    },
 };

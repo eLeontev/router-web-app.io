@@ -40,6 +40,8 @@ export enum navSectionTypes {
     all = 'all',
 }
 
+export type navLabels = navSectionTypes | navActionTypes;
+
 export type NavSection = {
     type: navSectionTypes;
     linkActions: LinkActions;
