@@ -22,6 +22,12 @@ export type SectionRendererProps = {
     linkActions: LinkActions;
 };
 
+export const LinkMemoAction = React.memo(({redirectHandler, i18nActionLabel}: any) => ((
+    <Link className="nav-section-action" to={redirectHandler}>
+        {i18nActionLabel}
+    </Link>
+)));
+
 export const LinkActionRenderer = React.memo(({ type }: LinkAction) => {
     const i18nActionLabel = useGetTranslatedLabel(type);
     const { toggleNavBar } = useToggleNavBar();
@@ -31,11 +37,7 @@ export const LinkActionRenderer = React.memo(({ type }: LinkAction) => {
         return navActionLinks[type];
     }, [type, toggleNavBar]);
 
-    return (
-        <Link key={type} className="nav-section-action" to={redirectHandler}>
-            {i18nActionLabel}
-        </Link>
-    );
+    return <LinkMemoAction redirectHandler={redirectHandler} i18nActionLabel={i18nActionLabel} />;
 });
 
 export const renderLinkActions = (linkActions: LinkActions) =>
