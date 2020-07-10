@@ -16,7 +16,7 @@ export const Logout = React.memo(() => {
     const redirectHandler = useCallback(() => {
         toggleNavBar();
         history.push({ pathname: rootPath, state: null });
-    }, [toggleNavBar]);
+    }, [toggleNavBar, history]);
 
     return (
         <section className="nav-section nav-section__top-border nav-section__logout">
