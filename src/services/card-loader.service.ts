@@ -26,7 +26,7 @@ export class CardLoaderService {
 
             setLoader(true);
             this.fetchCards(setCards).finally(() => setLoader(false));
-        }, [history]);
+        }, [history, setLoader]);
 
         return { isLoading, leftCards, rightCards };
     }
