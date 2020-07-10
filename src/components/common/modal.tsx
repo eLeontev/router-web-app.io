@@ -26,8 +26,8 @@ export const ModalComponent = React.memo(({ children, setModal }: ModalComponent
     >
         <section className="modal-content">
             <Button
+                buttonName=""
                 className="close-modal-button"
-                buttonName="x"
                 buttonHandler={() => setModal(null)}
             />
             {children}
