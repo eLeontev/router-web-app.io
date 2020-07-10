@@ -7,8 +7,8 @@ export type DashboardRequest = {
 export type DashboardLoaderProps = {
     dashboardRequest: DashboardRequest;
 };
-export type ErrorHandler = (errorMessage: string) => undefined;
-export type ConcurencyLoginHandlerProps = {
+export type ErrorHandler = (errorMessage: string) => any;
+export type ConcurrencyLoginHandlerProps = {
     loginValues: LoginValues;
     errorHandler: ErrorHandler;
     getDashboardRequest?(
