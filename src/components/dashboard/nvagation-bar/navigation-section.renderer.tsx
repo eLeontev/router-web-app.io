@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useToggleNavBar } from '../../../hooks/toggle-nav-bar.recoil.hook';
 import { useGetTranslatedLabel } from '../../../services/i18n.service';
 import {
     getActionsClassNames,
@@ -23,9 +24,15 @@ export type SectionRendererProps = {
 
 export const LinkActionRenderer = React.memo(({ type }: LinkAction) => {
     const i18nActionLabel = useGetTranslatedLabel(type);
+    const { toggleNavBar } = useToggleNavBar();
+
+    const redirectHandler = useCallback(() => {
+        toggleNavBar();
+        return navActionLinks[type];
+    }, [type, toggleNavBar]);
 
     return (
-        <Link key={type} className="nav-section-action" to={navActionLinks[type]}>
+        <Link key={type} className="nav-section-action" to={redirectHandler}>
             {i18nActionLabel}
         </Link>
     );
