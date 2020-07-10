@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { History } from 'history';
 
+import { LoaderContext } from '../context/loader.context';
+
 import { defaultCards } from '../constants/cards.constants';
-import { cardsMocks } from '../mock/cards.mock';
 import { dashboardPath } from '../constants/router.constants';
+import { cardsMocks } from '../mock/cards.mock';
 
 import { Cards, CardsResponse } from '../models/dashboard.model';
 
@@ -11,7 +13,7 @@ export type SetCards = (cards: Cards) => void;
 
 export class CardLoaderService {
     public useLoadCards(history: History<Cards>): CardsResponse {
-        const [isLoading, setLoader] = useState(false);
+        const { isLoading, setLoader } = useContext(LoaderContext);
         const [{ leftCards, rightCards }, setCards] = useState(defaultCards);
 
         useEffect(() => {
