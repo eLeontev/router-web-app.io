@@ -4,8 +4,9 @@
 .content {
     display: flex;
     flex-direction: row;
-    padding-top: 50px;
-    padding-left: 60px;
+    margin-top: $headerHeight;
+    margin-left: $headerHeight;
+    padding: 15px;
 
     &__expanded {
         animation: 0.3s linear forwards collapse_content;
@@ -18,21 +19,21 @@
 
 @keyframes expand_content {
     from {
-        padding-left: $expandedWidth;
+        margin-left: $expandedWidth;
     }
 
     to {
-        padding-left: $collapsedWidth;
+        margin-left: $collapsedWidth;
     }
 }
 
 @keyframes collapse_content {
     from {
-        padding-left: $collapsedWidth;
+        margin-left: $collapsedWidth;
     }
 
     to {
-        padding-left: $expandedWidth;
+        margin-left: $expandedWidth;
     }
 }
 
@@ -47,7 +48,7 @@
 
 @media (max-width: $mediaQueryMobile) {
     .content {
-        padding-left: 0;
+        margin-left: 0;
 
         &__expanded,
         &__collapsed {
