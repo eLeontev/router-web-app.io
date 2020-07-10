@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import './dashboard.scss';
 
 import { Cards as CardsComponent } from '../../components/dashboard/cards/cards';
 
