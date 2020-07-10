@@ -34,3 +34,22 @@ export const useGetDynamicTranslatedLabel = (
         return getTranslatedLabel(label, language).replace(/{\$}/g, () => String(values[index++]));
     }, [language, values, label]);
 };
+
+export const useGetTranslatedLabelsObject = <T extends Labels>(
+    labels: Array<Labels>
+): { [key in T]: string } => {
+    const labelsRef = useRef(labels);
+    const language = useRecoilValue<languages>(i18nState);
+
+    return useMemo(
+        () =>
+            labelsRef.current.reduce(
+                (res: any, label) => ({
+                    ...res,
+                    [label]: getTranslatedLabel(label, language),
+                }),
+                {}
+            ),
+        [language]
+    ) as { [key in T]: string };
+};
