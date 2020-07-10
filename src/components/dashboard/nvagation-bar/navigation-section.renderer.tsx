@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useToggleNavBar } from '../../../hooks/toggle-nav-bar.recoil.hook';
@@ -22,22 +22,15 @@ export type SectionRendererProps = {
     linkActions: LinkActions;
 };
 
-export const LinkMemoAction = React.memo(({redirectHandler, i18nActionLabel}: any) => ((
-    <Link className="nav-section-action" to={redirectHandler}>
-        {i18nActionLabel}
-    </Link>
-)));
-
 export const LinkActionRenderer = React.memo(({ type }: LinkAction) => {
     const i18nActionLabel = useGetTranslatedLabel(type);
     const { toggleNavBar } = useToggleNavBar();
 
-    const redirectHandler = useCallback(() => {
-        toggleNavBar();
-        return navActionLinks[type];
-    }, [type, toggleNavBar]);
-
-    return <LinkMemoAction redirectHandler={redirectHandler} i18nActionLabel={i18nActionLabel} />;
+    return (
+        <Link className="nav-section-action" to={navActionLinks[type]} onClick={toggleNavBar}>
+            {i18nActionLabel}
+        </Link>
+    );
 });
 
 export const renderLinkActions = (linkActions: LinkActions) =>
