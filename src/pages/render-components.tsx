@@ -1,7 +1,9 @@
+import React, { Suspense } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { componentsToRender } from '../constants/router.constants';
+
 import { ContentWrapper } from './content-wrapper/content-wrapper';
-import React from 'react';
+
+import { componentsToRender } from '../constants/router.constants';
 
 export const render = (props: RouteComponentProps<any>) => {
     const {
@@ -11,7 +13,9 @@ export const render = (props: RouteComponentProps<any>) => {
 
     return (
         <ContentWrapper>
-            <ContentComponent />
+            <Suspense fallback={<h1>Loading</h1>}>
+                <ContentComponent />
+            </Suspense>
         </ContentWrapper>
     );
 };

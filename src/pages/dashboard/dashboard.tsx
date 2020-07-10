@@ -6,11 +6,13 @@ import { Cards as CardsComponent } from '../../components/dashboard/cards/cards'
 
 import { cardLoaderInstance } from '../../services/card-loader.service';
 
-import { DashboardProps, Cards } from '../../models/dashboard.model';
+import { Cards } from '../../models/dashboard.model';
 
-export const DashboardPage = ({ cardLoader = cardLoaderInstance }: DashboardProps) => {
+export const DashboardPage = () => {
     const history = useHistory<Cards>();
-    const { leftCards, rightCards } = cardLoader.useLoadCards(history);
+    const { leftCards, rightCards } = cardLoaderInstance.useLoadCards(history);
 
     return <CardsComponent leftCards={leftCards} rightCards={rightCards} />;
 };
+
+export default DashboardPage;

@@ -1,4 +1,3 @@
-import { CardLoaderService } from '../services/card-loader.service';
 import {
     cardTypes,
     connectionTypes,
@@ -9,9 +8,6 @@ import { connectionActionTypes, modalContentTypes } from '../constants/modal.con
 
 import { cardsLabels } from './cards.model';
 
-export type DashboardProps = {
-    cardLoader?: CardLoaderService;
-};
 export type BaseCard = {
     cardId: string;
     type: cardTypes;

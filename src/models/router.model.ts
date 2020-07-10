@@ -1,3 +1,5 @@
+import { LazyExoticComponent } from 'react';
+
 export type ComponentsToRender = {
-    [path: string]: (props: any) => JSX.Element;
+    [path: string]: LazyExoticComponent<() => JSX.Element>;
 };
