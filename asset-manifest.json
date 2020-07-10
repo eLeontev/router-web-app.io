@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/router-web-app.io/static/css/main.41eb46a8.chunk.css",
-    "main.js": "/router-web-app.io/static/js/main.bf0cf868.chunk.js",
-    "main.js.map": "/router-web-app.io/static/js/main.bf0cf868.chunk.js.map",
-    "runtime-main.js": "/router-web-app.io/static/js/runtime-main.0bd9927c.js",
-    "runtime-main.js.map": "/router-web-app.io/static/js/runtime-main.0bd9927c.js.map",
-    "static/js/2.f2c60233.chunk.js": "/router-web-app.io/static/js/2.f2c60233.chunk.js",
-    "static/js/2.f2c60233.chunk.js.map": "/router-web-app.io/static/js/2.f2c60233.chunk.js.map",
+    "main.js": "/router-web-app.io/static/js/main.45291281.chunk.js",
+    "main.js.map": "/router-web-app.io/static/js/main.45291281.chunk.js.map",
+    "runtime-main.js": "/router-web-app.io/static/js/runtime-main.e19805eb.js",
+    "runtime-main.js.map": "/router-web-app.io/static/js/runtime-main.e19805eb.js.map",
+    "static/js/2.4f111722.chunk.js": "/router-web-app.io/static/js/2.4f111722.chunk.js",
+    "static/js/2.4f111722.chunk.js.map": "/router-web-app.io/static/js/2.4f111722.chunk.js.map",
     "static/css/3.3de63e9e.chunk.css": "/router-web-app.io/static/css/3.3de63e9e.chunk.css",
-    "static/js/3.7d36e447.chunk.js": "/router-web-app.io/static/js/3.7d36e447.chunk.js",
-    "static/js/3.7d36e447.chunk.js.map": "/router-web-app.io/static/js/3.7d36e447.chunk.js.map",
+    "static/js/3.03f3e632.chunk.js": "/router-web-app.io/static/js/3.03f3e632.chunk.js",
+    "static/js/3.03f3e632.chunk.js.map": "/router-web-app.io/static/js/3.03f3e632.chunk.js.map",
     "static/js/4.14077d92.chunk.js": "/router-web-app.io/static/js/4.14077d92.chunk.js",
     "static/js/4.14077d92.chunk.js.map": "/router-web-app.io/static/js/4.14077d92.chunk.js.map",
     "static/css/5.6cff6d30.chunk.css": "/router-web-app.io/static/css/5.6cff6d30.chunk.css",
@@ -18,18 +18,18 @@
     "static/js/6.da9bc769.chunk.js": "/router-web-app.io/static/js/6.da9bc769.chunk.js",
     "static/js/6.da9bc769.chunk.js.map": "/router-web-app.io/static/js/6.da9bc769.chunk.js.map",
     "index.html": "/router-web-app.io/index.html",
-    "precache-manifest.fcdb8e664a1d150f70a507cc20921963.js": "/router-web-app.io/precache-manifest.fcdb8e664a1d150f70a507cc20921963.js",
+    "precache-manifest.303f82a49a7440c2a2c331212d0bf3cf.js": "/router-web-app.io/precache-manifest.303f82a49a7440c2a2c331212d0bf3cf.js",
     "service-worker.js": "/router-web-app.io/service-worker.js",
     "static/css/3.3de63e9e.chunk.css.map": "/router-web-app.io/static/css/3.3de63e9e.chunk.css.map",
     "static/css/5.6cff6d30.chunk.css.map": "/router-web-app.io/static/css/5.6cff6d30.chunk.css.map",
     "static/css/main.41eb46a8.chunk.css.map": "/router-web-app.io/static/css/main.41eb46a8.chunk.css.map",
-    "static/js/2.f2c60233.chunk.js.LICENSE.txt": "/router-web-app.io/static/js/2.f2c60233.chunk.js.LICENSE.txt",
+    "static/js/2.4f111722.chunk.js.LICENSE.txt": "/router-web-app.io/static/js/2.4f111722.chunk.js.LICENSE.txt",
     "static/media/cards.scss": "/router-web-app.io/static/media/sprite.c8b3adb1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0bd9927c.js",
-    "static/js/2.f2c60233.chunk.js",
+    "static/js/runtime-main.e19805eb.js",
+    "static/js/2.4f111722.chunk.js",
     "static/css/main.41eb46a8.chunk.css",
-    "static/js/main.bf0cf868.chunk.js"
+    "static/js/main.45291281.chunk.js"
   ]
 }
