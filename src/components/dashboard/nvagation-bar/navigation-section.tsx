@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useRecoilState } from 'recoil';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { SectionRenderer } from './navigation-section.renderer';
 
@@ -13,7 +13,7 @@ import { NavSection, navSectionTypes } from '../../../models/nav.model';
 export const Section = React.memo(({ type, linkActions }: NavSection) => {
     const { isNavBarExpanded, toggleNavBar } = useToggleNavBar();
     const [expandedType, expandSection] = useRecoilState(expandSectionState);
-    const history = useHistory();
+    const location = useLocation();
 
     const onExpandSection = useCallback(() => {
         expandSection(type);
@@ -27,7 +27,7 @@ export const Section = React.memo(({ type, linkActions }: NavSection) => {
     }, [isNavBarExpanded, toggleNavBar, onExpandSection]);
 
     const shouldExpandSection = expandedType === type || expandedType === navSectionTypes.all;
-    const isActive = getActiveSection(history.location.pathname) === type;
+    const isActive = getActiveSection(location.pathname) === type;
 
     return (
         <SectionRenderer
