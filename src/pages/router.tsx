@@ -1,15 +1,30 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { RecoilRoot } from 'recoil';
 
 import { LoginPage } from './login/login';
-import { DashboardPage } from './dashboard/dashboard';
-
-import { dashboardPath, rootControlPanelPath, rootPath } from '../constants/router.constants';
 import { ContentWrapper } from './content-wrapper/content-wrapper';
+
+import {
+    componentsToRender,
+    dashboardPath,
+    rootControlPanelPath,
+    rootPath,
+} from '../constants/router.constants';
 
 const { NODE_ENV, PUBLIC_URL } = process.env;
 const basename = NODE_ENV === 'development' ? '/' : PUBLIC_URL;
+
+export const render = ({ match: { path } }: RouteComponentProps<any>) => {
+    const ContentComponent = componentsToRender[path] || componentsToRender.default;
+
+    return (
+        <ContentWrapper>
+            <ContentComponent />
+        </ContentWrapper>
+    );
+};
 
 export const AppRouter = () => (
     <RecoilRoot>
@@ -19,44 +34,15 @@ export const AppRouter = () => (
                     <LoginPage />
                 </Route>
 
-                <Route path={dashboardPath}>
-                    <ContentWrapper>
-                        <DashboardPage />
-                    </ContentWrapper>
-                </Route>
-
-                <Router basename={rootControlPanelPath}>
-                    <ContentWrapper>
-                        <Switch>
-                            <Route path={'/wired'}>
-                                <h1>wired</h1>
-                            </Route>
-                            <Route path={'/wificlient'}>
-                                <h1>wificlient</h1>
-                            </Route>
-                        </Switch>
-                    </ContentWrapper>
-                </Router>
+                <Route
+                    path={[
+                        dashboardPath,
+                        `${rootControlPanelPath}/:path`,
+                        `${rootControlPanelPath}/:path/:id`,
+                    ]}
+                    render={render}
+                ></Route>
             </Switch>
         </Router>
     </RecoilRoot>
 );
-//
-// <Router path={rootControlPanelPath}>
-//     <WithLoaderContext>
-//         <WithModalContext>
-//             <ContentWrapper>
-//                 <Router basename={'/'}>
-//                     <Switch>
-//                         <Route path={'/wired'}>
-//                             <h1>wired</h1>
-//                         </Route>
-//                         <Route path={'wificlient'}>
-//                             <h1>wificlient</h1>
-//                         </Route>
-//                     </Switch>
-//                 </Router>
-//             </ContentWrapper>
-//         </WithModalContext>
-//     </WithLoaderContext>
-// </Router>
