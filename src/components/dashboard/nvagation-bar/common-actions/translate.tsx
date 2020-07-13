@@ -8,8 +8,11 @@ import { useGetTranslatedLabel } from '../../../../services/i18n.service';
 import { navActionTypes } from '../../../../models/nav.model';
 import { languages } from '../../../../models/i18n.model';
 
+export type TranslateProps = {
+    classModifier?: string;
+};
 const { russian, english } = languages;
-export const Translate = React.memo(() => {
+export const Translate = React.memo(({ classModifier = '' }: TranslateProps) => {
     const setLanguage = useSetRecoilState(i18nState);
 
     const changeLanguage = useCallback(
@@ -20,7 +23,7 @@ export const Translate = React.memo(() => {
     const i18nActionsLabels = useGetTranslatedLabel(navActionTypes.translate);
 
     return (
-        <section onClick={changeLanguage} className="dropdown-as-link">
+        <section onClick={changeLanguage} className={`dropdown-as-link ${classModifier}`}>
             {i18nActionsLabels}
         </section>
     );

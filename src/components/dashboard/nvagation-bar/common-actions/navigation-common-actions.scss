@@ -13,3 +13,11 @@
     font-size: 14px;
     text-align: center;
 }
+
+.dropdown-as-link {
+    &__inline {
+        cursor: pointer;
+        display: inline;
+        width: auto;
+    }
+}

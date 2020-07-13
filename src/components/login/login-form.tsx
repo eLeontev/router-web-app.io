@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '../common/button';
 import { Input } from '../common/input';
 import { Message } from '../common/message';
+import { Translate } from '../dashboard/nvagation-bar/common-actions/translate';
 
 import { LoginLabels } from '../../services/i18n.login.service';
 
@@ -58,6 +59,7 @@ export const LoginForm = React.memo(
                     message={i18nLabels.invalidCredentialsMessageLabel}
                     onClose={() => dispatch({ type: cleanuperror })}
                 />
+                <Translate classModifier="dropdown-as-link__inline" />
             </section>
         </section>
     )
