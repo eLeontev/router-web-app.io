@@ -19,3 +19,5 @@ export const i18nLabels: I18nLabels = {
     ...i18nCommonLabels,
     ...i18nDevicesListLabels,
 };
+
+export const localStorageI18nKey = 'localStorageI18nKey';
