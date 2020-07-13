@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/text-pages.scss';
+import '../../styles/typography.page.scss';
 
 import { Button } from '../../components/common/button';
 
