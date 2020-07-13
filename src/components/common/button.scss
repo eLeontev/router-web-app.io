@@ -33,7 +33,8 @@
     margin: 0;
 }
 
-.show-more-button {
+.show-more-button,
+.confirmation-button {
     min-width: 200px;
 }
 
@@ -62,16 +63,44 @@
 }
 
 .show-more-button,
-.modal-action-button {
+.modal-action-button,
+.confirmation-button {
+    margin: 0;
+    padding: 0 15px;
     height: 40px;
-    background-color: #fff;
     border: 1px solid #0098d9;
     border-radius: 2px;
-    margin: 0;
     box-sizing: border-box;
-    padding: 0 15px;
-    color: #0098d9;
     font-size: 14px;
+
+    &__save {
+        border: none;
+        background-color: #0098d9;
+        color: #fff;
+        margin-right: 15px;
+
+        &:hover {
+            background-color: #124169;
+            transition: all 0.2s ease-out 0s;
+        }
+    }
+
+    &__cancel {
+        color: #0098d9;
+        border: 1px solid #eeeff1;
+        background-color: #fff;
+
+        &:hover {
+            border: 1px solid #0098d9;
+            transition: all 0.2s ease-out 0s;
+        }
+    }
+}
+
+.show-more-button,
+.modal-action-button {
+    background-color: #fff;
+    color: #0098d9;
 }
 
 .show-more-button,

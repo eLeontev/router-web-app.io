@@ -1,25 +1,37 @@
 @import './variables';
 
-.page-content {
-    padding-left: 10px;
-}
-.page-content-wrapper {
-    padding-top: 65px;
-}
-
-.page-title {
+@mixin fixed-content {
     background-color: #fff;
     position: fixed;
     width: 100%;
+    padding-top: 15px;
+    padding-left: 25px;
+    padding-bottom: 20px;
+}
+
+.page-content {
+    padding-left: 10px;
+
+    &__with-scroll {
+        .page-title {
+            box-shadow: 0 6px 13px -3px rgba(49, 74, 156, 0.4);
+            transition: all 0.3s linear;
+        }
+    }
+}
+.page-content-wrapper {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.page-title {
+    @include fixed-content;
+    transform: translate(-25px, -15px);
     color: #172b4d;
     line-height: 42px;
     font-size: 36px;
     font-weight: 400;
-    padding-top: 15px;
-    padding-left: 25px;
-    padding-bottom: 20px;
-    transform: translate(-25px, -15px);
-    box-shadow: 0 6px 13px -3px rgba(49, 74, 156, 0.4);
+    box-shadow: none;
 }
 
 .page-sub-title {
@@ -35,6 +47,22 @@
     font-size: 14px;
     line-height: 18px;
     padding: 5px 0 19px;
+}
+
+.dirty-section {
+    @include fixed-content;
+    transform: translateX(-25px);
+    border-top: 1px solid rgba(38, 107, 178, 0.2);
+    padding-bottom: 15px;
+    bottom: 0;
+
+    &__visible {
+        display: block;
+    }
+
+    &__hidden {
+        display: none;
+    }
 }
 
 @media (max-width: $mediaQueryMobile) {

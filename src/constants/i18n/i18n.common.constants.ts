@@ -7,4 +7,12 @@ export const i18nCommonLabels: I18nCommonLabels = {
         [russian]: 'Поиск настроек',
         [english]: 'Search for settings',
     },
+    saveButtonLabel: {
+        [russian]: 'Сохранить',
+        [english]: 'Save',
+    },
+    cancelButtonLabel: {
+        [russian]: 'Отмена',
+        [english]: 'Cancel',
+    },
 };
