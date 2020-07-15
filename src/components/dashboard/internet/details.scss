@@ -1,9 +1,8 @@
 @import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .details-info {
-    margin-top: 10px;
-    padding-left: 15px;
-    border-left: 2px solid #d7dbe4;
+    @include with-group-offset;
 }
 
 .detail-pair {

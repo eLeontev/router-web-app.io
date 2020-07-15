@@ -39,4 +39,38 @@ export const i18nDevicesListLabels: I18nDevicesListLabels = {
         [russian]: 'Добавить устройство',
         [english]: 'Add device',
     },
+    displayDeviceSettingsLabel: {
+        [russian]: 'Настройки для незарегистрированных устройств',
+        [english]: 'Settings for unregistered devices',
+    },
+
+    hideDeviceSettingsLabel: {
+        [russian]: 'Скрыть настройки',
+        [english]: 'Hide settings',
+    },
+    settingsDescriptionLabel: {
+        [russian]: 'Эти настройки будут применяться ко всем незарегистрированным устройствам.',
+        [english]: 'These settings will apply to all unregistered devices.',
+    },
+
+    withoutFilteringLabel: {
+        [russian]: 'AdGuard DNS / Без фильтрации',
+        [english]: 'AdGuard DNS / Without filtering',
+    },
+    withoutADCLabel: {
+        [russian]: 'AdGuard DNS / Без рекламы',
+        [english]: 'AdGuard DNS / Without ADC',
+    },
+    familyLabel: {
+        [russian]: 'AdGuard DNS / Семейный',
+        [english]: 'AdGuard DNS / Family',
+    },
+    speedLimitLabel: {
+        [russian]: 'Ограничение скорости',
+        [english]: 'Speed limit',
+    },
+    asymmetricLabel: {
+        [russian]: 'Асимметрично',
+        [english]: 'Asymmetric',
+    },
 };

@@ -1,0 +1,49 @@
+.dropdown {
+    width: 230px;
+    padding: 0 5px;
+    border-radius: 2px;
+    border-color: #0098d9;
+}
+
+.dropdown-with-input {
+    width: 230px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .dropdown-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        bottom: 2px;
+
+        .dropdown {
+            border: none;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 0;
+            width: 1px;
+            bottom: 2px;
+            background-color: #0098d9;
+        }
+    }
+
+    .dropdown {
+        width: auto;
+    }
+
+    &__input {
+        margin: 0;
+        width: 220px;
+        border: 1px solid #0098d9;
+        border-radius: 2px;
+    }
+}

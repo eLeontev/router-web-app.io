@@ -3,14 +3,18 @@ import '../../styles/typography.page.scss';
 
 import { Button } from '../../components/common/button';
 import { PageContent } from '../../components/common/page-content';
-
-import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
-import { devicesListLabels } from '../../models/devices-list.model';
 import { Dirty } from '../../components/common/dirty';
+
+import { DevicesSettings } from '../../components/devices-list/devices-settings';
+
+import { deviceDirtyState } from '../../recoil-state/devices-list.settings.state';
+import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
 import { useDirty } from '../../hooks/toggle-dirty.hook';
 
+import { devicesListLabels } from '../../models/devices-list.model';
+
 export const DevicesList = () => {
-    const { isDirty, onCancel, onSave, setDirty } = useDirty();
+    const { isDirty, onCancel, onSave } = useDirty(deviceDirtyState);
 
     const i18nLabels = useGetTranslatedLabelsObject([
         devicesListLabels.titleLabel,
@@ -31,6 +35,7 @@ export const DevicesList = () => {
                 <h2 className="page-sub-title">{i18nLabels.unregisteredDevicesTitleLabel}</h2>
                 <p className="page-text">{i18nLabels.unregisteredDevicesDescriptionLabel}</p>
                 <hr />
+                <DevicesSettings />
                 <h2 className="page-sub-title">{i18nLabels.registeredDevicesTitleLabel}</h2>
                 <hr />
                 <h2 className="page-sub-title">{i18nLabels.blockedDevicesTitleLabel}</h2>
@@ -38,15 +43,11 @@ export const DevicesList = () => {
                 <hr />
                 <Button
                     className="show-more-button"
-                    buttonHandler={() => setDirty(!isDirty)}
+                    buttonHandler={() => {}}
                     buttonName={i18nLabels.addDeviceButtonLabel}
                 ></Button>
             </section>
-            <Dirty
-                onCancel={onCancel(() => console.log(123))}
-                onSave={onSave(() => console.warn(321))}
-                isDirty={isDirty}
-            />
+            <Dirty onCancel={onCancel} onSave={onSave(() => console.log('saved'))} isDirty={isDirty} />
         </PageContent>
     );
 };

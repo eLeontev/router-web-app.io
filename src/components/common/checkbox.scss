@@ -40,6 +40,12 @@ $checkboxSize: 25px;
     }
 }
 
+.simple-checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
 @keyframes activate_checkbox {
     from {
         transform: translateX(0px);

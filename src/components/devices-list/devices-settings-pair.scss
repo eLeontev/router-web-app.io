@@ -1,0 +1,18 @@
+.setting-pair {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    &__aligned {
+        align-items: center;
+    }
+
+    .page-text {
+        min-width: 170px;
+        padding: 10px 0;
+    }
+}
