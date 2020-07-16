@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useGetTranslatedLabels } from '../../services/i18n.service';
+import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
-import { modalLabels } from '../../models/modals.model';
+import { modalLabels } from '../../../models/modals.model';
 
 export type CredentialsProps = {
     password: string | null;

@@ -1,17 +1,17 @@
 import React, { useCallback, useState } from 'react';
 
-import { Button } from '../common/button';
-import { Timer } from '../common/timer';
+import { Button } from '../../common/button';
+import { Timer } from '../../common/timer';
 
-import { useGetTranslatedLabel } from '../../services/i18n.service';
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
 
 import { getActionStatus } from './actions';
-import { modalActionHandlers } from '../../actions/actions';
+import { modalActionHandlers } from '../../../actions/actions';
 
-import { actionNames, wpsActivationDuration } from '../../constants/actions.constants';
-import { connectionActionTypes } from '../../constants/modal.constants';
+import { actionNames, wpsActivationDuration } from '../../../constants/actions.constants';
+import { connectionActionTypes } from '../../../constants/modal.constants';
 
-import { ConnectionInfoPropsWithSetters } from '../../models/modals.model';
+import { ConnectionInfoPropsWithSetters } from '../../../models/modals.model';
 
 const actionHandler = modalActionHandlers[connectionActionTypes.wpsType];
 const { wpsType, activatedWpsType } = actionNames;

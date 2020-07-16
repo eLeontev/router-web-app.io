@@ -1,0 +1,21 @@
+@import '../../../styles/variables';
+
+.modal-pair {
+    &__value {
+        position: relative;
+        border: 1px solid #0098d9;
+        border-radius: 2px;
+        margin-bottom: 0;
+
+        &.invalid {
+            border-color: #e84855;
+        }
+    }
+
+    &_error-message {
+        position: absolute;
+        font-size: 14px;
+        left: $left-width;
+        top: 36px;
+    }
+}

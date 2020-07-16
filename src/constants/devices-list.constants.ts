@@ -29,3 +29,4 @@ export const speedOptions: Options<cardsLabels> = [
 ];
 
 export const speedRange = [64, 1000000];
+export const macAddressLength = 12;

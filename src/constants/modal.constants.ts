@@ -1,5 +1,6 @@
 export enum modalContentTypes {
     connectionContentType = 'connectionContentType',
+    registerDeviceType = 'registerDeviceType',
 }
 
 export enum connectionActionTypes {

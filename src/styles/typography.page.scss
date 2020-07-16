@@ -68,6 +68,13 @@
     &__hidden {
         display: none;
     }
+
+    &.modal {
+        position: relative;
+        transform: none;
+        padding-left: 0;
+        padding-bottom: 0;
+    }
 }
 
 @media (max-width: $mediaQueryMobile) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useRecoilValue } from 'recoil';
 import '../../styles/typography.page.scss';
 
@@ -7,16 +7,20 @@ import { PageContent } from '../../components/common/page-content';
 import { Dirty } from '../../components/common/dirty';
 
 import { DevicesSettings } from '../../components/devices-list/devices-settings';
+import { ModalContext } from '../../context/modal.context';
 
 import { deviceDirtyState, validatorState } from '../../recoil-state/devices-list.settings.state';
 import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
 import { useDirty } from '../../hooks/toggle-dirty.hook';
 
 import { devicesListLabels } from '../../models/devices-list.model';
+import { modalContentTypes } from '../../constants/modal.constants';
+import { commonLabels } from '../../models/common.model';
 
 export const DevicesList = () => {
-    const { isDirty, onCancel, onSave } = useDirty(deviceDirtyState);
     const isValid = useRecoilValue(validatorState);
+    const { isDirty, onCancel, onSave } = useDirty(deviceDirtyState);
+    const { setModal } = useContext(ModalContext);
 
     const i18nLabels = useGetTranslatedLabelsObject([
         devicesListLabels.titleLabel,
@@ -27,6 +31,8 @@ export const DevicesList = () => {
         devicesListLabels.blockedDevicesDescriptionLabel,
         devicesListLabels.blockedDevicesTitleLabel,
         devicesListLabels.addDeviceButtonLabel,
+        commonLabels.saveButtonLabel,
+        commonLabels.cancelButtonLabel,
     ]);
 
     return (
@@ -45,7 +51,7 @@ export const DevicesList = () => {
                 <hr />
                 <Button
                     className="show-more-button"
-                    buttonHandler={() => {}}
+                    buttonHandler={() => setModal({ type: modalContentTypes.registerDeviceType })}
                     buttonName={i18nLabels.addDeviceButtonLabel}
                 ></Button>
             </section>
@@ -54,6 +60,8 @@ export const DevicesList = () => {
                 onSave={onSave(() => console.log('saved'))}
                 isDirty={isDirty}
                 isValid={isValid}
+                cancelButtonLabel={i18nLabels.cancelButtonLabel}
+                saveButtonLabel={i18nLabels.saveButtonLabel}
             />
         </PageContent>
     );

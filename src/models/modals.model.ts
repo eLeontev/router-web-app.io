@@ -9,14 +9,18 @@ export type ConnectionInfoProps = ConnectionInfo & {
     range: string;
 };
 
+export type RegisterNewDeviceInfoProps = {
+    type: modalContentTypes;
+};
+
 export type ConnectionInfoPropsWithSetters = ConnectionInfoProps & {
     setLogo: SetLogo;
 };
 export type ModalContentComponents = {
-    [modalContentTypes.connectionContentType]: FunctionComponent<ConnectionInfoProps>;
+    [type in modalContentTypes]: FunctionComponent<ModalInfo>;
 };
 
-export type ModalInfo = ConnectionInfoProps | null;
+export type ModalInfo = ConnectionInfoProps | RegisterNewDeviceInfoProps | null;
 export type SetModal = (modalInfo: ModalInfo) => void;
 
 export type ModalInfoContext = {
@@ -28,6 +32,15 @@ export enum modalLabels {
     networkNameLabel = 'networkNameLabel',
     passwordLabel = 'passwordLabel',
     connectionDescriptionLabel = 'connectionDescriptionLabel',
+    registerNewDeviceTitleLabel = 'registerNewDeviceTitleLabel',
+    hostNameLabel = 'hostNameLabel',
+    connectionPolicyLabel = 'connectionPolicyLabel',
+    wirelessAccessControlTitleLabel = 'wirelessAccessControlTitleLabel',
+    wirelessAccessControlDescriptionLabel = 'wirelessAccessControlDescriptionLabel',
+    registerDeviceLabel = 'registerDeviceLabel',
+    requiredFieldErrorLabel = 'requiredFieldErrorLabel',
+    stayButtonLabel = 'stayButtonLabel',
+    leaveButtonLabel = 'leaveButtonLabel',
 }
 
 export enum dynamicModalLabels {

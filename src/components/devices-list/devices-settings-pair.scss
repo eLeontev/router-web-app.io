@@ -1,9 +1,10 @@
-$left-width: 170px;
+@import '../../styles/variables';
 
-.setting-pair {
+.setting-pair,
+.modal-pair {
     display: flex;
     flex-direction: row;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     position: relative;
 
     &:last-child {
@@ -14,9 +15,12 @@ $left-width: 170px;
         align-items: center;
     }
 
-    .page-text {
+    .page-text,
+    .modal-pair__label {
         min-width: $left-width;
         padding: 10px 0;
+        font-size: 14px;
+        text-align: left;
 
         &__error-inline {
             position: absolute;

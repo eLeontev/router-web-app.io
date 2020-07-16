@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { ButtonWithPostHandler } from '../common/button';
+import { ButtonWithPostHandler } from '../../common/button';
 import { WPSAction } from './wps.action';
 
-import { useGetTranslatedLabel } from '../../services/i18n.service';
+import { useGetTranslatedLabel } from '../../../services/i18n.service';
 
-import { actionNames } from '../../constants/actions.constants';
-import { modalActionHandlers } from '../../actions/actions';
+import { actionNames } from '../../../constants/actions.constants';
+import { modalActionHandlers } from '../../../actions/actions';
 
-import { ConnectionAction } from '../../models/dashboard.model';
-import { ConnectionInfoPropsWithSetters } from '../../models/modals.model';
+import { ConnectionAction } from '../../../models/dashboard.model';
+import { ConnectionInfoPropsWithSetters } from '../../../models/modals.model';
 
 export const getActionStatus = (isActive: boolean) =>
     `modal-action-button__${isActive ? 'active' : 'inactive'}`;
