@@ -179,21 +179,53 @@ $cardContentPadding: 20px;
         padding-right: 0;
     }
 
+    &_network {
+        position: relative;
+
+        &:before {
+            z-index: 2;
+            position: absolute;
+            content: '';
+            top: 30px;
+            right: 3px;
+            background: url(../../../sprite.svg) -990.96px -800.83px no-repeat;
+            width: 18px;
+            height: 18px;
+        }
+        &:after {
+            z-index: 1;
+            position: absolute;
+            content: '';
+            top: 29px;
+            right: 2px;
+            background: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
     &_icon {
         position: relative;
         line-height: 30px;
         height: 40px;
         text-align: center;
         background: url(../../../sprite.svg) -934px -613.69px no-repeat;
+    }
 
-        &__network {
+    &_img {
+        position: relative;
+        height: 40px;
+
+        &__index {
+            z-index: 1;
             position: absolute;
-            right: -4px;
-            top: 28px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #fff url(../../../sprite.svg) -240.3px -1108.2px no-repeat;
+            transform: translate(-50%, 5px);
+            left: 50%;
+        }
+
+        &__svg {
+            transform: translate(-10px, -10px);
         }
     }
 

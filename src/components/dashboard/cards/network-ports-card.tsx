@@ -1,11 +1,22 @@
 import React from 'react';
 
+import { ConnectionImg } from '../../common/connection-image';
+
 import { CardContent, NetworkPortsCardContent, Port } from '../../../models/dashboard.model';
 
 export type PortProps = Port & {
     isNetwork: boolean;
     index: number;
 };
+
+export const portIconRenderer = (index: number) => <p className="port_icon">{index}</p>;
+export const connectionImgRenderer = (index: number) => (
+    <p className="port_img">
+        <span className="port_img__index">{index}</span>
+        <ConnectionImg />
+    </p>
+);
+
 export const PortRenderer = ({
     isActive,
     isNetwork,
@@ -15,10 +26,7 @@ export const PortRenderer = ({
     index,
 }: PortProps) => (
     <section className={`port ${isNetwork ? 'port_network' : ''}`}>
-        <p className="port_icon">
-            {index}
-            {isNetwork ? <span className="port_icon__network"></span> : null}
-        </p>
+        {isNetwork ? connectionImgRenderer(index) : portIconRenderer(index)}
         <section className="port-info">
             <p className="port-info_type">{isActive ? portType : '-'}</p>
             {isActive ? <p className="port-info_speed">{`${portSpeed} ${portUnit}`}</p> : null}
