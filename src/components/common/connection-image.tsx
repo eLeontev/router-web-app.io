@@ -1,7 +1,8 @@
 import React from 'react';
 
 export const ConnectionImg = () => (
-    <svg className="port_img__svg"
+    <svg
+        className="port_img__svg"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-10 -10 68 60"
         fill="none"

@@ -7,11 +7,13 @@ export type ButtonProps = {
     buttonName: string;
     buttonHandler: () => void;
 };
-export const Button = React.memo(({ className, buttonName, buttonHandler, disabled = false }: ButtonProps) => (
-    <button disabled={disabled} className={className} onClick={buttonHandler}>
-        {buttonName}
-    </button>
-));
+export const Button = React.memo(
+    ({ className, buttonName, buttonHandler, disabled = false }: ButtonProps) => (
+        <button disabled={disabled} className={className} onClick={buttonHandler}>
+            {buttonName}
+        </button>
+    )
+);
 
 const getSuccessStatus = (isSuccess: boolean) => (isSuccess ? `success` : '');
 
