@@ -34,7 +34,7 @@ export const updateUptime = ({
     startedTime,
     daysLabel,
 }: ParamHandlerArguments): SystemParamValue => {
-    const diff = moment(moment().diff(startedTime));
+    const diff = moment(moment().diff(moment(startedTime, 'MM-DD-YYYY')));
 
     return `${diff.format('D')} ${daysLabel} ${diff.format('H:mm:ss')}`;
 };
