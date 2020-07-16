@@ -15,6 +15,7 @@ export type DropdownWithInput = {
     value: string | number;
     dropdownOptions: DropdownOptions<string>;
     onChange: (speedValue: SpeedValue) => void;
+    classNameModifier?: string;
 };
 
 export const Dropdown = React.memo(({ dropdownOptions, onChange }: DropdownProps) => {
@@ -42,7 +43,7 @@ export const Dropdown = React.memo(({ dropdownOptions, onChange }: DropdownProps
 });
 
 export const DropdownWithInput = React.memo(
-    ({ dropdownOptions, onChange, value }: DropdownWithInput) => {
+    ({ dropdownOptions, onChange, value, classNameModifier }: DropdownWithInput) => {
         const unitId = useMemo(
             () => (dropdownOptions.find(({ isSelected }) => isSelected) || dropdownOptions[0]).id,
             [dropdownOptions]
@@ -64,7 +65,7 @@ export const DropdownWithInput = React.memo(
         );
 
         return (
-            <section className="dropdown-with-input">
+            <section className={`dropdown-with-input ${classNameModifier}`}>
                 <Input
                     value={value}
                     onChange={onInputChange}

@@ -10,11 +10,14 @@ import {
     asymmetricState,
     filterState,
     speedStates,
+    speedValidatorState,
 } from '../../recoil-state/devices-list.settings.state';
 
-import { speedKeys, SpeedValue } from '../../models/devices-list.model';
-import { filterOptions, speedOptions } from '../../constants/devices-list.constants';
+import { devicesDynamicListLabels, speedKeys, SpeedValue } from '../../models/devices-list.model';
+import { filterOptions, speedOptions, speedRange } from '../../constants/devices-list.constants';
 import { useGetSettingPairData } from '../../hooks/prepare-settings-pair-data.hook';
+import { useRecoilValue } from 'recoil';
+import { useGetDynamicTranslatedLabel } from '../../services/i18n.service';
 
 export type DeviceSettingsPairProps = {
     label: Labels;
@@ -55,11 +58,15 @@ export const FilterPair = React.memo(({ label }: DeviceSettingsPairProps) => {
     );
 });
 
+const { speedValueRangeErrorLabel } = devicesDynamicListLabels;
 export const getSelectedSpeedId = ({ unitId }: SpeedValue) => unitId;
 export const SpeedPair = React.memo(({ speedStateKey, label }: SpeedPairProps) => {
     const state = speedStates[speedStateKey];
     const pairData = useGetSettingPairData(state, speedOptions, label, getSelectedSpeedId);
     const { i18nLabel, setState, dropdownOptions, value } = pairData;
+
+    const isValid = useRecoilValue(speedValidatorState[speedStateKey]);
+    const i18nErrorMessage = useGetDynamicTranslatedLabel(speedValueRangeErrorLabel, speedRange);
 
     return (
         <SettingsValue i18nLabel={i18nLabel}>
@@ -67,7 +74,9 @@ export const SpeedPair = React.memo(({ speedStateKey, label }: SpeedPairProps) =
                 value={value.value || ''}
                 onChange={setState}
                 dropdownOptions={dropdownOptions}
+                classNameModifier={isValid ? '' : 'invalid'}
             />
+            {isValid ? null : <p className="page-text__error-inline">{i18nErrorMessage}</p>}
         </SettingsValue>
     );
 });

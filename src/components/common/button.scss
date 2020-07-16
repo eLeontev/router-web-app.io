@@ -83,6 +83,15 @@
             background-color: #124169;
             transition: all 0.2s ease-out 0s;
         }
+
+        &:disabled {
+            cursor: auto;
+            opacity: 0.4;
+
+            &:hover {
+                transition: none;
+            }
+        }
     }
 
     &__cancel {

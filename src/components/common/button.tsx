@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './button.scss';
 
 export type ButtonProps = {
+    disabled?: boolean;
     className?: string;
     buttonName: string;
     buttonHandler: () => void;
 };
-export const Button = React.memo(({ className, buttonName, buttonHandler }: ButtonProps) => (
-    <button className={className} onClick={buttonHandler}>
+export const Button = React.memo(({ className, buttonName, buttonHandler, disabled = false }: ButtonProps) => (
+    <button disabled={disabled} className={className} onClick={buttonHandler}>
         {buttonName}
     </button>
 ));

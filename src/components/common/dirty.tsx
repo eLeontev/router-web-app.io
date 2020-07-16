@@ -8,10 +8,11 @@ import { commonLabels } from '../../models/common.model';
 
 export type DirtyProps = {
     isDirty: boolean;
+    isValid: boolean;
     onSave: () => void;
     onCancel: () => void;
 };
-export const Dirty = React.memo(({ onSave, onCancel, isDirty }: DirtyProps) => {
+export const Dirty = React.memo(({ onSave, onCancel, isDirty, isValid }: DirtyProps) => {
     const [saveButtonLabel, cancelButtonLabel] = useGetTranslatedLabels([
         commonLabels.saveButtonLabel,
         commonLabels.cancelButtonLabel,
@@ -20,6 +21,7 @@ export const Dirty = React.memo(({ onSave, onCancel, isDirty }: DirtyProps) => {
     return (
         <section className={`dirty-section dirty-section__${isDirty ? 'visible' : 'hidden'}`}>
             <Button
+                disabled={!isValid}
                 buttonHandler={onSave}
                 buttonName={saveButtonLabel}
                 className="confirmation-button confirmation-button__save"

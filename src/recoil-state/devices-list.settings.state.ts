@@ -2,6 +2,7 @@ import { sAtom, sSelector } from '../utils/simple-recoil.util';
 
 import { deviceSettings } from '../mock/devices-list.mock';
 import { speedKeys, SpeedValue } from '../models/devices-list.model';
+import { speedRange } from '../constants/devices-list.constants';
 
 const {
     isAsymmetric,
@@ -27,7 +28,7 @@ export const speedStates = {
 export const defaultAsymmetricState = sAtom<boolean>(isAsymmetric);
 export const asymmetricState = sAtom<boolean>(isAsymmetric);
 
-export const validatorState = sSelector(({ get }) => ({
+export const settingsDirtyState = sSelector(({ get }) => ({
     filter: {
         default: get(defaultFilterState),
         input: get(filterState),
@@ -51,7 +52,7 @@ export const validatorState = sSelector(({ get }) => ({
 }));
 
 export const deviceDirtyState = sSelector<boolean>(({ get }) => {
-    const { filter, asymmetric, common, download, upload } = get(validatorState);
+    const { filter, asymmetric, common, download, upload } = get(settingsDirtyState);
     const isDirtyFilters = filter.default !== filter.input;
     const isDirtyAsymmetric = asymmetric.default !== asymmetric.input;
     const isDirtySpeed = [common, download, upload].some(
@@ -59,4 +60,27 @@ export const deviceDirtyState = sSelector<boolean>(({ get }) => {
     );
 
     return isDirtyFilters || isDirtyAsymmetric || isDirtySpeed;
+});
+
+export const getSpeedValidatorState = (key: speedKeys) =>
+    sSelector(({ get }) => {
+        const { value }: SpeedValue = get(speedStates[key]);
+        const [min, max] = speedRange;
+
+        return value === 0 || (value >= min && value <= max);
+    });
+
+export const speedValidatorState = {
+    common: getSpeedValidatorState(speedKeys.common),
+    upload: getSpeedValidatorState(speedKeys.upload),
+    download: getSpeedValidatorState(speedKeys.download),
+};
+
+export const validatorState = sSelector<boolean>(({ get }) => {
+    const isAsymmetric = get(asymmetricState);
+    const isCommonValid = get(speedValidatorState.common);
+    const isUploadValid = get(speedValidatorState.upload);
+    const isDownloadValid = get(speedValidatorState.download);
+
+    return isAsymmetric ? isUploadValid && isDownloadValid : isCommonValid;
 });

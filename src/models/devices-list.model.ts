@@ -19,6 +19,10 @@ export enum devicesListLabels {
     asymmetricLabel = 'asymmetricLabel',
 }
 
+export enum devicesDynamicListLabels {
+    speedValueRangeErrorLabel = 'speedValueRangeErrorLabel',
+}
+
 export enum speedKeys {
     common = 'common',
     upload = 'upload',

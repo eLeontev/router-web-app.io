@@ -4,7 +4,7 @@ import { cardsLabels } from './cards.model';
 import { loginLabels } from './login.model';
 import { navLabels } from './nav.model';
 import { commonLabels } from './common.model';
-import { devicesListLabels } from './devices-list.model';
+import { devicesDynamicListLabels, devicesListLabels } from './devices-list.model';
 
 export enum languages {
     english = 'english',
@@ -59,6 +59,12 @@ export type I18nDevicesListLabels = {
     };
 };
 
+export type I18nDynamicDevicesListLabels = {
+    [label in devicesDynamicListLabels]: {
+        [key in languages]: string;
+    };
+};
+
 export type Labels =
     | cardsLabels
     | modalLabels
@@ -67,7 +73,8 @@ export type Labels =
     | loginLabels
     | navLabels
     | commonLabels
-    | devicesListLabels;
+    | devicesListLabels
+    | devicesDynamicListLabels;
 
 export type I18nLabels = {
     [label in Labels]: {

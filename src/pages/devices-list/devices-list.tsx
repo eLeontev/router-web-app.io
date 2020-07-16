@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 import '../../styles/typography.page.scss';
 
 import { Button } from '../../components/common/button';
@@ -7,7 +8,7 @@ import { Dirty } from '../../components/common/dirty';
 
 import { DevicesSettings } from '../../components/devices-list/devices-settings';
 
-import { deviceDirtyState } from '../../recoil-state/devices-list.settings.state';
+import { deviceDirtyState, validatorState } from '../../recoil-state/devices-list.settings.state';
 import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
 import { useDirty } from '../../hooks/toggle-dirty.hook';
 
@@ -15,6 +16,7 @@ import { devicesListLabels } from '../../models/devices-list.model';
 
 export const DevicesList = () => {
     const { isDirty, onCancel, onSave } = useDirty(deviceDirtyState);
+    const isValid = useRecoilValue(validatorState);
 
     const i18nLabels = useGetTranslatedLabelsObject([
         devicesListLabels.titleLabel,
@@ -47,7 +49,12 @@ export const DevicesList = () => {
                     buttonName={i18nLabels.addDeviceButtonLabel}
                 ></Button>
             </section>
-            <Dirty onCancel={onCancel} onSave={onSave(() => console.log('saved'))} isDirty={isDirty} />
+            <Dirty
+                onCancel={onCancel}
+                onSave={onSave(() => console.log('saved'))}
+                isDirty={isDirty}
+                isValid={isValid}
+            />
         </PageContent>
     );
 };

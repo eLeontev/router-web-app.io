@@ -1,7 +1,10 @@
+$left-width: 170px;
+
 .setting-pair {
     display: flex;
     flex-direction: row;
     padding-bottom: 10px;
+    position: relative;
 
     &:last-child {
         padding-bottom: 0;
@@ -12,7 +15,15 @@
     }
 
     .page-text {
-        min-width: 170px;
+        min-width: $left-width;
         padding: 10px 0;
+
+        &__error-inline {
+            position: absolute;
+            top: 35px;
+            left: $left-width;
+            color: #e84855;
+            font-size: 14px;
+        }
     }
 }

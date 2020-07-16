@@ -27,3 +27,5 @@ export const speedOptions: Options<cardsLabels> = [
         label: cardsLabels.mbitsLabel,
     },
 ];
+
+export const speedRange = [64, 1000000];
