@@ -7,13 +7,13 @@ import { ModalPair } from '../common/modal-pair';
 
 import { resetRegisterNewDeviceState } from '../../../recoil-state/register-new-device.state';
 
-import { useGetTranslatedLabelsObject } from '../../../services/i18n.service';
+import { useGetTranslatedLabels } from '../../../services/i18n.service';
 
 import { registerDeviceFormValues } from '../../../constants/modal-content/register-new-device.constants';
 
 import { modalLabels } from '../../../models/modals.model';
 import { commonLabels } from '../../../models/common.model';
-import { Labels } from '../../../models/i18n.model';
+import { WirelessAccessControl } from './wireless-access-control';
 
 export const registerContent = () => {
     return (
@@ -26,13 +26,12 @@ export const registerContent = () => {
         </>
     );
 };
+
 export const RegisterNewDevice = () => {
     const resetModal = useSetRecoilState(resetRegisterNewDeviceState);
 
-    const i18nLabels = useGetTranslatedLabelsObject<Labels>([
+    const [title, saveButtonLabel, cancelButtonLabel] = useGetTranslatedLabels([
         modalLabels.registerNewDeviceTitleLabel,
-        modalLabels.wirelessAccessControlTitleLabel,
-        modalLabels.wirelessAccessControlDescriptionLabel,
         modalLabels.registerDeviceLabel,
         commonLabels.cancelButtonLabel,
     ]);
@@ -42,11 +41,12 @@ export const RegisterNewDevice = () => {
     return (
         <ModalContent
             shouldDisplayDirtyBar={true}
-            title={i18nLabels.registerNewDeviceTitleLabel}
-            saveButtonLabel={i18nLabels.registerDeviceLabel}
-            cancelButtonLabel={i18nLabels.cancelButtonLabel}
+            title={title}
+            saveButtonLabel={saveButtonLabel}
+            cancelButtonLabel={cancelButtonLabel}
         >
             {registerContent()}
+            <WirelessAccessControl />
         </ModalContent>
     );
 };
