@@ -12,3 +12,22 @@
     padding-left: 25px;
     padding-bottom: 20px;
 }
+
+@mixin pseudo-absolute-styles($width, $rotateDeg) {
+    position: absolute;
+    content: '';
+    width: $width;
+    height: 0;
+    top: 0;
+    left: 0;
+    transform: translate(0, 15px) rotate($rotateDeg);
+    border-top: 1px solid #a9afbb;
+}
+
+@mixin link-button {
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: #0098d9;
+}

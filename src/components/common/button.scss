@@ -1,12 +1,7 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
-@mixin link-button {
-    font-size: 14px;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    color: #0098d9;
-}
+$close-button-size: 30px;
 
 .close-message-button {
     background-color: #42403e;
@@ -24,13 +19,22 @@
     top: 0;
     right: 0;
     border: none;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     line-height: 0;
     font-size: 20px;
-    background: url(../../sprite.svg) -1118px -488px no-repeat;
     padding: 0;
     margin: 0;
+    overflow: visible;
+    background-color: transparent;
+
+    &:before {
+        @include pseudo-absolute-styles($close-button-size, 45deg);
+    }
+
+    &:after {
+        @include pseudo-absolute-styles($close-button-size, -45deg);
+    }
 }
 
 .show-more-button,
