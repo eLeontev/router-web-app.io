@@ -1,0 +1,2 @@
+(this["webpackJsonprouter-web-app"]=this["webpackJsonprouter-web-app"]||[]).push([[6],{155:function(e,t,n){"use strict";n.r(t),n.d(t,"IsNotImplemented",(function(){return o}));var p=n(0),r=n.n(p),o=function(){return r.a.createElement("h1",null,"Component is not implemented yet")};t.default=o}}]);
+//# sourceMappingURL=6.e52da00e.chunk.js.map

@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/is-not-implemented.tsx"],"names":["IsNotImplemented"],"mappings":"wHAAA,4EAEaA,EAAmB,kBAAM,iEAEvBA","file":"static/js/6.e52da00e.chunk.js","sourcesContent":["import React from 'react';\n\nexport const IsNotImplemented = () => <h1>Component is not implemented yet</h1>;\n\nexport default IsNotImplemented;\n"],"sourceRoot":""}
