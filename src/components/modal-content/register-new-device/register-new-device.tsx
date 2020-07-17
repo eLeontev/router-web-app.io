@@ -4,7 +4,6 @@ import './register-new-device.scss';
 
 import { ModalContent } from '../common/modal-content';
 import { ModalPair } from '../common/modal-pair';
-import { ConfirmationMessage } from '../common/confirmation-message';
 
 import { resetRegisterNewDeviceState } from '../../../recoil-state/register-new-device.state';
 
@@ -48,7 +47,6 @@ export const RegisterNewDevice = () => {
             cancelButtonLabel={i18nLabels.cancelButtonLabel}
         >
             {registerContent()}
-            <ConfirmationMessage />
         </ModalContent>
     );
 };

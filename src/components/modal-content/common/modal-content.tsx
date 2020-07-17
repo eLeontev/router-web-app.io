@@ -10,6 +10,7 @@ import {
     confirmationDialogState,
     dirtyModalState,
 } from '../../../recoil-state/confirmation-dialog.state';
+import { ConfirmationMessage } from './confirmation-message';
 
 export type ModalContentReadOnlyProps = {
     title: string;
@@ -59,6 +60,7 @@ export const ModalContent = ({
                 cancelButtonLabel={cancelButtonLabel}
                 classNameModifier="modal"
             />
+            <ConfirmationMessage />
         </ModalContentReadOnly>
     );
 };
