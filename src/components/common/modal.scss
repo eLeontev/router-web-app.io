@@ -24,12 +24,15 @@
 }
 
 .modal-content {
-    text-align: center;
+    &__aligned {
+        text-align: center;
+    }
 
     &_title {
         font-size: 18px;
         font-weight: normal;
         padding-bottom: 15px;
+        text-align: center;
     }
 
     &_print-title {

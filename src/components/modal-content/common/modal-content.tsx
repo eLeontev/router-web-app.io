@@ -13,20 +13,22 @@ import {
 import { ConfirmationMessage } from './confirmation-message';
 
 export type ModalContentReadOnlyProps = {
+    shouldAlignContent?: boolean;
     title: string;
 };
 export type ModalContentProps = ModalContentReadOnlyProps & {
     saveButtonLabel: string;
     cancelButtonLabel: string;
-    shouldDisplayDirtyBar?: boolean;
+    shouldDisplayDirtyBar: boolean;
 };
 
 export const ModalContentReadOnly = ({
+    shouldAlignContent,
     title,
     children,
 }: PropsWithChildren<ModalContentReadOnlyProps>) => {
     return (
-        <section className="modal-content">
+        <section className={`modal-content ${shouldAlignContent ? 'modal-content__aligned' : ''}`}>
             <h3 className="modal-content_title">{title}</h3>
             {children}
         </section>
@@ -39,6 +41,7 @@ export const ModalContent = ({
     saveButtonLabel,
     cancelButtonLabel,
     shouldDisplayDirtyBar = false,
+    shouldAlignContent = false,
 }: PropsWithChildren<ModalContentProps>) => {
     const { setModal } = useContext(ModalContext);
     const [isDirty, setDirty] = useRecoilState(dirtyModalState);
@@ -46,7 +49,7 @@ export const ModalContent = ({
     const isValid = useRecoilValue(validatorState);
 
     return (
-        <ModalContentReadOnly title={title}>
+        <ModalContentReadOnly title={title} shouldAlignContent={shouldAlignContent}>
             {children}
             <Dirty
                 shouldDisplayDirtyBar={shouldDisplayDirtyBar}

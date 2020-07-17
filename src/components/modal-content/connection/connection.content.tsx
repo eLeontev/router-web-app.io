@@ -41,7 +41,7 @@ export const ConnectionModalContent = React.memo((connectionInfoProps: ModalInfo
     }, [url, setQRCode]);
 
     return (
-        <ModalContentReadOnly title={title}>
+        <ModalContentReadOnly title={title} shouldAlignContent={true}>
             <h1 className="modal-content_print-title">KEENETIC</h1>
             {logoSrc ? <Logo src={logoSrc} className="connection-logo" /> : null}
             <p className="modal-content_description">{description}</p>
