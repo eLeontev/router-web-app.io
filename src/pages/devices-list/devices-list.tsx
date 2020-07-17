@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useRecoilValue } from 'recoil';
-import '../../styles/typography.page.scss';
 
 import { Button } from '../../components/common/button';
 import { PageContent } from '../../components/common/page-content';
@@ -58,7 +57,7 @@ export const DevicesList = () => {
             <Dirty
                 onCancel={onCancel}
                 onSave={onSave(() => console.log('saved'))}
-                isDirty={isDirty}
+                shouldDisplayDirtyBar={isDirty}
                 isValid={isValid}
                 cancelButtonLabel={i18nLabels.cancelButtonLabel}
                 saveButtonLabel={i18nLabels.saveButtonLabel}

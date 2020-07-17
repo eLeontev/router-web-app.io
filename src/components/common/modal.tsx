@@ -32,7 +32,7 @@ export const ModalComponent = React.memo(({ children, setModal }: ModalComponent
             (e.target as HTMLElement).className === 'modal-background' && setModal(null)
         }
     >
-        <section className="modal-content">
+        <section className="modal-window">
             <Button
                 buttonName=""
                 className="close-modal-button"

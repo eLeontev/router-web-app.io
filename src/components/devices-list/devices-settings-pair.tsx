@@ -64,7 +64,7 @@ export const SpeedPair = React.memo(({ speedStateKey, label }: SpeedPairProps) =
     const state = speedStates[speedStateKey];
     const pairData = useGetSettingPairData(state, speedOptions, label, getSelectedSpeedId);
     const { i18nLabel, setState, dropdownOptions, value } = pairData;
-
+    console.log(label, i18nLabel);
     const isValid = useRecoilValue(speedValidatorState[speedStateKey]);
     const i18nErrorMessage = useGetDynamicTranslatedLabel(speedValueRangeErrorLabel, speedRange);
 

@@ -1,11 +1,11 @@
 import { useCallback, useContext, useState } from 'react';
 
-import { LoaderContext } from '../../../context/loader.context';
-import { ModalContext } from '../../../context/modal.context';
+import { LoaderContext } from '../context/loader.context';
+import { ModalContext } from '../context/modal.context';
 
-import { getConnectionModalInfo } from '../../../context/modal.connection.actions.transformer';
+import { getConnectionModalInfo } from '../context/modal.connection.actions.transformer';
 
-import { ConnectionInfo } from '../../../models/dashboard.model';
+import { ConnectionInfo } from '../models/dashboard.model';
 
 export const useTriggerCheckbox = (connectionId: string, isActive: boolean) => {
     const { setLoader } = useContext(LoaderContext);

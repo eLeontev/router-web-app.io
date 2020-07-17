@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react';
+import '../../styles/typography.page.scss';
 
 import { useScrollPageListener } from '../../hooks/scroll-page.hook';
 

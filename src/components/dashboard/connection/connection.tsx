@@ -4,7 +4,7 @@ import { Button } from '../../common/button';
 import { Checkbox } from '../../common/checkbox';
 
 import { useGetTranslatedLabels } from '../../../services/i18n.service';
-import { useButtonToOpenModal, useTriggerCheckbox } from './connection.hooks';
+import { useButtonToOpenModal, useTriggerCheckbox } from '../../../hooks/connection.hook';
 
 import { ConnectionProps } from '../../../models/dashboard.model';
 import { cardsLabels } from '../../../models/cards.model';

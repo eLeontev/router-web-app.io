@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './connection.content.scss';
 
+import { ModalContent } from '../common/modal-content';
 import { Logo } from '../../common/logo';
 import { Actions } from './actions';
 import { Credentials } from './credentials';
@@ -40,12 +41,16 @@ export const ConnectionModalContent = React.memo((connectionInfoProps: ModalInfo
     }, [url, setQRCode]);
 
     return (
-        <section className="modal-connection">
-            <h1 className="modal-connection_print-title">KEENETIC</h1>
-            <h3 className="modal-connection_title">{title}</h3>
+        <ModalContent
+            shouldDisplayDirtyBar={false}
+            title={title}
+            cancelButtonLabel=""
+            saveButtonLabel=""
+        >
+            <h1 className="modal-content_print-title">KEENETIC</h1>
             {logoSrc ? <Logo src={logoSrc} className="connection-logo" /> : null}
-            <p className="modal-connection_description">{description}</p>
-            <Logo src={qrCodeBase64} className="modal-connection_qr-code" />
+            <p className="modal-content_description">{description}</p>
+            <Logo src={qrCodeBase64} className="modal-content_qr-code" />
             <Credentials password={password} networkId={networkId} />
             <Actions
                 {...{
@@ -53,6 +58,6 @@ export const ConnectionModalContent = React.memo((connectionInfoProps: ModalInfo
                     setLogo,
                 }}
             />
-        </section>
+        </ModalContent>
     );
 });

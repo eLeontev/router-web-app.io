@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from './button';
 
 export type DirtyProps = {
-    isDirty: boolean;
+    shouldDisplayDirtyBar: boolean;
     isValid: boolean;
     onSave: () => void;
     onCancel: () => void;
@@ -16,7 +16,7 @@ export const Dirty = React.memo(
     ({
         onSave,
         onCancel,
-        isDirty,
+        shouldDisplayDirtyBar,
         isValid,
         saveButtonLabel,
         cancelButtonLabel,
@@ -24,7 +24,7 @@ export const Dirty = React.memo(
     }: DirtyProps) => (
         <section
             className={`dirty-section dirty-section__${
-                isDirty ? 'visible' : 'hidden'
+                shouldDisplayDirtyBar ? 'visible' : 'hidden'
             } ${classNameModifier}`}
         >
             <Button

@@ -1,14 +1,6 @@
 @import './variables';
 @import './mixins';
-
-@mixin fixed-content {
-    background-color: #fff;
-    position: fixed;
-    width: 100%;
-    padding-top: 15px;
-    padding-left: 25px;
-    padding-bottom: 20px;
-}
+@import './dirty-section';
 
 .page-content {
     padding-left: 10px;
@@ -52,29 +44,6 @@
 
 .page-section {
     @include with-group-offset;
-}
-
-.dirty-section {
-    @include fixed-content;
-    transform: translateX(-25px);
-    border-top: 1px solid rgba(38, 107, 178, 0.2);
-    padding-bottom: 15px;
-    bottom: 0;
-
-    &__visible {
-        display: block;
-    }
-
-    &__hidden {
-        display: none;
-    }
-
-    &.modal {
-        position: relative;
-        transform: none;
-        padding-left: 0;
-        padding-bottom: 0;
-    }
 }
 
 @media (max-width: $mediaQueryMobile) {

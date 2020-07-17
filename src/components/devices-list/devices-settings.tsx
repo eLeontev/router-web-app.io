@@ -19,7 +19,6 @@ export const Settings = React.memo(() => {
     const settingsDescriptionLabel = useGetTranslatedLabel(
         devicesListLabels.settingsDescriptionLabel
     );
-
     return (
         <section className="settings">
             <p className="page-text">{settingsDescriptionLabel}</p>

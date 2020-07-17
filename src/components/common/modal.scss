@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/dirty-section';
 
 .modal {
     &-background {
@@ -11,7 +12,7 @@
         right: 0;
     }
 
-    &-content {
+    &-window {
         position: absolute;
         top: 40px;
         width: 560px;
@@ -22,7 +23,7 @@
     }
 }
 
-.modal-connection {
+.modal-content {
     text-align: center;
 
     &_title {
@@ -54,11 +55,11 @@
         display: none;
     }
 
-    .modal-content {
+    .modal-window {
         height: 560px;
     }
 
-    .modal-connection {
+    .modal-content {
         border: 1px solid gray;
         position: absolute;
         left: 50%;
@@ -83,17 +84,17 @@
 }
 
 @media (max-width: $mediaQueryTabletModal) {
-    .modal-content {
+    .modal-window {
         top: 20px;
         width: 300px;
         padding: 10px;
     }
 
-    .modal-connection-credentials {
+    .modal-content-credentials {
         font-size: 16px;
     }
 
-    .modal-connection_qr-code {
+    .modal-content_qr-code {
         width: 220px;
         height: 220px;
     }

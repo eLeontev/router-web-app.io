@@ -15,6 +15,7 @@ export type ModalContentProps = {
     title: string;
     saveButtonLabel: string;
     cancelButtonLabel: string;
+    shouldDisplayDirtyBar?: boolean;
 };
 
 export const ModalContent = ({
@@ -22,6 +23,7 @@ export const ModalContent = ({
     title,
     saveButtonLabel,
     cancelButtonLabel,
+    shouldDisplayDirtyBar = false,
 }: PropsWithChildren<ModalContentProps>) => {
     const { setModal } = useContext(ModalContext);
     const [isDirty, setDirty] = useRecoilState(dirtyModalState);
@@ -29,11 +31,11 @@ export const ModalContent = ({
     const isValid = useRecoilValue(validatorState);
 
     return (
-        <section className="modal-connection">
-            <h3 className="modal-connection_title">{title}</h3>
+        <section className="modal-content">
+            <h3 className="modal-content_title">{title}</h3>
             {children}
             <Dirty
-                isDirty={true}
+                shouldDisplayDirtyBar={shouldDisplayDirtyBar}
                 isValid={isValid}
                 onSave={() => {
                     setModal(null);

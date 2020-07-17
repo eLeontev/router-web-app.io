@@ -42,6 +42,7 @@ export const RegisterNewDevice = () => {
 
     return (
         <ModalContent
+            shouldDisplayDirtyBar={true}
             title={i18nLabels.registerNewDeviceTitleLabel}
             saveButtonLabel={i18nLabels.registerDeviceLabel}
             cancelButtonLabel={i18nLabels.cancelButtonLabel}
