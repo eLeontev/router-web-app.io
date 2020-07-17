@@ -11,11 +11,25 @@ import {
     dirtyModalState,
 } from '../../../recoil-state/confirmation-dialog.state';
 
-export type ModalContentProps = {
+export type ModalContentReadOnlyProps = {
     title: string;
+};
+export type ModalContentProps = ModalContentReadOnlyProps & {
     saveButtonLabel: string;
     cancelButtonLabel: string;
     shouldDisplayDirtyBar?: boolean;
+};
+
+export const ModalContentReadOnly = ({
+    title,
+    children,
+}: PropsWithChildren<ModalContentReadOnlyProps>) => {
+    return (
+        <section className="modal-content">
+            <h3 className="modal-content_title">{title}</h3>
+            {children}
+        </section>
+    );
 };
 
 export const ModalContent = ({
@@ -31,8 +45,7 @@ export const ModalContent = ({
     const isValid = useRecoilValue(validatorState);
 
     return (
-        <section className="modal-content">
-            <h3 className="modal-content_title">{title}</h3>
+        <ModalContentReadOnly title={title}>
             {children}
             <Dirty
                 shouldDisplayDirtyBar={shouldDisplayDirtyBar}
@@ -46,6 +59,6 @@ export const ModalContent = ({
                 cancelButtonLabel={cancelButtonLabel}
                 classNameModifier="modal"
             />
-        </section>
+        </ModalContentReadOnly>
     );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './connection.content.scss';
 
-import { ModalContent } from '../common/modal-content';
+import { ModalContentReadOnly } from '../common/modal-content';
 import { Logo } from '../../common/logo';
 import { Actions } from './actions';
 import { Credentials } from './credentials';
@@ -41,12 +41,7 @@ export const ConnectionModalContent = React.memo((connectionInfoProps: ModalInfo
     }, [url, setQRCode]);
 
     return (
-        <ModalContent
-            shouldDisplayDirtyBar={false}
-            title={title}
-            cancelButtonLabel=""
-            saveButtonLabel=""
-        >
+        <ModalContentReadOnly title={title}>
             <h1 className="modal-content_print-title">KEENETIC</h1>
             {logoSrc ? <Logo src={logoSrc} className="connection-logo" /> : null}
             <p className="modal-content_description">{description}</p>
@@ -58,6 +53,6 @@ export const ConnectionModalContent = React.memo((connectionInfoProps: ModalInfo
                     setLogo,
                 }}
             />
-        </ModalContent>
+        </ModalContentReadOnly>
     );
 });

@@ -45,7 +45,7 @@ export const ModalComponent = React.memo(({ children, setModal }: ModalComponent
 
 export const Modal = React.memo(() => {
     const { modalInfo, setModal } = useContext(ModalContext);
-    const ModalContent = modalInfo ? modalContentComponents[modalInfo.type] : null;
+    const ModalContentComponent = modalInfo ? modalContentComponents[modalInfo.type] : null;
     const toggleConfirmationDialog = useSetRecoilState(confirmationDialogState);
     const [isDirty, setDirty] = useRecoilState(dirtyModalState);
 
@@ -58,9 +58,9 @@ export const Modal = React.memo(() => {
         }
     }, [toggleConfirmationDialog, isDirty, setDirty, setModal]);
 
-    return ModalContent && modalInfo ? (
+    return ModalContentComponent && modalInfo ? (
         <ModalComponent setModal={closeModal}>
-            <ModalContent {...modalInfo} />
+            <ModalContentComponent {...modalInfo} />
             <ConfirmationMessage />
         </ModalComponent>
     ) : null;
