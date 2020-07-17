@@ -6,6 +6,24 @@ import { i18nLabels } from '../constants/i18n/i18n.constants';
 
 import { Labels, languages } from '../models/i18n.model';
 
+const useShouldReplaceLabels = (labels: Array<Labels>) => {
+    const labelsRef = useRef(labels);
+    useMemo(() => {
+        if (labels.length === labelsRef.current.length) {
+            const hasDifference = labels.some(
+                (label: Labels, i: number) => label !== labelsRef.current[i]
+            );
+
+            if (hasDifference) {
+                labelsRef.current = labels;
+            }
+        } else {
+            labelsRef.current = labels;
+        }
+    }, [labels]);
+
+    return labelsRef.current;
+};
 const getTranslatedLabel = (label: Labels, language: languages): string =>
     i18nLabels[label] ? i18nLabels[label][language] : '';
 
@@ -15,11 +33,12 @@ export const useGetTranslatedLabel = (label: Labels): string => {
 };
 
 export const useGetTranslatedLabels = (labels: Array<Labels>): Array<string> => {
-    const labelsRef = useRef(labels);
+    const memoizedLabels = useShouldReplaceLabels(labels);
     const language = useRecoilValue<languages>(i18nState);
 
-    return useMemo(() => labelsRef.current.map((label) => getTranslatedLabel(label, language)), [
+    return useMemo(() => memoizedLabels.map((label) => getTranslatedLabel(label, language)), [
         language,
+        memoizedLabels,
     ]);
 };
 
@@ -38,18 +57,18 @@ export const useGetDynamicTranslatedLabel = (
 export const useGetTranslatedLabelsObject = <T extends Labels>(
     labels: Array<Labels>
 ): { [key in T]: string } => {
-    const labelsRef = useRef(labels);
+    const memoizedLabels = useShouldReplaceLabels(labels);
     const language = useRecoilValue<languages>(i18nState);
 
     return useMemo(
         () =>
-            labelsRef.current.reduce(
+            memoizedLabels.reduce(
                 (res: any, label) => ({
                     ...res,
                     [label]: getTranslatedLabel(label, language),
                 }),
                 {}
             ),
-        [language]
+        [language, memoizedLabels]
     ) as { [key in T]: string };
 };
