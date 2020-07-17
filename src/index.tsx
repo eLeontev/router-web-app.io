@@ -5,7 +5,7 @@ import { AppRouter } from './pages/router';
 
 import './index.scss';
 
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './service-worker/index';
 
 ReactDOM.unstable_createRoot(document.getElementById('root') as Element).render(
     <React.StrictMode>
