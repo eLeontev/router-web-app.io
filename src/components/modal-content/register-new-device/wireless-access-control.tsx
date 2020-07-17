@@ -20,7 +20,7 @@ export const WirelessAccessControl = () => {
     );
 
     return (
-        <>
+        <section className="page-text-section">
             <h2 className="page-sub-title">{title}</h2>
             <p className="page-text">
                 {leftDescriptionPart}
@@ -29,6 +29,6 @@ export const WirelessAccessControl = () => {
                 </Link>
                 {rightDescriptionPart}
             </p>
-        </>
+        </section>
     );
 };

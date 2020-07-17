@@ -46,6 +46,10 @@
     @include with-group-offset;
 }
 
+.page-text-section {
+    padding-bottom: 65px;
+}
+
 @media (max-width: $mediaQueryMobile) {
     .page-title {
         line-height: 30px;
