@@ -1,3 +1,5 @@
+import { i18nDynamicKey } from '../common.constants';
+
 import { I18nModalLabels, languages } from '../../models/i18n.model';
 
 const { english, russian } = languages;
@@ -33,9 +35,8 @@ export const i18nModalLabels: I18nModalLabels = {
         [english]: 'Wireless access control',
     },
     wirelessAccessControlDescriptionLabel: {
-        [russian]:
-            'Контроль доступа к беспроводной сети выключен. Вы можете настроить его на странице {$}.',
-        [english]: 'Wireless access control is disabled. You can configure it on the {$} page',
+        [russian]: `Контроль доступа к беспроводной сети выключен. Вы можете настроить его на странице ${i18nDynamicKey}.`,
+        [english]: `Wireless access control is disabled. You can configure it on the ${i18nDynamicKey} page`,
     },
     registerDeviceLabel: {
         [russian]: 'Зарегистрировать',
