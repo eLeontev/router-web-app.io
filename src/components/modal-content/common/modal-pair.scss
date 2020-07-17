@@ -1,11 +1,41 @@
 @import '../../../styles/variables';
 
 .modal-pair {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    position: relative;
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    .page-text,
+    .modal-pair__label {
+        min-width: $left-width;
+        padding: 10px 0;
+        font-size: 14px;
+
+        &__error-inline {
+            position: absolute;
+            top: 35px;
+            left: $left-width;
+            color: #e84855;
+            font-size: 14px;
+        }
+    }
+
+    &__aligned {
+        align-items: center;
+    }
+
     &__value {
         position: relative;
         border: 1px solid #0098d9;
         border-radius: 2px;
         margin-bottom: 0;
+        width: $modal-value-width;
+        box-sizing: border-box;
 
         &.invalid {
             border-color: #e84855;

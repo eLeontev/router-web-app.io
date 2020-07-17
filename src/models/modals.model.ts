@@ -41,6 +41,8 @@ export enum modalLabels {
     requiredFieldErrorLabel = 'requiredFieldErrorLabel',
     stayButtonLabel = 'stayButtonLabel',
     leaveButtonLabel = 'leaveButtonLabel',
+    defaultPolicyLabel = 'defaultPolicyLabel',
+    noInternetAccessLabel = 'noInternetAccessLabel',
 }
 
 export enum dynamicModalLabels {

@@ -1,3 +1,5 @@
 .modal-main-form {
-    padding-bottom: 40px;
+    &__with-separator {
+        padding-bottom: 40px;
+    }
 }

@@ -54,4 +54,12 @@ export const i18nModalLabels: I18nModalLabels = {
         [russian]: 'Покинуть',
         [english]: 'Leave',
     },
+    defaultPolicyLabel: {
+        [russian]: 'Основной профиль',
+        [english]: 'Default policy',
+    },
+    noInternetAccessLabel: {
+        [russian]: 'Без доступа в Интернет',
+        [english]: 'No Internet access',
+    },
 };

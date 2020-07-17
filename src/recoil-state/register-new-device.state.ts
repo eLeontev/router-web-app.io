@@ -3,11 +3,15 @@ import { sAtom, sSelector } from '../utils/simple-recoil.util';
 
 import { validators } from '../services/register-new-device.service';
 
+import { defaultConnectionOptionId } from '../constants/modal-content/register-new-device.constants';
+
 import { stateTypes } from '../models/register-new-device.model';
 
 export const deviceNameState = sAtom<string>('');
 
 export const deviceMacAddressState = sAtom<string>('');
+
+export const deviceConnectionTypeState = sAtom<string>(defaultConnectionOptionId);
 
 export const validatorState = sSelector<boolean>(
     ({ get }) =>
@@ -18,6 +22,7 @@ export const validatorState = sSelector<boolean>(
 export const deviceStates = {
     [stateTypes.deviceName]: deviceNameState,
     [stateTypes.deviceMacAddress]: deviceMacAddressState,
+    [stateTypes.connectionType]: deviceConnectionTypeState,
 };
 
 export const resetRegisterNewDeviceState = selector({
@@ -26,5 +31,6 @@ export const resetRegisterNewDeviceState = selector({
     set: ({ set }) => {
         set(deviceNameState, '');
         set(deviceMacAddressState, '');
+        set(deviceConnectionTypeState, defaultConnectionOptionId);
     },
 });

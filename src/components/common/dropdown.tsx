@@ -6,44 +6,51 @@ import { Input } from './input';
 import { DropdownOptions } from '../../models/common.model';
 import { SpeedValue } from '../../models/devices-list.model';
 
-export type DropdownProps = {
+export type WithClassModifier = {
+    classNameModifier?: string;
+};
+
+export type DropdownProps = WithClassModifier & {
     onChange: (value: string) => void;
     dropdownOptions: DropdownOptions<string>;
 };
 
-export type DropdownWithInput = {
+export type DropdownWithInput = WithClassModifier & {
     value: string | number;
     dropdownOptions: DropdownOptions<string>;
     onChange: (speedValue: SpeedValue) => void;
-    classNameModifier?: string;
 };
 
-export const Dropdown = React.memo(({ dropdownOptions, onChange }: DropdownProps) => {
-    const id = useMemo(
-        () => (dropdownOptions.find(({ isSelected }) => isSelected) || dropdownOptions[0]).id,
-        [dropdownOptions]
-    );
+export const Dropdown = React.memo(
+    ({ dropdownOptions, onChange, classNameModifier = '' }: DropdownProps) => {
+        const id = useMemo(
+            () => (dropdownOptions.find(({ isSelected }) => isSelected) || dropdownOptions[0]).id,
+            [dropdownOptions]
+        );
 
-    const onChangeHandler = useCallback(
-        ({ target: { value: optionId } }) => {
-            onChange(optionId);
-        },
-        [onChange]
-    );
+        const onChangeHandler = useCallback(
+            ({ target: { value: optionId } }) => onChange(optionId),
+            [onChange]
+        );
 
-    return (
-        <select className="dropdown" value={id} onChange={onChangeHandler}>
-            {dropdownOptions.map(({ id, label }) => (
-                <option key={id} value={id}>
-                    {label}
-                </option>
-            ))}
-        </select>
-    );
-});
+        return (
+            <select
+                className={`dropdown ${classNameModifier}`}
+                value={id}
+                onChange={onChangeHandler}
+            >
+                {dropdownOptions.map(({ id, label }) => (
+                    <option key={id} value={id}>
+                        {label}
+                    </option>
+                ))}
+            </select>
+        );
+    }
+);
 
 export const DropdownWithInput = React.memo(
-    ({ dropdownOptions, onChange, value, classNameModifier }: DropdownWithInput) => {
+    ({ dropdownOptions, onChange, value, classNameModifier = '' }: DropdownWithInput) => {
         const unitId = useMemo(
             () => (dropdownOptions.find(({ isSelected }) => isSelected) || dropdownOptions[0]).id,
             [dropdownOptions]
@@ -73,7 +80,11 @@ export const DropdownWithInput = React.memo(
                     className="dropdown-with-input__input"
                 />
                 <label className="dropdown-wrapper">
-                    <Dropdown dropdownOptions={dropdownOptions} onChange={onDropdownChange} />
+                    <Dropdown
+                        dropdownOptions={dropdownOptions}
+                        onChange={onDropdownChange}
+                        classNameModifier={classNameModifier}
+                    />
                 </label>
             </section>
         );
