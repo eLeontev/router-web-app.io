@@ -62,4 +62,8 @@ export const i18nModalLabels: I18nModalLabels = {
         [russian]: 'Без доступа в Интернет',
         [english]: 'No Internet access',
     },
+    controlAccessLinkLabel: {
+        [russian]: 'Контроль доступа Wi-Fi',
+        [english]: 'Wireless ACL',
+    },
 };

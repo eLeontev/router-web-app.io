@@ -43,6 +43,7 @@ export enum modalLabels {
     leaveButtonLabel = 'leaveButtonLabel',
     defaultPolicyLabel = 'defaultPolicyLabel',
     noInternetAccessLabel = 'noInternetAccessLabel',
+    controlAccessLinkLabel = 'controlAccessLinkLabel',
 }
 
 export enum dynamicModalLabels {
