@@ -9,10 +9,9 @@ import {
 } from '../recoil-state/devices-list.settings.state';
 import { DeviceSettingsStates, DevicesSettings } from '../models/devices-list.model';
 
-// TODO clarify how to fix casting
 const setDeviceValues = (devicesSettings: DevicesSettings) =>
     devicesSettings.forEach(({ state, set }: DeviceSettingsStates) =>
-        (set as SetterOrUpdater<boolean>)(state as boolean)
+        (set as SetterOrUpdater<any>)(state as any)
     );
 
 export const useDirty = (validatorState: RecoilValueReadOnly<boolean>) => {
