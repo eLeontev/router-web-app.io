@@ -4,7 +4,12 @@ import { cardsLabels } from './cards.model';
 import { loginLabels } from './login.model';
 import { navLabels } from './nav.model';
 import { commonLabels } from './common.model';
-import { devicesDynamicListLabels, devicesListLabels } from './devices-list.model';
+import {
+    columnLabels,
+    devicesDynamicListLabels,
+    devicesListLabels,
+    deviceTableLabels,
+} from './devices-list.model';
 
 export enum languages {
     english = 'english',
@@ -59,6 +64,18 @@ export type I18nDevicesListLabels = {
     };
 };
 
+export type I18nDevicesColumnLabels = {
+    [label in columnLabels]: {
+        [key in languages]: string;
+    };
+};
+
+export type I18nDevicesTableLabels = {
+    [label in deviceTableLabels]: {
+        [key in languages]: string;
+    };
+};
+
 export type I18nDynamicDevicesListLabels = {
     [label in devicesDynamicListLabels]: {
         [key in languages]: string;
@@ -74,7 +91,9 @@ export type Labels =
     | navLabels
     | commonLabels
     | devicesListLabels
-    | devicesDynamicListLabels;
+    | devicesDynamicListLabels
+    | columnLabels
+    | deviceTableLabels;
 
 export type I18nLabels = {
     [label in Labels]: {

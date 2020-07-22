@@ -34,14 +34,19 @@ export type SpeedValue = {
     unitId: string;
 };
 
-export type DeviceSettings = {
+export type AsymmetricSetting = {
     isAsymmetric: boolean;
+};
+
+export type LimitsSettings = {
+    common: SpeedValue;
+    upload: SpeedValue;
+    download: SpeedValue;
+};
+
+export type DeviceSettings = AsymmetricSetting & {
     filterId: string;
-    speedLimits: {
-        common: SpeedValue;
-        upload: SpeedValue;
-        download: SpeedValue;
-    };
+    speedLimits: LimitsSettings;
 };
 
 export type DevicesSetting<T> = {
@@ -55,3 +60,101 @@ export type DeviceSettingsStates =
     | DevicesSetting<SpeedValue>;
 
 export type DevicesSettings = Array<DeviceSettingsStates>;
+
+export enum columnLabels {
+    deviceLabel = 'deviceLabel',
+    addressLabel = 'addressLabel',
+    segmentLabel = 'segmentLabel',
+    connectionLabel = 'connectionLabel',
+    limitsLabel = 'limitsLabel',
+}
+
+export enum deviceTableLabels {
+    viaRouterLabel = 'viaRouterLabel',
+    noNameLabel = 'noNameLabel',
+    homeSegmentLabel = 'homeSegmentLabel',
+    guestSegmentLabel = 'guestSegmentLabel',
+    wiredLabel = 'wiredLabel',
+    segment2GHzLabel = 'segment2GHzLabel',
+    segment5GHzLabel = 'segment5GHzLabel',
+    MGzLabel = 'MGzLabel',
+    portLabel = 'portLabel',
+    hasNoUnregisteredDevicesLabel = 'hasNoUnregisteredDevicesLabel',
+    hasNoRegisteredDevicesLabel = 'hasNoRegisteredDevicesLabel',
+    hasNoBlockedDevicesLabel = 'hasNoBlockedDevicesLabel',
+}
+
+export enum columnTypes {
+    commonType = 'commonType',
+    commonWithIndicatorType = 'commonWithIndicatorType',
+    connectionType = 'connectionType',
+    limitsType = 'limitsType',
+}
+
+export type CommonColumnData = {
+    mainValue: deviceTableLabels | string;
+    additionalValue: deviceTableLabels | string;
+};
+
+export type CommonWithIndicatorColumnData = CommonColumnData & {
+    isOnline: boolean;
+};
+
+export type ConnectionColumnData = {
+    speedValue: SpeedValue;
+    isWired: boolean;
+    connectionPower: number;
+    connectionType: string;
+    wirelessUnitLabel: deviceTableLabels;
+};
+
+export type LimitsColumnData = AsymmetricSetting &
+    LimitsSettings & {
+        isLimited: boolean;
+    };
+
+export type DeviceDataColumn<T extends columnTypes> = {
+    columnType: columnTypes;
+    columnData: T extends columnTypes.commonType
+        ? CommonColumnData
+        : T extends columnTypes.commonWithIndicatorType
+        ? CommonWithIndicatorColumnData
+        : T extends columnTypes.connectionType
+        ? ConnectionColumnData
+        : T extends columnTypes.limitsType
+        ? LimitsColumnData
+        : never;
+};
+export type DeviceDataCell = Array<DeviceDataColumn<columnTypes>>;
+
+export type DeviceDataCells = DeviceDataCell;
+export type DeviceDataRows = Array<DeviceDataCells>;
+
+export type Renderer<T extends columnTypes> = (
+    cellData: T extends columnTypes.commonType
+        ? CommonColumnData
+        : T extends columnTypes.commonWithIndicatorType
+        ? CommonWithIndicatorColumnData
+        : T extends columnTypes.connectionType
+        ? ConnectionColumnData
+        : T extends columnTypes.limitsType
+        ? LimitsColumnData
+        : never
+) => void;
+
+export type CellRenderTypes = {
+    [columnTypes.commonType]: Renderer<columnTypes.commonType>;
+    [columnTypes.commonWithIndicatorType]: Renderer<columnTypes.commonWithIndicatorType>;
+    [columnTypes.connectionType]: Renderer<columnTypes.connectionType>;
+    [columnTypes.limitsType]: Renderer<columnTypes.limitsType>;
+};
+
+export enum deviceListTableTypes {
+    blockedType = 'blockedType',
+    registeredType = 'registeredType',
+    unregisteredType = 'unregisteredType',
+}
+
+export type DeviceListTableNoElementLabels = {
+    [type in deviceListTableTypes]: deviceTableLabels;
+};

@@ -1,4 +1,9 @@
-import { I18nDevicesListLabels, languages } from '../../models/i18n.model';
+import {
+    I18nDevicesListLabels,
+    I18nDevicesColumnLabels,
+    I18nDevicesTableLabels,
+    languages,
+} from '../../models/i18n.model';
 
 const { english, russian } = languages;
 
@@ -72,5 +77,79 @@ export const i18nDevicesListLabels: I18nDevicesListLabels = {
     asymmetricLabel: {
         [russian]: 'Асимметрично',
         [english]: 'Asymmetric',
+    },
+};
+
+export const i18nDevicesColumnLabels: I18nDevicesColumnLabels = {
+    deviceLabel: {
+        [russian]: 'Устройство',
+        [english]: 'Host',
+    },
+    addressLabel: {
+        [russian]: 'Адрес',
+        [english]: 'Address',
+    },
+    segmentLabel: {
+        [russian]: 'Сегмент',
+        [english]: 'Segment',
+    },
+    connectionLabel: {
+        [russian]: 'Подключение',
+        [english]: 'Connection',
+    },
+    limitsLabel: {
+        [russian]: 'Ограничение',
+        [english]: 'Restriction',
+    },
+};
+
+export const i18nDevicesTableLabels: I18nDevicesTableLabels = {
+    viaRouterLabel: {
+        [russian]: 'через',
+        [english]: 'via',
+    },
+    noNameLabel: {
+        [russian]: 'Без имени',
+        [english]: 'No name',
+    },
+    homeSegmentLabel: {
+        [russian]: 'Домашняя сеть',
+        [english]: 'Home segment',
+    },
+    guestSegmentLabel: {
+        [russian]: 'Гостевая сеть',
+        [english]: 'Guest segment',
+    },
+    wiredLabel: {
+        [russian]: 'По проводу',
+        [english]: 'Wired',
+    },
+    segment2GHzLabel: {
+        [russian]: 'Wi-Fi 2.4 ГГц',
+        [english]: 'Wi-Fi 2.4 GHz',
+    },
+    segment5GHzLabel: {
+        [russian]: 'Wi-Fi 5 ГГц',
+        [english]: 'Wi-Fi 5 GHz',
+    },
+    MGzLabel: {
+        [russian]: 'МГц',
+        [english]: 'MGz',
+    },
+    portLabel: {
+        [russian]: 'Порт',
+        [english]: 'Port',
+    },
+    hasNoUnregisteredDevicesLabel: {
+        [russian]: 'Нет незарегистрированных устройств',
+        [english]: 'No registered devices',
+    },
+    hasNoRegisteredDevicesLabel: {
+        [russian]: 'Нет зарегистрированных устройств',
+        [english]: 'No unregistered devices',
+    },
+    hasNoBlockedDevicesLabel: {
+        [russian]: 'Нет заблокированных устройств',
+        [english]: 'No blocked devices',
     },
 };

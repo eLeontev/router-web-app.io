@@ -1,0 +1,107 @@
+$bottomOffset: 30px;
+
+.device-list-table {
+    padding-bottom: $bottomOffset;
+    display: grid;
+    grid-template-columns:
+        minmax(170px, 1.7fr)
+        minmax(140px, 1.67fr)
+        minmax(135px, 1.67fr)
+        minmax(160px, 1.67fr)
+        minmax(120px, 1.2fr);
+
+    &__content,
+    &__header,
+    &__row {
+        display: contents;
+    }
+
+    &__header {
+        &-cell {
+            padding-left: 5px;
+            background-color: #eeeff1;
+            border-bottom: 1px solid #d7dbe4;
+
+            &-title {
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: normal;
+            }
+        }
+    }
+
+    &__cell {
+        position: relative;
+        padding: 5px 0 5px 5px;
+        font-size: 14px;
+
+        &:first-child {
+            padding-left: 30px;
+        }
+
+        .content {
+            &-main {
+                display: flex;
+            }
+
+            &-addition {
+                color: #62687f;
+            }
+
+            &-main__grayed {
+                color: #62687f;
+            }
+
+            &-indicator {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+
+                &__online {
+                    background-color: #1e9e40;
+                }
+
+                &__offline {
+                    background-color: #a9afbb;
+                }
+            }
+        }
+
+        .connection-power {
+            width: 30px;
+            height: 20px;
+
+            &__level {
+                &-0 {
+                    background: url(../../../sprite.svg) -52px -1035px no-repeat;
+                }
+                &-1 {
+                    background: url(../../../sprite.svg) -9px -1035px no-repeat;
+                }
+                &-2 {
+                    background: url(../../../sprite.svg) -1003px -990px no-repeat;
+                }
+                &-3 {
+                    background: url(../../../sprite.svg) -208px -814px no-repeat;
+                }
+                &-4 {
+                    background: url(../../../sprite.svg) -881px -733px no-repeat;
+                }
+                &-5 {
+                    background: url(../../../sprite.svg) -251px -814px no-repeat;
+                }
+            }
+        }
+    }
+}
+
+.device-list-table__no-content {
+    border-top: 1px solid #eeeff1;
+    border-bottom: 1px solid #eeeff1;
+    padding: 15px 0 15px;
+    text-align: center;
+    margin-bottom: $bottomOffset;
+}

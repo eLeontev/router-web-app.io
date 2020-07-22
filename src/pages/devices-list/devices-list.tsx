@@ -1,22 +1,25 @@
-import React, { useContext } from 'react';
-import { useRecoilValue } from 'recoil';
+import React, {useContext} from 'react';
+import {useRecoilValue} from 'recoil';
 
-import { Button } from '../../components/common/button';
-import { PageContent } from '../../components/common/page-content';
-import { Dirty } from '../../components/common/dirty';
+import {Button} from '../../components/common/button';
+import {PageContent} from '../../components/common/page-content';
+import {Dirty} from '../../components/common/dirty';
+import {DevicesSettings} from '../../components/devices-list/devices-settings';
+import {DevicesListTable} from '../../components/devices-list/devices-list-table/devices-list-table';
 
-import { DevicesSettings } from '../../components/devices-list/devices-settings';
-import { ModalContext } from '../../context/modal.context';
+import {ModalContext} from '../../context/modal.context';
 
-import { deviceDirtyState, validatorState } from '../../recoil-state/devices-list.settings.state';
-import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
-import { useDirty } from '../../hooks/toggle-dirty.hook';
+import {deviceDirtyState, validatorState} from '../../recoil-state/devices-list.settings.state';
+import {useGetTranslatedLabelsObject} from '../../services/i18n.service';
+import {useDirty} from '../../hooks/toggle-dirty.hook';
 
-import { devicesListLabels } from '../../models/devices-list.model';
-import { modalContentTypes } from '../../constants/modal.constants';
-import { commonLabels } from '../../models/common.model';
+import {deviceListTableTypes, devicesListLabels} from '../../models/devices-list.model';
+import {modalContentTypes} from '../../constants/modal.constants';
+import {commonLabels} from '../../models/common.model';
+import {useGetDeviceLists} from '../../hooks/device-list-data.hook';
 
 export const DevicesList = () => {
+    const { unregisteredDevices, registeredDevices, blockedDevices } = useGetDeviceLists();
     const isValid = useRecoilValue(validatorState);
     const { isDirty, onCancel, onSave } = useDirty(deviceDirtyState);
     const { setModal } = useContext(ModalContext);
@@ -41,13 +44,22 @@ export const DevicesList = () => {
                 <p className="page-text">{i18nLabels.descriptionLabel}</p>
                 <h2 className="page-sub-title">{i18nLabels.unregisteredDevicesTitleLabel}</h2>
                 <p className="page-text">{i18nLabels.unregisteredDevicesDescriptionLabel}</p>
-                <hr />
+                <DevicesListTable
+                    rows={registeredDevices}
+                    type={deviceListTableTypes.registeredType}
+                />
                 <DevicesSettings />
                 <h2 className="page-sub-title">{i18nLabels.registeredDevicesTitleLabel}</h2>
-                <hr />
+                <DevicesListTable
+                    rows={unregisteredDevices}
+                    type={deviceListTableTypes.unregisteredType}
+                />
                 <h2 className="page-sub-title">{i18nLabels.blockedDevicesTitleLabel}</h2>
                 <p className="page-text">{i18nLabels.blockedDevicesDescriptionLabel}</p>
-                <hr />
+                <DevicesListTable
+                    rows={blockedDevices}
+                    type={deviceListTableTypes.blockedType}
+                />
                 <Button
                     className="show-more-button"
                     buttonHandler={() => setModal({ type: modalContentTypes.registerDeviceType })}

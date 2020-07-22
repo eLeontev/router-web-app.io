@@ -1,4 +1,9 @@
-import { devicesListLabels } from '../models/devices-list.model';
+import {
+    columnLabels,
+    DeviceListTableNoElementLabels,
+    devicesListLabels,
+    deviceTableLabels,
+} from '../models/devices-list.model';
 import { Options } from '../models/common.model';
 import { cardsLabels } from '../models/cards.model';
 
@@ -30,3 +35,19 @@ export const speedOptions: Options<cardsLabels> = [
 
 export const speedRange = [64, 1000000];
 export const macAddressLength = 12;
+
+export const columns: Array<columnLabels> = [
+    columnLabels.deviceLabel,
+    columnLabels.addressLabel,
+    columnLabels.segmentLabel,
+    columnLabels.connectionLabel,
+    columnLabels.limitsLabel,
+];
+
+export const deviceListTableNoElementLabels: DeviceListTableNoElementLabels = {
+    blockedType: deviceTableLabels.hasNoBlockedDevicesLabel,
+    registeredType: deviceTableLabels.hasNoRegisteredDevicesLabel,
+    unregisteredType: deviceTableLabels.hasNoUnregisteredDevicesLabel,
+};
+
+export const deviceTableContentUpdateDelay = 2000;
