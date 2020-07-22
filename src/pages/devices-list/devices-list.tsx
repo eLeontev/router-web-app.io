@@ -9,14 +9,16 @@ import { DevicesListTable } from '../../components/devices-list/devices-list-tab
 
 import { ModalContext } from '../../context/modal.context';
 
-import { deviceDirtyState, validatorState } from '../../recoil-state/devices-list.settings.state';
-import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
+import { useGetDeviceLists } from '../../hooks/device-list-data.hook';
 import { useDirty } from '../../hooks/toggle-dirty.hook';
 
-import { deviceListTableTypes, devicesListLabels } from '../../models/devices-list.model';
+import { deviceDirtyState, validatorState } from '../../recoil-state/devices-list.settings.state';
+import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
+
 import { modalContentTypes } from '../../constants/modal.constants';
+
+import { deviceListTableTypes, devicesListLabels } from '../../models/devices-list.model';
 import { commonLabels } from '../../models/common.model';
-import { useGetDeviceLists } from '../../hooks/device-list-data.hook';
 
 export const DevicesList = () => {
     const { unregisteredDevices, registeredDevices, blockedDevices } = useGetDeviceLists();
