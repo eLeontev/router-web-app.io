@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/router-web-app.io/static/css/main.a6937b1b.chunk.css",
+    "main.css": "/router-web-app.io/static/css/main.a1b481da.chunk.css",
     "main.js": "/router-web-app.io/static/js/main.2331efbd.chunk.js",
     "main.js.map": "/router-web-app.io/static/js/main.2331efbd.chunk.js.map",
-    "runtime-main.js": "/router-web-app.io/static/js/runtime-main.55e688a2.js",
-    "runtime-main.js.map": "/router-web-app.io/static/js/runtime-main.55e688a2.js.map",
+    "runtime-main.js": "/router-web-app.io/static/js/runtime-main.831469db.js",
+    "runtime-main.js.map": "/router-web-app.io/static/js/runtime-main.831469db.js.map",
     "static/js/2.cf2894db.chunk.js": "/router-web-app.io/static/js/2.cf2894db.chunk.js",
     "static/js/2.cf2894db.chunk.js.map": "/router-web-app.io/static/js/2.cf2894db.chunk.js.map",
     "static/css/3.416a5762.chunk.css": "/router-web-app.io/static/css/3.416a5762.chunk.css",
     "static/js/3.6690d211.chunk.js": "/router-web-app.io/static/js/3.6690d211.chunk.js",
     "static/js/3.6690d211.chunk.js.map": "/router-web-app.io/static/js/3.6690d211.chunk.js.map",
-    "static/css/4.8d09ffb0.chunk.css": "/router-web-app.io/static/css/4.8d09ffb0.chunk.css",
+    "static/css/4.822abc76.chunk.css": "/router-web-app.io/static/css/4.822abc76.chunk.css",
     "static/js/4.d2140c82.chunk.js": "/router-web-app.io/static/js/4.d2140c82.chunk.js",
     "static/js/4.d2140c82.chunk.js.map": "/router-web-app.io/static/js/4.d2140c82.chunk.js.map",
     "static/js/5.6c2261a7.chunk.js": "/router-web-app.io/static/js/5.6c2261a7.chunk.js",
@@ -18,18 +18,18 @@
     "static/js/6.b53f56e0.chunk.js": "/router-web-app.io/static/js/6.b53f56e0.chunk.js",
     "static/js/6.b53f56e0.chunk.js.map": "/router-web-app.io/static/js/6.b53f56e0.chunk.js.map",
     "index.html": "/router-web-app.io/index.html",
-    "precache-manifest.dc9c4bc314fe33538b07a381c913d6e3.js": "/router-web-app.io/precache-manifest.dc9c4bc314fe33538b07a381c913d6e3.js",
+    "precache-manifest.272d533eff68f66b4e4e6d930df7575d.js": "/router-web-app.io/precache-manifest.272d533eff68f66b4e4e6d930df7575d.js",
     "service-worker.js": "/router-web-app.io/service-worker.js",
     "static/css/3.416a5762.chunk.css.map": "/router-web-app.io/static/css/3.416a5762.chunk.css.map",
-    "static/css/4.8d09ffb0.chunk.css.map": "/router-web-app.io/static/css/4.8d09ffb0.chunk.css.map",
-    "static/css/main.a6937b1b.chunk.css.map": "/router-web-app.io/static/css/main.a6937b1b.chunk.css.map",
+    "static/css/4.822abc76.chunk.css.map": "/router-web-app.io/static/css/4.822abc76.chunk.css.map",
+    "static/css/main.a1b481da.chunk.css.map": "/router-web-app.io/static/css/main.a1b481da.chunk.css.map",
     "static/js/2.cf2894db.chunk.js.LICENSE.txt": "/router-web-app.io/static/js/2.cf2894db.chunk.js.LICENSE.txt",
     "static/media/devices-list-table.scss": "/router-web-app.io/static/media/sprite.c8b3adb1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.55e688a2.js",
+    "static/js/runtime-main.831469db.js",
     "static/js/2.cf2894db.chunk.js",
-    "static/css/main.a6937b1b.chunk.css",
+    "static/css/main.a1b481da.chunk.css",
     "static/js/main.2331efbd.chunk.js"
   ]
 }
