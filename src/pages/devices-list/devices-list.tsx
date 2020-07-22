@@ -1,22 +1,22 @@
-import React, {useContext} from 'react';
-import {useRecoilValue} from 'recoil';
+import React, { useContext } from 'react';
+import { useRecoilValue } from 'recoil';
 
-import {Button} from '../../components/common/button';
-import {PageContent} from '../../components/common/page-content';
-import {Dirty} from '../../components/common/dirty';
-import {DevicesSettings} from '../../components/devices-list/devices-settings';
-import {DevicesListTable} from '../../components/devices-list/devices-list-table/devices-list-table';
+import { Button } from '../../components/common/button';
+import { PageContent } from '../../components/common/page-content';
+import { Dirty } from '../../components/common/dirty';
+import { DevicesSettings } from '../../components/devices-list/devices-settings';
+import { DevicesListTable } from '../../components/devices-list/devices-list-table/devices-list-table';
 
-import {ModalContext} from '../../context/modal.context';
+import { ModalContext } from '../../context/modal.context';
 
-import {deviceDirtyState, validatorState} from '../../recoil-state/devices-list.settings.state';
-import {useGetTranslatedLabelsObject} from '../../services/i18n.service';
-import {useDirty} from '../../hooks/toggle-dirty.hook';
+import { deviceDirtyState, validatorState } from '../../recoil-state/devices-list.settings.state';
+import { useGetTranslatedLabelsObject } from '../../services/i18n.service';
+import { useDirty } from '../../hooks/toggle-dirty.hook';
 
-import {deviceListTableTypes, devicesListLabels} from '../../models/devices-list.model';
-import {modalContentTypes} from '../../constants/modal.constants';
-import {commonLabels} from '../../models/common.model';
-import {useGetDeviceLists} from '../../hooks/device-list-data.hook';
+import { deviceListTableTypes, devicesListLabels } from '../../models/devices-list.model';
+import { modalContentTypes } from '../../constants/modal.constants';
+import { commonLabels } from '../../models/common.model';
+import { useGetDeviceLists } from '../../hooks/device-list-data.hook';
 
 export const DevicesList = () => {
     const { unregisteredDevices, registeredDevices, blockedDevices } = useGetDeviceLists();
@@ -56,10 +56,7 @@ export const DevicesList = () => {
                 />
                 <h2 className="page-sub-title">{i18nLabels.blockedDevicesTitleLabel}</h2>
                 <p className="page-text">{i18nLabels.blockedDevicesDescriptionLabel}</p>
-                <DevicesListTable
-                    rows={blockedDevices}
-                    type={deviceListTableTypes.blockedType}
-                />
+                <DevicesListTable rows={blockedDevices} type={deviceListTableTypes.blockedType} />
                 <Button
                     className="show-more-button"
                     buttonHandler={() => setModal({ type: modalContentTypes.registerDeviceType })}
