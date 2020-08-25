@@ -12,7 +12,8 @@
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.1",
         "recoil": "0.0.10",
-        "typescript": "^3.7.5"
+        "typescript": "^3.7.5",
+        "linked-store": "0.2.8"
     },
     "scripts": {
         "deploy:gh-pages": "npm run build && node ./scripts/deploy-github",

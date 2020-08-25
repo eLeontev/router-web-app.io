@@ -1,0 +1,39 @@
+{
+    "name": "router-web-app.server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "format": "prettier --write .",
+        "build": "rollup -c",
+        "start:debug": "npm run build && node --inspect=0.0.0.0:9000 dist/index.js development",
+        "start": "npm run build && node dist/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@koa/router": "^9.3.1",
+        "@types/koa-bodyparser": "^4.3.0",
+        "bcrypt": "^5.0.0",
+        "graphql": "^15.3.0",
+        "koa": "^2.13.0",
+        "koa-bodyparser": "^4.3.0",
+        "koa-graphql": "^0.8.0",
+        "koa-logger": "^3.2.1",
+        "koa-session": "^6.0.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-typescript": "^5.0.2",
+        "@types/bcrypt": "^3.0.0",
+        "@types/graphql": "^14.5.0",
+        "@types/koa": "^2.11.3",
+        "@types/koa-graphql": "^0.8.4",
+        "@types/koa-logger": "^3.1.1",
+        "@types/koa-session": "^5.10.2",
+        "@types/koa__router": "^8.0.2",
+        "rollup": "^2.23.0",
+        "tslib": "^2.0.0",
+        "prettier": "2.0.5"
+    }
+}
