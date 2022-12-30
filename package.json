@@ -10,7 +10,7 @@
         "react": "0.14.0",
         "react-dom": "0.0.0-experimental-7f28234f8",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.1",
+        "react-scripts": "5.0.1",
         "recoil": "0.0.10",
         "typescript": "^3.7.5",
         "linked-store": "0.2.8"
